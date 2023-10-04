@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes de computadores</title>
+    <link rel="stylesheet" href="../intro.redes/styles.css" />
+    
+</head>
+<body>
+
+    <div>  
+        <header>
+            <div class="logo">
+                <a href="/index.html">
+                    <img  src="../Programação1/imagem/LOGO.png" alt="Logo do portifólio">
+
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">INÍCIO</a></li>
+                        <li><a href="/index.html">DISCIPLINAS</a></li>
+                        <li><a href="#topo">CONHECIMENTOS</a></li>
+                        <li><a href="#contatos">CONTATOS</a></li>
+                    </ul>
+                </nav> 
+            </header>
+            </div>
+            </div>
+
+<p class="resumo1"><br>
+    <br><br>
+    Entender o funcionamento das redes de computadores.<br><br>
+    ➤ É comum encontrarmos no mercado de trabalho técnicos que
+    são capazes de bloquear uma porta do switch, configurar um
+    endereço IP em uma interface etc. Mas nem todos
+    conseguem realmente visualizar como rede funciona, com
+    uma visão macro.<br><br>
+    
+    ➤ A estrutura organizada em camadas facilita a realização de
+    Troubleshooting (solução de problemas) na rede
+    ➤ Uma das abordagens mais utilizadas é realizar o
+    troubleshooting indo de baixo para cima, ou seja, da camada
+    1 (física) em direção a camada 7 (aplicação).<br><br>
+    
+    ➤ Tópico presente em provas de seleção e em testes de
+    certificação. Ex. Cisco CCNA<br><br><br><br>
+    <strong> Modelo de Referência OSI</strong><br><br>
+    Modelo conceitual, abstrato, que define o funcionamento
+de um protocolo ideal em redes de computadores<br><br><br>
+◉ Objetivos:<br>
+➤ Permitir a troca de informações entre computadores de
+diferentes fabricantes usando uma arquitetura única
+(interoperabilidade)<br>
+➤ Uma rede é constituída por equipamentos e sistemas de
+diversos fabricantes (cisco, intelbras, Microsoft, Linux,
+Apple...)<br>
+➤ Servir de base para desenvolvimento de arquiteturas de
+protocolos de rede.<br><br>
+
+<img  src="../intro.redes/imagem/medeloosi.png" alt="modelo OSI"><br><br><br><br>
+
+ <strong> CAMADA 1: FÍSICA</strong><br><br>
+ ➤ Trata dos bits brutos a fim de serem transformados em
+sinais no meio físico:<br>
+➤ Cada bit recebido pela placa de rede deverá ser
+convertido para sinais elétricos (ou ópticos ou ondas
+eletromagnéticas) para serem enviados pelo meio
+físico (enlace).<br>
+➤ Assim, esses bits serão reconhecidos pelo dispositivo
+de rede da outra ponta.<br>
+➤ Fornece características físicas, mecânicas e elétricas da
+rede para definir como será o tráfego de bits físicos
+entre dois ou mais dispositivos de redes.<br>
+➤ Nesta camada, por exemplo, temos a definição dos
+cabos, conectores, antenas, modems, hubs e placas de
+redes (sendo que as placas também atuam na camada
+2).<br><br>
+<img  src="../intro.redes/imagem/camadadísica.png" alt="Camada física"><br><br><br><br>
+
+<strong> CAMADA 2: ENLACE DE DADOS</strong><br><br>
+➤ Faz controle de acesso do meio<br>
+➤ Define qual dispositivo pode transmitir em
+determinado momento<br>
+➤ Organiza os dados a serem transmitidos em conjuntos
+de bits denominados quadros (frames)<br>
+➤ Detecta e, opcionalmente, corrige erros<br>
+➤ Adiciona bits de redundância nos quadros
+(checksum)<br><br>
+
+◉ Endereço MAC<br>
+➤ Há uma padronização dos endereços MAC administrada pela IEEE
+(Institute of Electrical and Electronics Engineers):<br><br>
+<img  src="../intro.redes/imagem/endereçomac.png" alt="endereço MAC"><br><br>
+
+➤ Os 3 primeiros bytes, chamados OUI (Organizationally Unique Identifier)<br>
+➤ Destinados a identificação do fabricante (fornecidos pela própria IEEE).<br>
+➤ Os 3 últimos bytes são definidos pelo fabricante<br>
+➤ O fabricante controla a numeração de cada placa que produz.<br><br>
+
+◉ Consultar a OUI em <a href="https://regauth.standards.ieee.org/standards-
+ra-web/pub/view.html#registries">https://regauth.standards.ieee.org/standards-ra-web/pub/view.html#registries
+</a><br>
+
+◉ Para descobrir o endereço MAC de uma interface de rede:<br>
+➤ No Windows:<br>
+➤ Prompt de Comandos (terminal)<br>
+➤ Clique no Menu Iniciar, digite cmd e pressione enter.<br>
+➤ Digite ipconfig /all ou getmac<br>
+➤ Interface Gráfica<br>
+➤ No menu Iniciar, clique em Configurações e depois em “Rede e Internet”<br>
+➤ Clique em “Exibir as propriedades da rede” ou equivalente.<br><br><br><br>
+
+
+<strong>CAMADA 3: REDE</strong> <br><br>
+➤ Permite interconexão de redes<br>
+➤ Atribui endereços lógicos para o dispositivo origem e para o
+dispositivo destino, permitindo que as informações possam ser
+encaminhadas através de dispositivos intermediários (roteadores)<br>
+➤ Estabelece o caminho (ou rota) que as informações entre origem e
+destino devem trafegar (roteamento de pacotes)<br>
+➤ Faz controle de congestionamento<br>
+➤ Escolha de caminhos alternativos quando o caminho atual
+contém enlaces corrompidos ou dispositivos inoperantes<br>
+➤ Estabelece a rota mais adequada<br><br>
+
+<img  src="../intro.redes/imagem/camadarede.bmp" alt="Camada rede"><br><br><br><br>
+
+<strong>CAMADA 4: TRANSPORTE</strong> <br><br>
+➤Fornece conectividade confiável fim-a-fim<br>
+➤ Quando os pacotes passam por diversos enlaces e roteadores,
+podem surgir erros e problemas ocasionados na rede lógica que
+precisam ser tratados pelos dispositivos e sistemas finais.<br>
+➤ Controle de erros (e retransmissão)<br>
+➤ Controle de sequenciamento<br>
+➤ Controle de fluxo<br>
+➤ Controle de conexão<br>
+➤ Possibilita que aplicações distintas possam usar a mesma
+infraestrutura/implementação de protocolos das camadas mais
+baixas.<br><br>
+<img  src="../intro.redes/imagem/Camada+de+Transporte.jpg" alt="Camada transporte"><br><br>
+<img  src="../intro.redes/imagem/Camada+de+Transporte (1).jpg" alt="Camada transporte"><br><br><br><br>
+
+<strong>CAMADA 5: SESSÃO</strong> <br><br>
+➤ Configuração das sessões de comunicações entre
+dispositivos da rede<br>
+➤ Algumas aplicações exigem uma sincronização na disposição das
+informações entre origem e destino e que ocorrem em um ou mais
+fluxos. Ex. transações bancárias e aplicações em tempo real<br>
+➤ Sincronismo e restabelecimento de uma sessão de
+comunicações a partir do ponto em que houve interrupção
+na transmissão<br>
+➤ Determinar se a comunicação será através do modo half-
+duplex ou full-duplex<br>
+➤ Autenticação usando senhas<br><br>
+<img  src="../intro.redes/imagem/sessao.png" alt="Camada sessão"><br><br><br><br>
+
+
+<strong>CAMADA 6: APRESENTAÇÃO</strong> <br><br>
+➤ Trata da representação dos dados (formatação dos dados)<br>
+➤ Define a forma como os dados são reconhecidos e
+visualizados no destino<br>
+➤ Responsável pela sintaxe e semântica das informações<br>
+➤ Realiza transformações adequadas nos dados<br>
+➤ Compressão, criptografia, conversão de sintaxe,
+codificação de caracteres<br><br>
+<img  src="../intro.redes/imagem/apresentacao.jpg" alt="Camada sessão"><br><br><br><br>
+
+<strong>CAMADA 7: APLICAÇÃO</strong> <br><br>
+
+➤ Responsável por fornecer os serviços de rede às aplicações
+que rodam no computador<br>
+➤ Por exemplo, seu navegador acessa a rede, pois é capaz de
+se comunicar com a camada de aplicação da pilha de
+protocolos<br>
+➤ Transferência de arquivos, acesso remoto, correio
+eletrônico etc.<br><br>
+<img  src="../intro.redes/imagem/aplicacao.jpg" alt="Camada sessão"><br><br><br><br>
+
+
+<strong>RESUMO DAS CAMADAS</strong> <br><br>
+<img  src="../intro.redes/imagem/resumo.png" alt="Camada sessão"><br><br><br><br>
+
+
+</p>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes de computadores</title>
+    <link rel="stylesheet" href="../intro.redes/styles.css" />
+    
+</head>
+<body>
+
+    <div>  
+        <header>
+            <div class="logo">
+                <a href="/index.html">
+                    <img  src="../Programação1/imagem/LOGO.png" alt="Logo do portifólio">
+
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">INÍCIO</a></li>
+                        <li><a href="/index.html">DISCIPLINAS</a></li>
+                        <li><a href="#topo">CONHECIMENTOS</a></li>
+                        <li><a href="#contatos">CONTATOS</a></li>
+                    </ul>
+                </nav> 
+            </header>
+            </div>
+            </div>
+
+<p class="resumo1"><br>
+    <br><br><br><br>
+    <strong>◉ Arquitetura TCP/IP </strong><br><br>
+
+    ➤ Também chamada de “Arquitetura Internet”;<br>
+    ➤ É utilizada na interconexão e na interoperação de
+    diferentes tecnologias de redes;<br>
+    ➤ Foi lançada pelo Departamento de Defesa dos EUA (DARPA)
+    e escolhida para ser o padrão obrigatório de comunicação
+    entre os seus diversos sistemas;<br>
+    ➤ Na época do seu lançamento, era a única alternativa para
+    fazer frente aos protocolos proprietários de fabricantes de
+    equipamentos, tornando-se, assim, um padrão de fato do mercado.<br>
+    ➤ Tornou-se uma arquitetura de protocolos popular,
+    especialmente, devido:<br>
+    ➤ Ser roteável: existência de caminhos “alternativos”
+    para o dado atingir o computador receptor;<br>
+    ➤ Possui arquitetura aberta, o que possibilita que
+    qualquer fabricante pode adotar sua própria versão do
+    TCP/IP em seu sistema operacional sem necessidade de
+    pagamento de direitos autorais a ninguém.<br><br><br>
+    
+    <img  src="../intro.redes/imagem/tcpip.png" alt="Arquitetura TCP/ip"><br><br>
+
+    ➤ É regido pelo IETF (Internet Enginnering Task Force)<br>
+    ➤ Comunidade internacional aberta que desenvolve as
+especificações que se tornam padrões da Internet.<br>
+➤ Um protocolo torna-se um padrão Internet através de uma
+RFC (Request for Comment)<br>
+➤ Publicação que detalha o funcionamento de todos os
+aspectos do protocolo proposto.<br>
+➤ Uma RFC nunca é modificado<br>
+➤ Se um padrão necessitar de atualização de
+informações, um novo RFC será gerado com as revisões
+necessárias.<br><br><br><br>
+
+<strong>◉ Encapsulamento </strong><br><br>
+<img  src="../intro.redes/imagem/encapsulamento.jpeg" alt="Encapsulamento"><br><br>
+
+➤ O encapsulamento é o fluxo dos dados que são trocados 
+passando por alterações à medida que as redes executam seus serviços.
+ O processo é iniciado na camada de aplicação e desce até a física para a transmissão,
+  e na recepção vai da camada física até a camada de aplicação.<br><br>
+
+  ➤ O processo do encapsulamento ocorre quando: A camada inferior recebe,
+   pela interface, os dados da camada superior, adicionando o próprio cabeçalho.
+   A camada superior envia, por meio do protocolo, os dados para a mesma camada de outro dispositivo.<br><br><br><br>
+
+   <strong>◉ Endereçamento IP – conceitos básicos: </strong><br><br>
+   ➤ Na pilha de protocolos TCP/IP, o endereçamento da camada de rede é especificado pelo protocolo de internet(IP)<br>
+   ➤ O padrão IP (versão 4) especifica que a cada host é atribuído um número de 32 bits único<br>
+   ➤ Cada pacote enviado através de uma inter-rede contém o endereço IP de 32 bits da origem e do destino<br>
+   ➤ Deste modo, para transmitir informações através de uma inter-rede TCP/IP, a estação deve conhecer o 
+   endereço IP da estação remota para a qual as informações estão sendo enviadas.<br><br><br>
+   <img  src="../intro.redes/imagem/ip.png" alt="IP"><br><br>
+
+   ➤ Um endereço IP esta tecnicamente associado a uma
+interface de rede<br>
+➤ Cada endereço IP tem comprimento de 32 bits<br>
+➤ Existem então 232 endereços IPs possíveis<br>
+➤ 232 = 4.294.967.296 (> 4 bilhões)<br>
+➤ Os endereços são representados em grupos de 8
+bits (octetos)<br>
+➤ Ex.: 1000001 00110011 11110000 10101010<br>
+➤ Os IPs são ”distribuídos” (vendidos) por provedores
+de backbone<br><br>
+
+➤ Conceitualmente, cada endereço IP é dividido em
+duas partes: prefixo e sufixo<br>
+➤ O prefixo do endereço identifica a rede à qual o
+dispositivo (interface) esta associado<br>
+➤ Também chamado de número da rede ou network id<br>
+➤ O sufixo identifica um dispositivo individual na rede<br>
+➤ Também chamado de endereço de host ou host id<br>
+➤ Dessa forma, embora as designações dos números
+de rede sejam globais, os sufixos podem ser
+coordenados localmente<br><br><br>
+
+   ➤ Embora os endereços IPs sejam números de 32 bits, os usuários reramente entram ou lêem os valores em binários<br>
+   ➤ Utiliza-se a notação decimal pontilhada, uma forma que expressa cada seção de 8 bits de um número de 32 bits como um valor decimal e usa-se ponto para separar as seções<br><br>
+   <img  src="../intro.redes/imagem/ip1.png" alt="IP"><br><br>
+</p>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes de computadores</title>
+    <link rel="stylesheet" href="../Programação1/styles.css" />
+    
+</head>
+<body>
+
+    <div>  
+        <header>
+            <div class="logo">
+                <a href="/index.html">
+                    <img  src="../Programação1/imagem/LOGO.png" alt="Logo do portifólio">
+
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">INÍCIO</a></li>
+                        <li><a href="/index.html">DISCIPLINAS</a></li>
+                        <li><a href="#topo">CONHECIMENTOS</a></li>
+                        <li><a href="#contatos">CONTATOS</a></li>
+                    </ul>
+                </nav>                
+            </header>       
+                </div>
+            </div>
+
+            <p class="resumo1"><br>
+                <br><br><br>
+                <strong>◉ Loops utilizando for</strong><br><br>
+                ➤ As estruturas de repetição são recursos das linguagens de programação responsáveis por executar 
+um bloco de código repetidamente através de determinadas condições especificas.<br><br>
+O Python contém dois tipos de estruturas de repetição: for e while.
+
+➤ Vamos iniciar pelos detalhes das estruturas de repetição, ou melhor dizendo, os loops utilizando o <u>for</u>.<br>
+O for é utilizado para percorrer ou iterar sobre uma sequência de dados (seja esse uma lista, uma tupla, uma string), executando um conjunto de instruções em cada item.
+Como você já sabe, o Python utiliza identação para separar blocos de código: nos loops utilizando for não é diferente.
+Sua sintaxe básica é: for <u> nome variável</u> in <u>iterável</u>. Vamos entender:<br>
+➤ <u>nome variável</u> é o nome da variável que vai receber os elemento de <u></u>iterável<u></u>.<br>
+➤ <u>iterável</u> é o container de dados sobre o qual vamos iterar, podendo ser: uma lista, uma tupla, uma string, um dicionário, entre outros.<br>
+Vamos ver um exemplo, para facilitar nossa vida!<br><br>
+<img  src="../Programação1/imagem/for.png" alt="for"><br><br><br>
+Vamos entender passo a passo:<br>
+
+➤ Na primeira iteração, <u>item</u> vai receber o valor do primeiro elemento da lista <u>lista</u>, que é 1.<br> Portanto <u>print(item)</u> vai mostrar o valor 1.<br>
+➤ Na segunda iteração, <u>item</u> vai receber o valor do segundo elemento da lista <u>lista</u>, que é 2.<br> Portanto <u>print(item)</u> vai mostrar o valor 2.<br>
+➤ E assim por diante até o último valor, que é 5.<br>
+Existe outra forma de se utilizar o <u>for</u> que é utilizando a estrutura <u>for/else</u>.<br>
+
+Adicionar o <u>else</u> ao final do <u>for</u> nos possibilita executar um bloco de código após o iterável ter sido completamente percorrido.<br><br>
+<img  src="../Programação1/imagem/for2.png" alt="for"><br><br><br>
+
+➤ Agora vamos ver alguns exemplo de como podemos percorrer tipos de dados diferentes utilizando o for.
+Para iterar sobre Listas e imprimir cada item da lista:<br>
+<img  src="../Programação1/imagem/for3.png" alt="for"><br>
+A saída será:<br>
+<img  src="../Programação1/imagem/for3resul.png" alt="for"><br><br><br>
+➤ Podemos também percorrer os dicionários do Python (que são uma estrutura de dados muito importante).<br>
+Para isso, podemos fazer da seguinte maneira:<br>
+<img  src="../Programação1/imagem/for4.png" alt="for"><br>
+O resultado será:<br>
+<img  src="../Programação1/imagem/for4resul.png" alt="for"><br><br><br>
+➤ Também podemos percorrer strings, pois elas também são um tipo iterável:<br>
+<img  src="../Programação1/imagem/for5.png" alt="for"><br>
+O Python vai dividir a string 'Python' nos caracteres que a compoem e o resultado do loop for será o seguinte:<br>
+<img  src="../Programação1/imagem/for5resul.png" alt="for"><br><br><br>
+
+<strong>◉ Loops utilizando while</strong><br><br> 
+➤ O while é uma estrutura de repetição utilizada quando queremos que determinado bloco de código seja executado 
+ENQUANTO (do inglês while) determinada condição for satisfeita.<br>
+Em outras palavras: só saia da estrutura de repetição quando a condição não for mais satisfeita.
+Sua sintaxe básica é:<br><br>
+<img  src="../Programação1/imagem/while.png" alt="while"><br><br><br>
+
+Aqui, <u>condição</u> é uma expressão que pode ser reduzida à <u>True</u> ou <u>False</u>, podendo ser:<br>
+➤ A verificação do valor de uma variável;<br>
+➤ Determinada estrutura de dados alcançar um tamanho;<br>
+➤ O retorno de uma função se igualar a determinado valor;<br>
+➤ Algum valor externo ser alterado (por exemplo um valor armazenado em Banco de Dados).
+Vamos entender melhor com um exemplo:<br>
+<img  src="../Programação1/imagem/while1.png" alt="while"><br><br>
+Resultando em:<br>
+<img  src="../Programação1/imagem/while1resul.png" alt="while"><br><br><br>
+Ou seja, a variável <u>contador</u> está sendo incrementada a cada vez que o <u>while</u> executa seu código.<br>
+Quando ele alcançar o valor 10, a condição <u>contador < 10</u> não será mais satisfeita, finalizando o bloco <u>while</u>!<br>
+Assim como no <u>for</u>, podemos utilizar o <u>else</u> também nos loops <u>while</u>.<br>
+Vamos usar o mesmo código do exemplo acima para você entender a diferença:<br>
+<img  src="../Programação1/imagem/while2.png" alt="while"><br><br>
+O que resultará em:<br>
+<img  src="../Programação1/imagem/while2resul.png" alt="while"><br><br><br>
+
+<strong>◉ Auxiliadores</strong><br><br> 
+Existem 3 comandos que nos auxiliam quando queremos alterar o fluxo de uma estrutura de repetição.<br>
+São eles: <u>break</u>, <u>continue</u> e <u>pass</u>.<br>
+Esses auxiliares não funcionam diretamente com o while, e por isso encaixar eles no bloco principal do while
+ pode ser tanto quanto inútil, já que a condição especificada encerra o loop.<br><br>
+
+➤ Auxiliador break<br>
+É usado para finalizar um loop, isto é, é usado para parar sua execução.<br>
+Geralmente vem acompanhado de alguma condição para isso, com um if.<br>
+Veja um exemplo:<br>
+<img  src="../Programação1/imagem/break.png" alt="break"><br><br>
+Saída do código acima:><br>
+<img  src="../Programação1/imagem/break.png" alt="break"><br><br>
+Percebeu que o loop não chegou ao final?! Para isso utilizamos o break! :wink:><br>
+Já com while, também podemos utilizar o break em uma condição utilizando if, assim:><br>
+<img  src="../Programação1/imagem/break.png" alt="break"><br><br>
+Quando a variável atribuir o valor 4 o laço é finalizado pelo break, encerrando o loop. Resultando em:><br>
+<img  src="../Programação1/imagem/break.png" alt="break"><br><br><br>
+
+➤ Auxiliador continue<br>
+Funciona de maneira similar ao <u>break</u>, contudo ao invés de encerrar o loop ele pula todo código 
+que estiver abaixo dele (dentro do loop) partindo para a próxima iteração.<br>
+Vamos ao exemplo:<br>
+<img  src="../Programação1/imagem/continue.png" alt="continue"><br><br>
+Repare na saída abaixo. Repare que quando a condição <u>num == 3</u> for satisfeita, a string <u>"Estou abaixo do IF"</u> não será exibida:<br>
+<img  src="../Programação1/imagem/continue.png" alt="continue"><br><br>
+Em loops com <u>while</u> a lógica é a mesma. O <u>continue</u> irá finalizar o loop atual, iniciando novamente no início do <u>while</u>.<br>
+Veja o exemplo:<br>
+<img  src="../Programação1/imagem/continue.png" alt="continue"><br><br>
+O resultado desse código é que o 3 não apareça, pois o <u>print()</u> que imprime os números está abaixo do <u>continue</u>.<br>
+Portanto a saída será:<br>
+<img  src="../Programação1/imagem/continue.png" alt="continue"><br><br><br>
+
+➤ Auxiliador pass<br>
+O pass nada mais é que uma forma de fazer um código que não realiza operação nenhuma.<br>
+Mas calma, ele tem uma razão de existir no Python!<br>
+Como os escopos de Classes, Funções, If/Else e loops for/while são definidos pela indentação do código (e não por chaves {} 
+como geralmente se vê em outras linguagens de programação), usamos o pass para dizer ao Python que o bloco de código está vazio.<br>
+Veja alguns exemplos:<br>
+<img  src="../Programação1/imagem/pass.png" alt="pass"><br><br>
+Caso não utilizemos o pass, veja o que acontece:<br>
+<img  src="../Programação1/imagem/pass1.png" alt="pass"><br>
+<img  src="../Programação1/imagem/pass2.png" alt="pass"><br>
+Isso acontece pois o Python entende que as próximas linhas de código fazem parte do mesmo escopo,
+ mas como não estão indentadas um erro IndentationError é lançado.<br><br><br><br>
+
+
+ ➤ A função range<br>
+Essa função é de grande ajuda quando o tema é repetição, laços, for etc.<br>
+Ela permite especificar o inicio de uma sequência, o passo (ou pulo) e valor final.<br>
+Com isso, o Python nos retorna uma sequência de números para que possamos iterar!<br>
+Sua sintaxe pode ter as seguintes três formas, sendo que seu único parâmetro obrigatório é o fim:<br>
+<img  src="../Programação1/imagem/range.png" alt="pass"><br><br>
+É importante ressaltar que na versão 3.x do Python, a função range() retorna um objeto iterável e não mais uma lista com elementos,
+ por essa razão devemos converter o retorno para listas com a função list().<br>
+Veja alguns exemplos de como criar listas com range:<br>
+<img  src="../Programação1/imagem/range1.png" alt="pass"><br><br>
+Resultando do código acima:<br>
+<img  src="../Programação1/imagem/range2.png" alt="pass"><br><br>
+Utilizando range<br>
+Sabendo que a estrutura de repetição for executa um ciclo para cada elemento de um iterável,
+ e a função range é um iterável, podemos criar uma harmonia perfeita entre esses dois:<br>
+<img  src="../Programação1/imagem/range3.png" alt="pass"><br><br>
+O código acima irá imprimir a sequência de 4 itens especificado no range:<br>
+<img  src="../Programação1/imagem/range4.png" alt="pass"><br><br>
+O range não se aplica diretamente ao while, porém um exemplo um pouco mais complexo pode demonstrar eles juntos:<br>
+<img  src="../Programação1/imagem/range5.png" alt="pass"><br><br>
+Saída:<br>
+<img  src="../Programação1/imagem/range6.png" alt="pass"><br><br>
+Explicando: basicamente ele verifica se o tamanho da lista é igual a 6 itens. <br>
+Após a primeira verificação ele adiciona mais um item (item), assim modificando seu comprimento e encerrando o laço!<br><br><br>
+</div>
+</body>
+</html>

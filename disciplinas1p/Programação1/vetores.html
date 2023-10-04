@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes de computadores</title>
+    <link rel="stylesheet" href="../Programação1/styles.css" />
+    
+</head>
+<body>
+
+    <div>  
+        <header>
+            <div class="logo">
+                <a href="/index.html">
+                    <img  src="../Programação1/imagem/LOGO.png" alt="Logo do portifólio">
+
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">INÍCIO</a></li>
+                        <li><a href="/index.html">DISCIPLINAS</a></li>
+                        <li><a href="#topo">CONHECIMENTOS</a></li>
+                        <li><a href="#contatos">CONTATOS</a></li>
+                    </ul>
+                </nav>                
+            </header>       
+                </div>
+            </div>
+
+            <p class="resumo1"><br>
+                <br><br><br>
+<strong>◉ Vetores</strong> <br><br>
+➤ Em computação e comum manipular conjunto de valores.<br>
+➤ Exemplos: notas, preços, produtos, nomes.<br>
+➤ Para manipular um conjunto de dados de um mesmo tipo (inteiro, real, string) há uma estrutura de dados denominada de vetor.<br>
+
+➤ Vetores são “agregados homogêneos unidimensionais” ou “variáveis compostas unidimensionais”<br>
+➤ Permitem agrupar um conjunto de valores de um mesmo tipo em uma única variável<br>
+
+Exemplo: Um vetor para armazenar 10 valores numéricos inteiros<br>
+<img  src="../Programação1/imagem/vetores.png" alt="vetores"><br><br><br><br> 
+
+<strong>◉ Vetores em python</strong> <br><br>
+Python possui uma estrutura similar a vetores denominada listas.<br>
+➤ Lista é um conjunto ordenado de valores, onde cada valor é identificado por um índice;<br>
+➤ Os valores na lista são denominados elementos.<br>
+➤ Podemos denominar uma lista de agregado homogêneo unidimensional se todos os elementos são do mesmo tipo.<br>
+Definir um vetor “nota” de tamanho 5 de tipo inteiro. nota = [60, 95, 80, 50, 98]<br><br>
+<img  src="../Programação1/imagem/vetores1.png" alt="vetores"><br><br> 
+➤ Os valores 60, 95, 80, 50, 98 correspondem as notas, isto e, aos elementos do vetor.<br>
+➤ Os valores 0, 1, 2, 3, 4 correspondem aos índices.<br><br><br><br>
+
+<strong>◉ Manipulando elementos e índices</strong> <br><br>
+A manipulação do vetor depende da manipulação dos índices.<br>
+➤ Por exemplo, imprimir a quarta nota do vetor nota:<br>
+➤ print (nota [3])<br>
+➤ nota é a variável.<br>
+➤ 3 é o índice.<br>
+➤ [ ] é o operador de elemento.<br>
+➤ Lê-se: Acessando a variável nota na posição de índice 3.<br><br>
+<img  src="../Programação1/imagem/vetores2.png" alt="vetores"> 
+<img  src="../Programação1/imagem/vetores3.png" alt="vetores"><br><br><br><br>
+
+<strong>◉ Criando listas</strong> <br>
+<img  src="../Programação1/imagem/vetores4.png" alt="vetores"><br><br> 
+<img  src="../Programação1/imagem/vetores5.png" alt="vetores"><br><br> 
+Código executado<br>
+<img  src="../Programação1/imagem/vetores6.png" alt="vetores"><br><br><br> 
+
+<strong>◉ Acessando os Elementos da Lista</strong> <br>
+<img  src="../Programação1/imagem/vetores7.png" alt="vetores"><br><br> <br>
+
+<strong>◉ Atribuição em listas em Python</strong> <br>
+➤ A atribuição permite criar uma nova lista ou modificar um elemento existente de uma lista.<br>
+<img  src="../Programação1/imagem/atribuicao.png" alt="atribuição"><br><br> 
+➤ Sintaxe:<br>
+➤ variável lista[ índice ] = elemento<br>
+<img  src="../Programação1/imagem/atribuicao1.png" alt="atribuição"><br><br> <br>
+
+<strong>◉ Acrescentando elementos</strong> <br>
+➤ Em Python, a estrutura de lista e dinâmica, ou seja, permite adicionar e remover elementos em uma lista existente.<br>
+➤ Ao adicionar ou remover um elemento, o tamanho da lista também e modificado.<br>
+➤ Podemos adicionar um elemento ou vários elementos.<br><br>
+Concatenação (+)<br>
+➤ Usando o operador + (concatenação)<br>
+<img  src="../Programação1/imagem/acrescentando.png" alt="acrescentando"><br><br><br> 
+➤ Usando o método append<br>
+➤ O append adiciona elementos<br>
+<img  src="../Programação1/imagem/append.png" alt="acrescentando">
+<img  src="../Programação1/imagem/append1.png" alt="acrescentando"><br><br>
+➤ O extend expande listas<br>
+<img  src="../Programação1/imagem/extend.png" alt="acrescentando">
+<img  src="../Programação1/imagem/extend1.png" alt="acrescentando"><br><br>
+➤ O append permite adicionar listas dentro de listas, enquanto o extend é apenas para concatenar listas<br><br><br>
+
+<strong>◉ Entrada de dados</strong> <br><br>
+➤ Entrada de dados em uma lista de tamanho fixo<br>
+<img  src="../Programação1/imagem/entrada.png" alt="entrada de dados">
+<img  src="../Programação1/imagem/entrada1.png" alt="entrada de dados"><br><br><br>
+➤ Entrada de dados em uma lista de tamanho variável<br>
+<img  src="../Programação1/imagem/entrada2.png" alt="entrada de dados">
+<img  src="../Programação1/imagem/entrada3.png" alt="entrada de dados"><br><br><br>
+
+<strong>◉ Verificando elementos</strong> <br><br>
+➤ Uma operação comum em listas é verificar a presença de um determinado elemento.<br>
+➤ Em muitas situações também é necessário saber a posição do elemento.<br>
+➤ A forma mais comum e percorrer a lista comparando cada elemento com o valor procurado.<br>
+➤ Em Python, o operador in verifica se um elemento esta contido na lista e o operador not in verifica se um elemento
+não esta contido na lista.<br><br><br>
+
+<strong>◉ Percorrendo a Lista</strong> <br>
+<img  src="../Programação1/imagem/percorrendo.png" alt="Percorrendo a Lista">
+<img  src="../Programação1/imagem/percorrendo1.png" alt="Percorrendo a Lista"><br><br><br><br>
+<img  src="../Programação1/imagem/percorrendo2.png" alt="Percorrendo a Lista">
+<img  src="../Programação1/imagem/percorrendo3.png" alt="Percorrendo a Lista"><br><br><br><br>
+
+<strong>◉ Removendo elementos</strong> <br>
+➤ Em uma lista podemos remover elementos.<br>
+➤ O Python possui o operador del para remover um elemento em uma posição específica da lista.<br>
+➤ O índice da posição deve existir, senão o operador devolve erro ao remover o elemento.<br>
+➤ Apos a remoção de um elemento da lista, o tamanho da lista é diminudo e o índice dos elementos subsequentes são diminudos em uma unidade.<br><br>
+<img  src="../Programação1/imagem/removendo.png" alt="Removendo elementos">
+<img  src="../Programação1/imagem/removendo1.png" alt="Removendo elementos">
+
+
+</p>
+</body>
+</html>
