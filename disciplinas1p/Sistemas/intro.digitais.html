@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes de computadores</title>
+    <link rel="stylesheet" href="styles.css" />
+    
+</head>
+<body>
+
+    <div>  
+        <header>
+            <div class="logo">
+                <a href="/index.html">
+                    <img  src="imagem/LOGO.png" alt="Logo do portifólio">
+
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">INÍCIO</a></li>
+                        <li><a href="/index.html">DISCIPLINAS</a></li>
+                        <li><a href="#topo">CONHECIMENTOS</a></li>
+                        <li><a href="#contatos">CONTATOS</a></li>
+                    </ul>
+                </nav>
+                
+            </header>
+                </div>              
+            </div>
+
+            <p class="resumo1"><br>
+            <br><br><br>
+<strong>◉ GRANDEZAS ANALÓGICAS E DIGITAIS</strong> <br><br>
+            
+            Os circuitos eletrônicos podem ser divididos em duas grandes categorias, digitais e analógicos.
+            A eletrônica digital envolve grandezas com valores discretos e a eletrônica analógica envolve
+            grandezas com valores contínuos. Ainda que o leitor estude os fundamentos da eletrônica digital
+            neste livro, deve conhecer também algo sobre eletrônica analógica, pois muitas aplicações 
+            requerem conhecimentos das duas áreas; são igualmente importantes os conhecimentos relativos ao
+            interfaceamento entre essas áreas.
+            Ao final do estudo desta seção você deverá ser capaz de:<br><br>
+        
+■ Definir grandeza analógica <br>
+■ Definir grandeza digital <br>
+■ Explicar a diferença entre grandezas analógicas e digitais <br>
+■ Enunciar as vantagens dos sistemas digitais sobre os analógicos<br>
+■ Apresentar exemplos de como as grandezas digitais e analógicas são usadas em eletrônica<br><br>
+
+Uma grandeza analógica é aquela que apresenta valores contínuos. Uma grandeza digital é
+aquela que apresenta valores discretos. A maioria daquilo que se pode medir quantitativamente na
+natureza se encontra na forma analógica. Por exemplo, a temperatura do ar varia numa faixa contínua de valores.
+ Durante um determinado dia, a temperatura não passa, digamos, de 71º F para
+72º F (~21,7º C para ~22,2º C) instantaneamente; ela passa por toda uma infinidade de valores intermediários.
+ Se fizermos um gráfico da temperatura em um dia de verão típico, teremos uma curva contínua e de variação suave
+  similar à curva mostrada na Figura. Outros exemplos de grandezas analógicas são tempo, pressão, distância e som.<br><br>
+<img  src="../Sistemas/imagem/grandezaanalógica.png" alt=" grandeza analógica "><br><br><br><br>
+
+Em vez de fazer um gráfico da temperatura em uma base contínua, suponha que façamos a leitura da temperatura
+ apenas a cada hora. Agora temos valores amostrados que representam a temperatura em pontos discretos no tempo
+  (de hora em hora) ao longo de um período de 24 horas, conforme indicado na Figura. Efetivamente convertemos
+   uma grandeza analógica em um formato que podemos agora digitalizar representando cada valor amostrado por um código digital.
+    É importante perceber que a Figura não é propriamente uma representação digital de uma grandeza analógica.<br>
+Vantagens dos Sistemas Digitais A representação digital tem certas vantagens sobre a representação analógica em aplicações eletrônicas.
+ Para citar uma, dados digitais podem ser processados e transmitidos de forma mais eficiente e confiável que dados analógicos. Além disso, dados digitais
+possuem uma grande vantagem quando é necessário armazenamento (memorização). Por exemplo,
+a música quando convertida para o formato digital pode ser armazenada de forma mais compacta e
+reproduzida com maior precisão e pureza que quando está no formato analógico. O ruído (flutuações
+indesejadas na tensão) quase não afeta os dados digitais tanto quanto afeta os sinais analógicos.<br><br>
+    
+➤ Um Sistema Eletrônico Analógico<br>
+Um sistema de amplificação de som que pode ser ouvido por uma grande quantidade de pessoas é um
+exemplo simples de uma aplicação da eletrônica analógica. O diagrama básico na Figura ilustra as
+ondas sonoras, que são de natureza analógica, sendo captadas por um microfone e convertidas em uma
+pequena tensão analógica denominada sinal de áudio. Essa tensão varia continuamente de acordo com
+as variações no volume e na freqüência do som e é aplicada na entrada de um amplificador linear. A
+saída do amplificador, que é uma reprodução ampliada da tensão de entrada, é enviada para o(s) altofalante(s).
+ O alto-falante converte o sinal de áudio amplificado de volta para o formato de ondas sonoras com um volume 
+ muito maior que as ondas sonoras originais captadas pelo microfone.<br><br>
+ <img  src="../Sistemas/imagem/amplificaçãodeáudio.png" alt=" grandeza analógica "><br><br><br><br>
+
+➤ Um Sistema que Usa Métodos Analógicos e Digitais<br>
+ O aparelho de CD (compact disk) é um exemplo de um sistema no qual são usados tanto circuitos
+ digitais quanto analógicos. O diagrama em bloco simplificado que é visto na Figura ilustra o
+ princípio básico. A música no formato digital é armazenada no CD. Um sistema óptico com diodo 
+ laser capta os dados digitais a partir do disco girante e os transfere para um conversor 
+ digitalanalógico (DAC – digital-to-analog converter).<br><br>
+<img  src="../Sistemas/imagem/aparelhodeCD.png" alt=" grandeza analógica "><br><br><br><br>
+
+<strong>◉ NÍVEIS LÓGICOS </strong> <br><br>
+
+As tensões usadas para representar 1 e 0 são denominados níveis lógicos. Teoricamente, um nível
+de tensão representa um nível ALTO e o outro representa um nível BAIXO. Entretanto, em um
+ circuito digital prático, um nível ALTO pode ser qualquer tensão entre um valor mínimo e um valor 
+ máximo especificados. Da mesma forma, um nível BAIXO pode ser qualquer valor de tensão entre um valor
+  mínimo e máximo especificados. Não existe sobreposição entre as faixas aceitáveis
+ para os níveis ALTO e BAIXO.<br>
+ A Figura ilustra as faixas dos níveis ALTO e BAIXO para um circuito digital. A variável
+ VH(máx) representa o valor máximo de tensão para o nível ALTO e VH(mín) representa o valor mínimo
+ de tensão para o nível ALTO. O valor máximo de tensão para o nível BAIXO é representado por
+ VL(máx) e o valor mínimo de tensão para o nível BAIXO é representado por VL(mín). Os valores de
+ tensão entre VL(máx) e VH(mín) são inaceitáveis para uma operação adequada. Uma tensão na faixa
+ proibida pode ser interpretada tanto como um nível ALTO quanto um nível BAIXO por um determinado 
+ circuito sendo, portanto, valores inaceitáveis. Por exemplo, os valores referentes ao nível
+ ALTO para um determinado circuito digital chamado de CMOS pode variar de 2 V a 3,3 V e os
+ valores referentes ao nível BAIXO podem varia de 0 a 0,8 V. Assim, por exemplo, se uma tensão
+ de 2,5 V for aplicada, o circuito interpretará como um nível BAIXO ou binário 0. Para esse tipo de
+ circuito, as tensões entre 0,8 V e 2 V não são permitidas.<br><br>
+ <img  src="../Sistemas/imagem/niveislogicos.png" alt=" Níveis lógicos "><br><br><br><br>
+
+ <strong>◉ FORMAS DE ONDA DIGITAIS </strong> <br><br>
+Formas de onda digitais consistem em níveis de tensão que comutam entre os níveis, ou estados,
+lógicos ALTO e BAIXO. A Figura mostra que um único pulso positivo é gerado quando a
+tensão (ou corrente) passa do nível BAIXO normal para o nível ALTO e em seguida retorna para
+o nível BAIXO. O pulso negativo, visto na Figura, é gerado quando a tensão passa do nível
+ ALTO normal para o nível BAIXO e retorna para o nível ALTO. Uma forma de onda digital é
+constituída de uma série de pulsos.<br><br>
+<img  src="../Sistemas/imagem/formasdeonda.png" alt="Formas de ondas digitais "><br><br><br><br>
+O Pulso Conforme indicado na Figura, um pulso tem duas bordas: a borda positiva, que
+ocorre primeiro no instante t0, e uma borda negativa, que ocorre depois no instante t1. Para um
+pulso positivo, a borda positiva é uma borda de subida e a borda negativa é uma borda de descida.
+ Os pulsos vistos na Figura são ideais porque se considera que as bordas de subida e descida 
+ comutam num tempo zero (instantaneamente). Na prática, essas transições nunca ocorrem
+instantaneamente, embora para a maioria dos circuitos digitais funcionarem consideramos pulsos ideais.
+<br><br><br><br><br>
+
+<strong>◉ CIRCUITOS CONBINACIONAIS E SEQUENCIAIS </strong> <br><br>
+combinacionais são definidos como os circuitos independentes de tempo que não dependem de 
+entradas anteriores para gerar qualquer saída são chamados de circuitos combinacionais. 
+Os circuitos sequenciais são aqueles que dependem de ciclos de clock e dependem de entradas
+ presentes e passadas para gerar qualquer saída.<br><br>
+
+Circuito Combinacional -<br><br>
+
+Nesta saída depende apenas da entrada atual.<br>
+A velocidade é rápida.<br>
+Ele é projetado de forma fácil.<br>
+Não há feedback entre a entrada e a saída.<br>
+Isso é independente do tempo.<br>
+Blocos de construção elementares: portas lógicas<br>
+Usado para operações aritméticas e booleanas.<br>
+Os circuitos combinacionais não têm capacidade para armazenar nenhum estado.<br>
+Como os circuitos combinatórios não têm relógio, não precisam ser acionados.<br>
+Esses circuitos não possuem nenhum elemento de memória.<br>
+É fácil de usar e manusear.<br><br>
+Exemplos - codificador, decodificador, multiplexador, demultiplexador<br><br>
+<img  src="../Sistemas/imagem/COMBINACIONAL.png" alt="Circuito Combinacional "><br><br><br><br>
+
+Circuito Sequencial -<br><br>
+
+Nesta saída depende da entrada presente, bem como do passado.<br>
+A velocidade é lenta.<br>
+Ele é projetado para ser resistente em comparação com os circuitos combinacionais.<br>
+Existe um caminho de feedback entre a entrada e a saída.<br>
+Isso depende do tempo.<br>
+Blocos de construção elementares: flip-flops<br>
+Usado principalmente para armazenar dados.<br>
+Os circuitos sequenciais têm capacidade para armazenar qualquer estado ou reter o estado anterior.<br>
+Como os circuitos sequenciais dependem do relógio, eles precisam ser acionados.<br>
+Esses circuitos possuem elemento de memória.<br>
+Não é fácil de usar e manusear.<br>
+Exemplos - flip-flops, contadores<br><br>
+<img  src="../Sistemas/imagem/SEQUENCIAL.png" alt="Circuito Sequencial "><br><br><br><br>
+
+<strong>◉ TRANSMISSÃO PARALELA E SERIAL </strong> <br><br>
+Existem dois métodos usados para transferir dados entre computadores, que são fornecidos a 
+seguir: Transmissão Serial e Transmissão Paralela. <br><br><br>
+
+Transmissão serial:<br>
+Na transmissão serial, o bit de dados flui de um computador para outro em duas direções. 
+Nessa transmissão, um bit flui em um pulso de clock. Na transmissão serial, 8 bits são 
+transferidos por vez, tendo um bit de início e um bit de parada. <br><br>
+<img  src="../Sistemas/imagem/serial.png" alt="Transmissão serial "><br><br><br><br>
+Transmissão paralela: <br>
+Na transmissão paralela, muitos bits fluem juntos simultaneamente de um computador para outro.
+ A transmissão paralela é mais rápida do que a transmissão serial para transmitir os bits.
+  A transmissão paralela é usada para curtas distâncias. <br><br>
+<img  src="../Sistemas/imagem/paralela.png" alt="ransmissão paralela "><br><br><br><br>
+ 
+
+Diferença entre transmissão serial e paralela:  <br><br>
+	
+TRANSMISSÃO SERIAL<br><br>           
+
+Na transmissão serial, os dados (bits) fluem em duas direções.	<br>
+A transmissão serial é econômica.	<br>
+Na transmissão serial, um bit é transferido em um pulso de clock.	<br>
+A transmissão serial é lenta em comparação com a transmissão paralela.	<br>
+Geralmente, a transmissão serial é usada para longa distância.	<br>
+O circuito usado na Transmissão Serial é simples.	<br>
+<br><br><br>
+TRANSMISSÃO PARALELA<br><br>
+Na transmissão paralela, os dados fluem em várias linhas.<br>
+A transmissão paralela não é econômica.<br>
+Na transmissão paralela, oito bits são transferidos em um pulso de clock.<br>
+A transmissão paralela é rápida em comparação com a transmissão serial.<br>
+Geralmente, a transmissão paralela é usada para curtas distâncias.<br>
+O circuito usado na transmissão paralela é relativamente complexo.<br><br>
+</body>
+     </html>

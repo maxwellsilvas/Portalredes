@@ -1,5 +1,5 @@
 body {
-    background-image: url("../Programação1/imagem/fundo1.png");
+    background-image: url("../Sistemas/imagem/fundo1.png");
     background-size: 15% 15%;
     background-attachment: fixed;
     display: grid;
@@ -13,7 +13,7 @@ body {
        height:15%;
        background-color:rgba(0, 0, 0, 0.932);
        top: 0;
-       position: fixed;
+       position: absolute;
        
    }
    .logo{

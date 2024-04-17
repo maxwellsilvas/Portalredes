@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes de computadores</title>
+    <link rel="stylesheet" href="../Programação1/styles.css" />
+    
+</head>
+<body>
+
+    <div>  
+        <header>
+            <div class="logo">
+                <a href="/index.html">
+                    <img  src="../Programação1/imagem/LOGO.png" alt="Logo do portifólio"></a>
+
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">INÍCIO</a></li>
+                        <li><a href="/index.html">DISCIPLINAS</a></li>
+                        <li><a href="#topo">CONHECIMENTOS</a></li>
+                        <li><a href="#contatos">CONTATOS</a></li>
+                    </ul>
+                </nav>                
+            </header>       
+                </div>
+            </div>
+
+<p class="resumo1"><br>
+<br><br><br><br>
+As bibliotecas, também chamadas de pacotes, basicamente são um conjunto de módulos
+ (que são simples arquivos de código) que facilitam o desenvolvimento de novos projetos
+  de software. A ideia por trás delas é pegar um código que está se repetindo com frequência
+   e encapsular ele para ser usado futuramente em diferentes programas. Com isso,  você pode
+    criar e utilizar as suas próprias ou instalar bibliotecas de terceiros. Nesse artigo,
+     vamos ver com mais detalhes como isso pode ser feito utilizando a linguagem Python.<br><br><br>
+
+     ➤ Gerenciadores de pacotes<br>
+     Antigamente era comum instalar bibliotecas como qualquer outro programa e adicioná-las
+      manualmente no seu código, porém, com múltiplos desenvolvedores trabalhando
+       simultaneamente nos mesmos projetos e a necessidade de escalar rapidamente os serviços,
+        surgiu a demanda para a criação de um sistema de gerenciamento de pacotes para organizar
+         o código e agilizar no processo de desenvolvimento.<br><br><br>
+     
+     Podemos dividir os gerenciadores de pacotes em dois tipos: aqueles do sistema operacional
+      (que são utilizados para instalar todo tipo de software, não especificamente voltado para
+       programação) como no caso do Linux que temos o APT e aqueles voltados a linguagens de
+        programação específicas, como o NPM ou o Yarn para Javascript e o Pip ou Conda para Python.<br><br><br>
+
+        ➤ Como instalar e importar no Python<br>
+        A instalação de bibliotecas no python com o gerenciador de pacotes pip é feita a partir
+         do seguinte comando no terminal:<br><br><br>
+         <img  src="../Programação1/imagem/biblioteca1.png" alt=" bibliotecas "><br><br><br><br>
+
+         Você também pode optar por escolher uma versão específica de uma biblioteca, basta colocar
+          dois sinais de igual e em seguida o número da versão:<br><br><br>
+          <img  src="../Programação1/imagem/biblioteca2.png" alt=" bibliotecas "><br><br><br><br>
+
+          ➤ Criando seus próprios módulos e pacotes
+Agora faremos um simples exercício criando nossa própria biblioteca para praticar a importação e
+ evitar os erros "ModuleNotFoundError” e “NameError”.<br><br>
+
+Primeiro crie uma pasta chamada de “pacote1”, depois um arquivo python chamado “modulo1”
+ dentro dela com o seguinte código:<br><br><br>
+ <img  src="../Programação1/imagem/biblioteca3.png" alt=" bibliotecas "><br><br><br><br>
+ Essas funções são bem simples e autodescritivas, uma soma e a outra multiplica dois números,
+  vamos utilizá-las para testar nosso sistema. Essa estrutura que acabamos de criar, já pode ser
+   considerada uma biblioteca acima das versões 3.x do Python, basicamente é só uma pasta com
+    arquivos Python.<br><br>
+
+ Nas versões mais antigas do Python 2.x utilizava-se um arquivo vazio chamado “__init__.py”, e
+  era através dele que a linguagem identificava que aquela pasta era um pacote Python. Nas
+   versões mais recentes esse arquivo não é mais obrigatório, mas normalmente ainda é utilizado
+    para manter a compatibilidade.<br><br>
+ 
+ Agora crie outro arquivo Python um nível acima (fora da pasta pacote1), chamado “main.py”, e
+  nele utilizaremos as funções no módulo 1 da biblioteca que acabamos de criar. Primeiro com o
+   método de importar todo o módulo:<br><br><br>
+ <img  src="../Programação1/imagem/biblioteca4.png" alt=" bibliotecas "><br><br><br><br>
+
+ Se tudo estiver correto, ao executar, no terminal aparecerá  o resultado da soma.
+  Transforme esse código em comentário e utilize o método de importar as funções do módulo
+   diretamente da seguinte forma:<br><br><br>
+ <img  src="../Programação1/imagem/biblioteca5.png" alt=" bibliotecas "><br><br><br><br>
+
+ No terminal deve aparecer o resultado da multiplicação, você também pode importar todas as
+  funções e classes de um determinado módulo apenas substituindo o nome da função por um
+   asterisco:<br><br><br>
+ <img  src="../Programação1/imagem/biblioteca6.png" alt=" bibliotecas "><br><br><br><br>
+
+ Ao executar, devem aparecer ambos, o resultado da soma e da multiplicação. Essa notação
+  também pode ser utilizada para importar todos os módulos presentes em uma biblioteca,
+   mas primeiro é necessário criar o arquivo “__init__.py” dentro da pasta pacote1 e dentro
+    dele vamos atribuir o nome de cada módulo em uma lista para a variável “__all__”:<br><br><br>
+ <img  src="../Programação1/imagem/biblioteca7.png" alt=" bibliotecas "><br><br><br><br>
+
+ Se tivéssemos outros módulos, bastava adicionar na lista. Agora podemos utilizar a
+  seguinte notação para trabalhar com esse módulo:<br><br><br>
+ <img  src="../Programação1/imagem/biblioteca8.png" alt=" bibliotecas "><br><br><br><br>
+
+ Uma prática bastante comum também é encurtar o tamanho do nome dos pacotes nos imports
+  através do comando 'as', assim evita ter que escrever o nome todo quando for usar,
+   veja o exemplo encurtando a biblioteca Pandas:<br><br><br>
+ <img  src="../Programação1/imagem/biblioteca9.png" alt=" bibliotecas "><br><br><br><br>
+
+ Vale ressaltar que na hora que for instalar e importar bibliotecas de terceiros, verificar
+  sempre se o nome e a versão são exatamente iguais ao da biblioteca com a qual você está
+   querendo trabalhar, pois podem haver bibliotecas com nomes parecidos e na hora de importar
+    pode dar erro caso tenha instalado a errada.<br><br>

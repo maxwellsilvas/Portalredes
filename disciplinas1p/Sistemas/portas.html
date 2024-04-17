@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes de computadores</title>
+    <link rel="stylesheet" href="styles.css" />
+    
+</head>
+<body>
+
+    <div>  
+        <header>
+            <div class="logo">
+                <a href="/index.html">
+                    <img  src="imagem/LOGO.png" alt="Logo do portifólio">
+
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">INÍCIO</a></li>
+                        <li><a href="/index.html">DISCIPLINAS</a></li>
+                        <li><a href="#topo">CONHECIMENTOS</a></li>
+                        <li><a href="#contatos">CONTATOS</a></li>
+                    </ul>
+                </nav>
+                
+            </header>
+                </div>              
+            </div>
+
+            <p class="resumo1"><br>
+            <br><br><br>
+<strong>◉ Portas Lógicas</strong> <br><br>
+➤ Um sistema digital é um sistema matemático que define informações como valores numéricos.
+ Dessa forma, é possível definir operações digitais como cálculos matemáticos. Comumente
+  trabalhamos com valores numéricos na base decimal, mas um sistema digital trabalha de maneira
+   diferente. Em analogia ao sistema decimal, onde cada dígito possui 10 valores possíveis, um
+    sistema digital é um sistema binário, onde cada dígito possui apenas 2 valores possíveis.
+     Esses dois valores são definidos como “níveis lógicos” e adota-se o valor de 0 (zero) ou 1
+      (um) apenas.<br><br>
+
+Transportando esse sistema para um sistema eletrônico, é necessário apresentar esses dois 
+valores como sinais elétricos. Para tanto, podemos entendê-los como:<br><br>
+
+■ Ligado ou desligado;<br>
+■ Nível alto ou nível baixo;<br>
+■ Alimentado ou em zero;<br>
+■ VCC ou Terra.<br><br><br>
+As operações observáveis para esses níveis lógicos são definidas como operações lógicas.
+ Todas as possíveis operações lógicas são baseadas em apenas 3 operações primárias, que são:<br><br>
+
+ ■ Inversão;<br>
+ ■ Soma lógica;<br>
+ ■ Produto lógico.<br><br>
+ Tabela Verdade<br>
+A Tabela Verdade trata-se de uma técnica para determinar como a saída lógica de um determinado
+ circuito depende dos níveis lógicos presentes nas entradas de cada circuito. Ela está 
+ representada neste texto do lado direito das imagens, ao lado das portas lógicas.<br><br>
+
+ ➤ Porta Lógica NOT<br>
+ A porta NÃO ou inversora (NOT) utiliza o operador de inversão. Para um determinado valor na 
+ entrada, a saída possui um valor contrário ao da entrada. Se a entrada for 1, a saída será 0.
+  Se a entrada for 0, a saída será 1. Ou seja, para um valor na entrada a saída será seu 
+  complemento, ou o inverso do valor na entrada.<br><br>
+  <img  src="../Sistemas/imagem/not.png" alt=" porta lógica "><br><br><br><br>
+  ➤ Porta Lógica AND<br>
+  Para se explicar o funcionamento da porta E (AND) pode-se fazer um paralelo com um circuito 
+  com interruptores, como na figura abaixo. Para que a lâmpada acenda é preciso que os dois 
+  interruptores estejam ligados.<br><br>
+  <img  src="../Sistemas/imagem/and.png" alt=" porta lógica "><br><br><br><br>
+  As portas lógicas E (AND) utilizam-se do operador de produto lógico. A saída é igual a 1 se 
+  todas as entradas for 1. A saída é igual a zero se ao menos uma entrada for 0, se todas 
+  entradas não forem 1.<br><br>
+  <img  src="../Sistemas/imagem/and1.png" alt=" porta lógica "><br><br><br><br>
+  ➤ Porta Lógica OR<br>
+Uma forma simples de se entender o funcionamento da porta OU (OR) é pensar em um circuito com 
+interruptores em paralelo, como na figura abaixo. Para que a lâmpada acenda é preciso que um 
+dos dois interruptores esteja ligado.<br><br>
+<img  src="../Sistemas/imagem/or.png" alt=" porta lógica "><br><br><br><br>
+A porta lógica OU (OR) utiliza-se do operador de soma lógica. A saída é igual a 1 se pelo menos 
+uma das entradas for 1. A saída é igual a zero se nenhuma entrada for 1, todas forem zero.<br><br>
+<img  src="../Sistemas/imagem/or1.png" alt=" porta lógica "><br><br><br><br>
+➤ Porta Lógica NAND<br>
+A porta lógica NÃO E (NAND) utiliza-se do operador de produto lógico e o de inversão.
+ A saída é igual a 0 se todas as entradas for 1. A saída é igual a 1 se ao menos uma entrada
+  for 0, se todas entradas não forem 1.<br><br>
+<img  src="../Sistemas/imagem/nand.png" alt=" porta lógica "><br><br><br><br>
+➤ Porta Lógica NOR<br>
+A porta lógica NÃO OU (NOR) utiliza-se do operador de soma lógica e o de inversão.
+ A saída é igual a 0 se pelo menos uma das entradas for 1. A saída é igual a 1 se nenhuma 
+ entrada for 1, todas forem zero.<br><br>
+<img  src="../Sistemas/imagem/nor.png" alt=" porta lógica "><br><br><br><br>
+➤ Porta Lógica XOR<br>
+As portas lógicas OU EXCLUSIVO (XOR) utilizam-se do operador de soma lógica, com um círculo.
+ A saída é igual a 0 se as entradas forem iguais. A saída é igual a 1 se as entradas não forem
+  iguais, se uma delas diferirem das outras.<br><br>
+  <img  src="../Sistemas/imagem/xor.png" alt=" porta lógica "><br><br><br><br>
+  ➤ Porta Lógica XNOR<br>
+  As portas lógicas NÃO OU EXCLUSIVO (XNOR) utilizam-se do operador de soma lógica, com um 
+  círculo e o de inversão. Tem as saídas inversas da operação XOR. A saída é igual a 1 se as 
+  entradas forem iguais. A saída é igual a 0 se se as entradas não forem iguais, se uma delas 
+  diferirem das outras.<br><br>
+  <img  src="../Sistemas/imagem/xnor.png" alt=" porta lógica "><br><br><br><br>
+
+  <strong>◉ Propriedades da Álgebra Booleana</strong> <br><br>
+• Postulados<br><br>
+<img  src="../Sistemas/imagem/postulados.png" alt=" porta lógica "><br><br><br><br>
+• Propriedade Comutativa<br><br>
+<img  src="../Sistemas/imagem/comutativa.png" alt=" porta lógica "><br><br><br><br>
+• Propriedade Associativa<br><br>
+<img  src="../Sistemas/imagem/associativa.png" alt=" porta lógica "><br><br><br><br>
+• Propriedade Distributiva<br><br>
+<img  src="../Sistemas/imagem/distributiva.png" alt=" porta lógica "><br><br><br><br>
+• Teorema de De Morgan<br><br>
+<img  src="../Sistemas/imagem/morgan.png" alt=" porta lógica "><br><br><br><br>
+
+➤ Aplicando os postulados e leis da álgebra Booleana as funções Booleanas
+podem ser minimizadas<br><br>
+– O circuito equivalente pode ser menor<br>
+– Variáveis de entrada podem ser eliminadas da função equivalente<br><br>
+• Exemplos:<br><br>
+<img  src="../Sistemas/imagem/exemplos.png" alt=" porta lógica "><br><br><br><br>

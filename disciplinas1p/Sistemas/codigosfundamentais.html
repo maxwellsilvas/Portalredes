@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes de computadores</title>
+    <link rel="stylesheet" href="styles.css" />
+    
+</head>
+<body>
+
+    <div>  
+        <header>
+            <div class="logo">
+                <a href="/index.html">
+                    <img  src="imagem/LOGO.png" alt="Logo do portifólio">
+
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">INÍCIO</a></li>
+                        <li><a href="/index.html">DISCIPLINAS</a></li>
+                        <li><a href="#topo">CONHECIMENTOS</a></li>
+                        <li><a href="#contatos">CONTATOS</a></li>
+                    </ul>
+                </nav>
+                
+            </header>
+                </div>              
+            </div>
+
+            <p class="resumo1"><br>
+            <br><br><br>
+A representação de número, letras ou mesmo palavras por um grupo especial de símbolos é chamado 
+de código. Um dos mais populares é o código Morse, que utiliza pontos e traços para representar
+ as letras do alfabeto.<br><br>
+
+Nós já vimos que qualquer número pode ser representado por um representante equivalente em 
+binário, afinal todo sistema digital utiliza alguma forma da numeração binária em suas operações
+ internas. No entanto, a conversão decimal-binário pode se tornar longa e complicada para números
+  grandes e como o número é naturalmente decimal foi encontrada uma forma de codificar números 
+  decimais combinando as características dos dois sistemas.<br><br><br><br>
+
+
+<strong>◉ Decimal codificado em binário (BCD)</strong> <br><br>
+Se ao invés de converter um número decimal em binário, optarmos por converter cada dígito do 
+número decimal por seu equivalente em binário. O resultado será um decimal codificado em binário
+ (BCD — binary-coded-decimal). <br><br>
+
+Em decimal um dígito pode ter no máximo o valor 9, logo são necessários 4 bits para codificar
+ cada dígito (onde 9 é 1001). Para ver na prática como seria essa conversão temos como exemplo
+  o número decimal 874, com cada dígito convertido no equivalente binário, temos:<br><br>
+<img  src="../Sistemas/imagem/bcd.png" alt="bcd "><br><br><br><br>
+A lógica é aplicada para qualquer número, abaixo temos 94 como exemplo:<br><br>
+
+<img  src="../Sistemas/imagem/bcd1.png" alt=" bcd "><br><br>
+
+Note que sempre serão utilizados 4 bits para representar cada dígito, mas há no máximo 9 dígitos
+ para representar. Ou seja, não se utiliza os números 1010, 1011, 1100, 1101, 1110 e 1111 e o 
+ aparecimento de qualquer um deles em uma máquina que use o código BCD, é, geralmente, uma 
+ indicação de que ocorreu algum erro.<br><br><br>
+
+➤ Comparação entre BCD e binário <br><br>
+
+É preciso destacar que o BCD não se trata de outro sistema de numeração (como binário, decimal 
+e hexadecimal), é basicamente um sistema decimal em que cada dígito está escrito em binário.<br>
+
+Além disso, um número BCD não é a mesma coisa de um número binário puro. Onde binário puro seria
+ o número decimal por completo representado em binário, não somente os dígitos. Para visualizar 
+ melhor a diferença temos a conversão do número 137 para binário e BCD abaixo:<br><br>
+<img  src="../Sistemas/imagem/bcd2.png" alt=" bcd "><br><br>
+
+Observe que no BCD são necessários 12 bits, enquanto que no binário apenas 8. Em contrapartida, a 
+conversão decimal-BCD é bem mais simples que a decimal-binário.<br><br>

@@ -68,7 +68,7 @@ body {
    
    }
 
-.resumo1, .resumo2, .resumo3, .resumo4, .resumo5, .resumo6, .resumo7, ul li {
+   .resumo1, .resumo2, .resumo3, .resumo4, .resumo5, .resumo6, .resumo7, ul li {
     color: #ffffff;
     text-align: justify;
     font-family: 'Abel', sans-serif;
@@ -76,10 +76,9 @@ body {
 
 #conteudos {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-evenly;
   }
 .user-card {
-    margin: 20px 20px 20px;
     border: 2px solid rgb(10, 82, 124);
     height: 150px;
     width: 150px;
@@ -93,8 +92,6 @@ body {
     text-align: center;
     filter: drop-shadow(0 0 10px rgb(176, 243, 255));/*brilho na palavra*/
   }
-  
-
   
 .user-card .user-name {
     font-weight: bold;
