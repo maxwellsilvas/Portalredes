@@ -78,7 +78,7 @@ padding-top: 3%;
     font-size: 60px;
     font-family: 'Pandimencional', sans-serif; 
     text-shadow: rgba(255, 214, 66, 0.842) -1px -1px 6px, rgba(57, 61, 255, 0.9) 1px 1px 6px;/*brilho na palavra*/
-    animation: Anim 40s ease 0s 40 normal forwards;
+    
   }
 
 table, th { 
