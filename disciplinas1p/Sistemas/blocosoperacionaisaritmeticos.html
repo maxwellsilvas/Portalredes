@@ -32,4 +32,125 @@
 
             <p class="resumo1"><br>
             <br><br><br>
-<strong>◉ flip-flop</strong> <br><br>
+<strong>◉ Representando Dados em Circuitos Digitais</strong> <br><br>
+
+➤ Meio Somador<br>
+Como sabemos, os computadores trabalham na forma binaria e ja é de se esperar que o mesmo faca suas operacoes na forma binaria.
+<img  src="../Sistemas/imagem/aritimeticos.jpg" alt=" Circuitos Aritmeticos "><br><br>
+Relembrando a soma de dois numeros binarios teremos:<br>
+<img  src="../Sistemas/imagem/aritimeticos1.jpg" alt=" Circuitos Aritmeticos "><br><br>
+O diagrama de blocos seria uma porta XOR para a saída de soma S e uma porta AND para Ts, também chamada de carry (C).<br>
+Esse circuito é denominado Meio Somador (Half-Adder).<br>
+<img  src="../Sistemas/imagem/aritimeticos2.jpg" alt=" Circuitos Aritmeticos "><br><br>
+➤ Somador Completo<br>
+O meio somador possibilita efetuar a soma de numeros binarios com 1 algarismo.<br>
+Mas no mundo real se faz necessario que esta soma seja efetuadas com um numero maior de algarismos.<br>
+Para satisfazer estas condicoes o circuito necessita de uma entrada de transporte proveniente de uma saida de transporte da casa binária anterior.<br>
+Para melhor compreensao, vamos analisar o caso da soma a seguir:<br><br>
+<img  src="../Sistemas/imagem/aritimeticos3.png" alt=" Circuitos Aritmeticos "><br><br>
+Extrapolando para a soma de duas palavras binárias A e B, de comprimentos (números de bits) quaisquer, i+1, onde ai e bi são os bits da casa binária i, 
+a serem somados e ci é o bit de carry (ou transporte, ou vai-um) daquela casa binária:<br>
+<img  src="../Sistemas/imagem/aritimeticos4.jpg" alt=" Circuitos Aritmeticos "><br><br>
+Desta forma a tabela verdade ficaria do seguinte modo:<br>
+<img  src="../Sistemas/imagem/aritimeticos5.jpg" alt=" Circuitos Aritmeticos "><br><br>
+E o circuito completo, após minimização, seria:<br>
+<img  src="../Sistemas/imagem/aritimeticos6.jpg" alt=" Circuitos Aritmeticos "><br><br>
+<img  src="../Sistemas/imagem/aritimeticos7.jpg" alt=" Circuitos Aritmeticos "><br><br>
+<img  src="../Sistemas/imagem/aritimeticos8.jpg" alt=" Circuitos Aritmeticos "><br><br>
+Assim, os somadores digitais são, na verdade, blocos modulares, caixas-pretas as quais, combinadas, permitem que se implemente circuitos somadores para tantos bits quantos forem necessários:<br>
+<img  src="../Sistemas/imagem/aritimeticos9.jpg" alt=" Circuitos Aritmeticos "><br><br>
+Exemplos de somadores comerciais: 7483 (TTL) e CD4008 (CMOS)<br>
+<img  src="../Sistemas/imagem/aritimeticos10.jpg" alt=" Circuitos Aritmeticos "><br><br>
+Exemplo de somador de 12 bits, usando o 4008:<br>
+<img  src="../Sistemas/imagem/aritimeticos11.jpg" alt=" Circuitos Aritmeticos "><br><br>
+➤ Subtração Binária<br>
+Representação binária de números positivos<br>
+Representam-se números inteiros positivos através do valor do próprio número binário. 
+Porém, existe um limite estabelecido por memórias finitas, onde normalmente é definido por um conjunto de 4 bits.<br>
+Portanto, pode-se representar 2^4 = 16 números diferentes, de 0000 a 1111.<br>
+A representação estabelecida em função da limitação de bits é explicitada pelos números ao redor de um círculo, 
+e não ao longo de um eixo infinito, como na matemática convencional.<br>
+Para a operação de adição de dois números a e b, basta encontrar a representação de a no círculo e avançar b 
+posições no sentido horário. Para efetuar a subtração a-b, basta recuar b posições a partir de a, no sentido anti-horário.<br>
+<img  src="../Sistemas/imagem/atitmeticos12.jpg" alt=" Circuitos Aritmeticos "><br><br>
+Representação binária de números negativos<br>
+Inicialmente, consideram-se positivos os números cujo bit mais significativo (MSB) é 0 e negativos, os números cujo MSB é 1,
+ portanto, dividindo ao meio o conjunto dos números representáveis no círculo em questão.<br>
+Assim, numa formação de um número com 4 bits, têm-se 8 números com representação negativa e 8 números com representação positiva.<br>
+Com esta formação, a capacidade de representação de números vai de –8 até +7.<br>
+Para representar números além destes limites, é necessário adotar registradores maiores, por exemplo, de 8, 16 ou 32 bits.<br>
+<img  src="../Sistemas/imagem/atitmeticos13.jpg" alt=" Circuitos Aritmeticos "><br><br>
+Grande parte dos sistemas digitais usa um único circuito para efetuar subtração e soma.
+Neste circuito, a subtração é efetuada por soma, num processo conhecido como complemento de dois.
+COMPLEMENTO DE UM NÚMERO BINÁRIO
+O complemento de um número binário é obtido trocando-se todos "Øs" por "1s" e todos "1s" por "Øs".
+Exemplo:
+Obter o complemento do binário 1Ø1Ø11
+Solução:
+O complemento é Ø1Ø1ØØ
+COMPLEMENTO DE DOIS DE UM NÚMERO BINÁRIO
+O complemento de dois de um número binário é obtido tomando-se o complemento do número binário e somando-se 1 a este complemento.
+<img  src="../Sistemas/imagem/atitmeticos14.jpg" alt=" Circuitos Aritmeticos "><br><br>
+Exemplo 1:<br>
+Obter o complemento de dois do binário correspondente ao decimal 3, em quatro bits.<br>
+Solução:<br>
+3(10) = ØØ11(2)<br>
+O complemento de 11 é 11ØØ. O complemento de dois de 11ØØ é 11ØØ + 1 = 11Ø1<br>
+Então, o complemento de 2 de 3 é 11Ø1<br>
+Exemplo 2:<br>
+Obter o complemento de dois do binário Ø1.<br>
+Solução:<br>
+O complemento de Ø1 é 1Ø. O complemento de 2 de Ø1 é 1Ø + 1 = 11<br>
+Exemplo 3:<br>
+Calcular o complemento de dois do decimal 24:<br>
+Solução:<br>
+<img  src="../Sistemas/imagem/atitmeticos15.jpg" alt=" Circuitos Aritmeticos "><br><br>
+
+Exemplo 4:<br>
+Efetuar a subtração através da soma 11Ø (Minuendo) - Ø11 (Subtraendo), em 3 bits<br>
+Solução:<br>
+Toma-se o complemento de dois do subtraendo e soma-se este complemento ao minuendo; tem-se então:<br>
+<img  src="../Sistemas/imagem/atitmeticos16.jpg" alt=" Circuitos Aritmeticos "><br><br>
+
+Exemplo 5:<br>
+Efetuar a subtração do decimal 49 menos o decimal 12:<br>
+Solução:<br>
+<img  src="../Sistemas/imagem/atitmeticos17.jpg" alt=" Circuitos Aritmeticos "><br><br>
+
+Para a subtração genérica de um número B menos o número A binário:<br>
+<img  src="../Sistemas/imagem/atitmeticos18.jpg" alt=" Circuitos Aritmeticos "><br><br>
+
+Uma maneira de se ver o circuito seria:<br>
+<img  src="../Sistemas/imagem/atitmeticos19.jpg" alt=" Circuitos Aritmeticos "><br><br>
+
+➤ Circuito Somador-Subtrator<br>
+<img  src="../Sistemas/imagem/atitmeticos20.jpg" alt=" Circuitos Aritmeticos "><br><br>
+
+Funcionamento:<br>
+Quando a entrada de seleção estiver em Ø, a operação executada é a SOMA dos números A = A3 A2 A1 AØ e B = B3 B2 B1 BØ .<br>
+Isto porque com a entrada de seleção em Ø, obtém-se a saída dos "OU EXCLUSIVOS" como ilustra a figura abaixo.<br>
+Por outro lado, quando a entrada de seleção estiver em 1, obtém-se a saída dos "OU EXCLUSIVOS" como ilustra a figura, isto é, invertendo cada bit de entrada da palavra B.<br>
+<img  src="../Sistemas/imagem/atitmeticos21.jpg" alt=" Circuitos Aritmeticos "><br><br>
+
+Então, o circuito somador irá efetuar a soma de A3 A2 A1 AØ com INV(B3) INV(B2) INV(B1) INV(BØ) = C1(B) e 1, sendo que o 1 entra no carry menos significativo.<br>
+Isto é:<br>
+<img  src="../Sistemas/imagem/atitmeticos22.jpg" alt=" Circuitos Aritmeticos "><br><br>
+
+➤ Multiplicação e Divisão Binária<br>
+<img  src="../Sistemas/imagem/atitmeticos23.jpg" alt=" Circuitos Aritmeticos "><br><br>
+Soluções<br>
+<img  src="../Sistemas/imagem/atitmeticos24.jpg" alt=" Circuitos Aritmeticos "><br><br>
+
+<img  src="../Sistemas/imagem/atitmeticos25.jpg" alt=" Circuitos Aritmeticos "><br><br>
+Unidade Lógico-Aritmética (ULA)<br>
+O circuito integrado 74181 é uma ULA de 4 bits, executa 16 operações lógicas e 16 operações aritméticas entre duas palavras de 4 bits.<br>
+As duas palavras A e B devem ser colocadas nas entradas, respectivamente, A3-A2-A1-A0 e B3-B2-B1-B0.<br>
+As entradas S3-S2-S1-S0 selecionam que tipo de operação será executado entre as entradas A e B.<br>
+O resultado da operação é apresentado nas saídas F3-F2-F1-F0.<br>
+A entrada M determina se a saída é uma função aritmética ou lógica das entradas.<br>
+Por sua vez, Cn (carry in) seleciona um dos grupos de 16 operações aritméticas possíveis.<br>
+A saída A=B avisa quando as duas palavras são iguais em magnitude.<br>
+A saída Cn+4 (carry out) corresponde ao carry do último estágio e é usada no cascateamento com outras ULAs.<br>
+A saída G (geração) e P (propagação) são usadas em operações especiais quando os CIs 74181 e 74182 são combinados para aumentar o tempo de processamento.<br>
+<img  src="../Sistemas/imagem/atitmeticos26.jpg" alt=" Circuitos Aritmeticos "><br><br>
+
