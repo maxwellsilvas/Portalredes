@@ -370,7 +370,7 @@ nav > ul > li > a {
   transition: width .05s linear;
   -webkit-transition: width .05s linear;
   z-index: 10;
-  padding-top: 10px;
+  padding-top: 0px;
 }
 
 .main-menu:hover {

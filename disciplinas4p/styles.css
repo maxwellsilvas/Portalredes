@@ -25,15 +25,14 @@ body {
        transform: translate(120px, 50%);
        transform: scale(0.9, 0.9);
        width:100%;
-       
    }
    
    nav{
        position:absolute;
        right: 3cm;
        bottom: 0px;
-       
    }
+   
    nav ul li{
        float: left;
        color: rgba(46, 176, 209, 0.308);
