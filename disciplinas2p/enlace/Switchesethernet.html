@@ -31,4 +31,157 @@
 
 <p class="resumo1"><br>
     <br><br><br><br>
-    <strong>◉ Principais equipamentos das camadas física e de enlace </strong><br><br>
+    <strong>◉ Configurações básicas do switch </strong><br><br>
+
+    Configurando um nome<br>
+Switch>enable<br>
+Switch#configure terminal<br>
+Switch(config)#hostname ti-redes<br>
+ti-redes#<br><br>
+
+Configurando senha enable<br>
+Switch>enable<br>
+Switch#configure terminal<br>
+Switch(config)#enable password ti-redes<br><br>
+
+Configurando senha enable secret<br>
+Router>enable<br>
+Router#configure terminal<br>
+Router(config)#enable secret ti-redes<br><br>
+ 
+Configurando senha da console<br>
+Router>enable<br>
+Router#configure terminal<br>
+Router(config)#line console 0<br>
+Router(config-line)#password ti-redes<br><br>
+
+Configurando acesso telnet para 05 usuários-<br>
+Switch>enable<br>
+Switch#configure terminal<br>
+Switch(config)#line vty 0 4<br>
+Switch(config-line)#login<br>
+Switch(config-line)#password ti-redes<br><br>
+
+Configurando o endereço IP do switch-<br>
+Switch>enable<br>
+Switch#configure terminal<br>
+Switch(config)#interface vlan 1<br>
+Switch(config-if)#ip address 1.0.0.1 255.255.255.0<br>
+Switch(config-if)#no shutdown<br><br>
+
+Configurando o gateway do switch<br>
+Switch>enable<br>
+Switch#configure terminal<br>
+Switch(config)#ip default-gateway 1.0.0.2 <br><br>     
+
+Configurando vlan no switch<br>
+Switch>enable<br>
+Switch#configure terminal<br>
+Switch(config)#vlan 10<br>
+Switch(config-vlan)#name dep-administrativo<br>
+Switch(config-vlan)#exit<br>
+Switch(config)#<br>
+Switch(config)#interface fastEthernet 0/1<br>
+Switch(config-if)#switchport mode access<br>
+Switch(config-if)#switchport access vlan 10<br>
+Switch(config-if)#exit<br>
+Switch(config)#exit<br>
+Switch#sh vlan<br><br>
+ 
+Configurando trunk no switch<br>
+Switch>enable<br>
+Switch#configure terminal<br>
+Switch(config)#interface fastEthernet 0/1<br>
+Switch(config-if)#switchport mode trunk<br><br>
+
+Comandos de verificação e diagnóstico-<br>
+Switch#show ?<br>
+(O comando show ? fornece uma lista dos comandos show disponíveis)<br><br>
+
+Switch#show arp<br>
+(Exibe a tabela ARP do roteador)<br><br>
+
+Switch#sh interfaces<br>
+(Verifica detalhadamente as configurações das interfaces)<br>
+Switch #sh ip interface brief<br>
+(Verifica as configurações das interfaces)<br><br>
+
+Switch#show mac-address-table dynamic<br>
+(Verifica a tabela de endereçamento MAC)<br><br>
+
+Switch#show vlan<br>
+(Exibe as vlans configuradas)<br><br>
+
+Switch #sh running-config<br>
+(Verifica as configirações ativas na RAM)<br><br>
+
+Switch#sh startup-config<br>
+(Verifica as configurações da NVRAM)<br><br>
+
+Switch#sh flash:<br>
+(Verifica os arquivos de sistema operacional da Flash)<br><br>
+
+Switch#copy running-config startup-config
+<br>
+(Salva as configurações ativas na RAM para a NVRAM)<br><br><br><br>
+
+<strong>◉ Como um Switch Monta sua Tabela de Endereços MAC </strong><br><br>
+Um switch deve aprender os endereços MAC dos computadores conectados às suas portas e montar uma tabela de encaminhamento,
+ possibilitando a criação de diversos caminhos virtuais livres de colisão entre esses computadores.<br><br>
+
+Veja a figura a seguir, onde temos os computadores A, B, C e D conectados às portas fast 0/1 até a fast 0/4 respectivamente a um switch.<br><br>
+
+Ao longo do tempo, com a comunicação entre os computadores, o switch aprende através dos endereços MAC de origem enviados pelos 
+computadores, o MAC de cada um deles e vincula esse MAC com a porta que recebeu esse quadro ethernet.<br><br>
+<img  src="../imagem/tabelamac.png" alt=" Tabela MAC "><br><br>
+Na próxima figura temos o quadro ethernet para você relembrar dos campos que o switch utiliza para o aprendizado de endereços 
+(MAC de origem), para o encaminhamento dos quadros (MAC destino) e verificação de erros.<br><br>
+<img  src="../imagem/tabelamac1.png" alt=" Tabela MAC "><br><br>
+Até o momento supomos que o switch já conhecesse todos os MACs conectados às suas portas. Mas o que acontece se o switch não conhecer
+ ainda todos os MACs que estão conectados às suas portas e um computador enviar um quadro para esse MAC desconhecido?<br><br>
+
+Como o switch não sabe para onde enviar ele envia uma cópia desse quadro para todas as suas portas, menos para àquela que enviou o quadro.
+ Assim, com certeza o computador de destino irá receber esse quadro e responder a essa requisição.<br><br>
+
+Quando isso ocorrer o switch irá inserir uma nova entrada em sua tabela de endereços MAC, adicionando em sua tabela uma entrada com o 
+endereço do micro que antes era desconhecido e que agora passa a ser conhecido. Lembre-se que esse processo é chamado de flooding.<br><br>
+
+Acompanhe na figura seguinte uma ilustração do processo de flooding onde o computador A envia um quadro para o computador C, o qual ainda
+ não era conhecido pelo switch.<br><br>
+
+Note que quando o switch recebe esse quadro ele constata que não conhece aquele MAC e envia uma cópia do quadro para todas as portas 
+(flooding), menos para a porta do computador A.<br><br>
+<img  src="../imagem/tabelamac2.png" alt=" Tabela MAC "><br><br>
+Quando o computador C recebe o quadro ele responde e o switch vincula seu MAC de origem com a porta fast 0/3.<br><br>
+
+Apesar dos computadores B e D receberem o mesmo quadro eles comparam internamente o MAC de destino com seus MACs gravados na
+ placa de rede e verificam que aquele quadro não é para eles, portanto o quadro é descartado por B e D.<br><br>
+
+
+<img  src="../imagem/tabelamac3.png" alt=" Tabela MAC "><br><br>
+Não confunda o flooding com o ARP, o ARP é uma ferramenta de camada 3 e utilizada para descobrir um MAC que está vinculado a um endereço
+ IP que é conhecido. Aqui no flooding não entramos na camada 3, pois o switch faz somente uma cópia simples do quadro para todas as portas.<br><br>
+
+O flooding pode ser traduzido para o português por algumas bibliografias como “inundação de quadros”.<br><br>
+
+Com isso aprendemos como os switches aprendem endereços MAC e fazem o encaminhamento dos quadros de Unicast, ou seja, comunicação direta
+ entre dois dispositivos.<br><br>
+
+Mas e se um computador enviar um quadro com um endereço de broadcast como destino? Ou seja, com o endereço MAC ffff.ffff.ffff no campo
+ de MAC de destino do quadro ethernet?<br><br>
+
+Lembrem-se que um switch é um dispositivo de camada 2, por isso ele irá encaminhar o broadcast para todas as portas menos para a porta de
+ onde ele recebeu o quadro.<br><br>
+
+Por exemplo, considerando a figura 4 se o micro A envia um broadcast que portas irão receber esse quadro? Serão as portas fast 0/2, fast 0/3
+ e fast 0/4. Portanto o switch consegue segmentar domínios de colisão, porém não segmenta domínios de broadcast.<br><br>
+
+Podemos também dizer que os pacotes com MAC de destino apontando para um endereço de broadcast passam por um processo idêntico ao de flooding,
+ pois o switch inunda todas as portas com esse quadro.<br><br>
+
+O mesmo ocorre com um quadro de Multicast, ou seja, os quadros de comunicações multicast recebem um endereço MAC especial iniciado em 0100.5E
+ (com uma faixa de 0100.5e00.0000 até 0100.5e7f.ffff) e são encaminhados para todas as portas do switch, menos para a porta que enviou o 
+ quadro, assim como o broadcast.<br><br>
+
+Os endereços de broadcast e multicast não são guardados na tabela de endereços MAC do switch, eles sempre são tratados como endereços não
+ conhecidos e sofrem o processo de flooding.<br><br>
