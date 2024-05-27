@@ -1,23 +1,35 @@
-body {
+body, html {
  background-image: url("../imagem/fundo1.png");
  background-size: 15% 15%;
  background-attachment: fixed;
  display: grid;
  height: 100vh;
- margin: 1cm;
+ overflow-x: clip;/*barra de navegação na horizontal*/
+
 }
 
 /*animação do nome*/
 .nome { 
+top: 7%;
+margin: 3%;
 font-family: 'Pandimencional', sans-serif;                                  
-font-size: 100px;
+font-size: 700%;
 line-height: 120%;   
 text-align: center;                                            
  color: rgb(231, 231, 231);
  text-transform: uppercase;
  scroll-behavior: smooth;
- text-shadow: rgba(255, 214, 66, 0.842) -1px -1px 6px, rgba(57, 61, 255, 0.9) 1px 1px 6px;/*brilho na palavra*/
+ text-shadow: rgba(162, 137, 44, 0.842) -1px -1px 6px, rgba(57, 61, 255, 0.9) 1px 1px 6px;/*brilho na palavra*/
 animation: myAnim 1s ease 0s 1 normal forwards;
+}
+
+
+
+.img-redes {
+  left: 0%;
+  top: -100%;
+  position: absolute;
+  filter: blur(3px);
 }
 
 /*animação do nome*/
@@ -94,11 +106,13 @@ table, th {
   }
 /*Cards de disciplinas*/
 .user-card {
-    background-color: rgba(6, 41, 71, 0.283);
+    background-color: rgba(0, 136, 255, 0.031);
     border: 2px solid rgba(88, 152, 189, 0.367);
     padding: 1rem;
     width: 180px;
     text-align: center;
+    backdrop-filter: blur( 1px );
+-webkit-backdrop-filter: blur( 1px );
   }
   
 .user-card:hover {
