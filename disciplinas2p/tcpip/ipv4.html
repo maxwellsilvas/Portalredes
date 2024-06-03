@@ -31,4 +31,74 @@
 
 <p class="resumo1"><br>
     <br><br><br><br>
-    <strong>◉ Evolução das redes ethernet </strong><br><br>
+    <strong>◉ Entendendo o endereçamento IPv4</strong><br><br>
+    O Endereçamento IPv4 é a numeração que representa um dispositivo em uma Rede. De roteadores profissionais da Internet, passando por Redes 
+    Wireless domésticas e Modens 3G, todo dispositivo requer um endereço IP para se conectar uns com os outros.<br><br>
+
+
+Vemos na figura abaixo um exemplo de Equipamentos que estão com endereço IPv4 atribuído para que haja conectividade entres os mesmos.<br><br>
+
+<img  src="../imagem/ipv4.png" alt=" desencapsulamento " width="400"> <br><br><br>
+Repare que cada dispositivo possui seu próprio endereço e usa o mesmo para ser achado e achar outros dispositivos na Rede.<br>
+
+Em ambientes Microsoft, temos contato com essa configuração em “Central de Rede e Compartilhamento”. Lá podemos configurar o Endereçamento 
+Ipv4 mais adequado as nossas necessidades.<br><br>
+
+Vamos as suas principais características que serão trabalhadas ao longo dos posts.<br><br><br>
+
+• Pode ser Representado em binários ou notação Decimal<br><br>
+Quem nunca utilizou o endereço 192.168.1.1? Pois bem, essa sequencia de números representa um tipo de Endereçamento IPv4 muito utilizado 
+em redes locais.<br><br>
+
+Repare que a representação acima está em notação decimal que facilita o entendimento e a administração, porém por detrás dessa representação 
+mais amigável há a sua representação em binários.<br><br>
+
+Decimal = 192.168.1.1<br><br>
+
+Binário = 11000000 10101000 00000001 00000001<br><br>
+
+Teremos um post explicando a conversão de Decimal para binário e de binário para decimal.<br><br><br>
+
+• Composto por 32 bits e separados em 4 Octetos<br><br>
+Na representação abaixo, vemos claramente a quantidade de octetos e sua quantidade máxima de 8 bit<br><br>
+
+<img  src="../imagem/octetos.png" alt=" desencapsulamento " width="400"> <br><br><br>
+
+Dessa forma, temos um número máximo de 32 bits no total. Saber desses detalhes é essencial para o entendimento do cálculo de Sub-Redes
+ que veremos à frente.<br><br><br>
+
+ • Divide-se a quantidade de Redes e Host pela máscara de Rede<br><br>
+O Endereçamento IPv4 é dividido em duas partes. Rede e Host. Essa divisão se dá pela Máscara de Rede utilizada juntamente com o endereço.<br><br>
+
+Seguindo nosso primeiro exemplo, temos:<br><br>
+
+IP = 192.168.1.1<br><br>
+
+Máscara Padrão = 255.255.255.0<br><br>
+
+<img  src="../imagem/Rede_host1.png" alt=" desencapsulamento " width="400"> <br><br><br>
+Repare que a máscara é representada pela sequência de números 255.255.255.0. A Rede são todos os números até o 3º octeto. No quarto e último 
+octeto temos o número zero, que representa aquele octeto que ficará disponível somente para o endereçamento de Hosts.<br><br>
+
+Notamos que a máscara de rede segue a mesma representação do Endereço IP. Ou seja, a notação decimal e a binária.<br><br>
+
+Decimal = 255.255.255.0<br><br>
+
+Binária = 11111111 11111111 11111111 00000000<br><br><br>
+
+• Pode ser dividido em Classes<br><br>
+No início do uso do Endereçamento IPv4, foram feitas separações para o uso desses números com base em um sistema de classes.<br><br>
+
+Cada classe possuía sua própria máscara e a sua quantidade de redes e Host era fixa.<br><br>
+
+Na tabela abaixo temos as principais classes e suas principais referências.<br><br>
+
+<img  src="../imagem/table_ipv4.png" alt=" desencapsulamento " width="400"> <br><br><br>
+Esse sistema foi relativizado e hoje não temos mais o conceito de classes fixas. Avançaremos nessa questão com um post específico.<br><br><br>
+
+• Será substituído pelo IPv6<br><br>
+Devido à explosão de dispositivos conectados à internet, os escopos de endereçamento públicos estão esgotando rapidamente. <br><br>
+Mesmo com uma série de medidas para prolongar a vida do Ipv4, o mesmo já não possui mais fôlego para mais tempo.<br><br>
+
+Dessa forma, um novo tipo de endereçamento já foi projetado e já está sendo utilizado afim de substituir o antigo. Esse assunto ficará como 
+dica de pesquisa já que nosso foco é o tão ainda utilizado Ipv4.<br><br>

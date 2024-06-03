@@ -30,6 +30,7 @@ animation: myAnim 1s ease 0s 1 normal forwards;
   top: -100%;
   position: absolute;
   filter: blur(3px);
+  
 }
 
 /*animação do nome*/
