@@ -31,4 +31,66 @@
 
 <p class="resumo1"><br>
     <br><br><br><br>
-    <strong>◉ Evolução das redes ethernet </strong><br><br>
+    <strong>◉ Camada de Transporte</strong><br><br>
+    
+Esta camada reúne os protocolos que realizam as funções de transporte de dados fim-a-fim, ou seja, 
+considerando apenas a origem e o destino da comunicação, sem se preocupar com os elementos intermediários. 
+A camada de transporte possui dois protocolos que são o UDP (User Datagram Protocol) e TCP (Transmission 
+Control Protocol).<br><br>
+
+O protocolo UDP realiza apenas a multiplexação para que várias aplicações possam acessar o sistema de 
+comunicação de forma coerente.
+<br><br>
+O protocolo TCP realiza, além da multiplexação, uma série de funções para tornar a comunicação entre origem 
+e destino mais confiável. São responsabilidades desse protocolo: o controle de fluxo, o controle de erro, a 
+sequenciação e a multiplexação de mensagens.<br><br>
+
+<strong>◉ Qual a diferença entre TCP e UDP? Entenda o que são esses protocolos!</strong><br><br>
+
+TCP e UDP são protocolos que determinam como os dados são trocados pela Internet. Ambos construídos sobre o protocolo IP, eles compartilham 
+muitas semelhanças, mas a diferença entre TCP e UDP os tornam adequados para finalidades diferentes. Eles são os dois protocolos mais 
+amplamente usados com os quais os usuários da Internet e empresas interagem diariamente.<br><br>
+
+➤ O que é TCP?<br>
+O protocolo de controle de transmissão (TCP) é orientado à conexão, o que significa que, uma vez que a conexão foi estabelecida, os dados 
+podem ser transmitidos em duas direções. Ele tem sistemas integrados para verificar se há erros e garantir que os dados sejam entregues na 
+ordem em que foram enviados, tornando-o o protocolo perfeito para a transferência de informações como imagens estáticas, arquivos de dados 
+e páginas da web.<br><br>
+
+➤ O que é UDP?<br>
+O User Datagram Protocol (UDP) é um protocolo de Internet mais simples e sem conexão, no qual os serviços de verificação e recuperação de 
+erros não são necessários. Com o UDP, não há sobrecarga para abrir, manter ou encerrar uma conexão — os dados são continuamente enviados 
+para o destinatário, quer ele os receba ou não.
+<br><br>
+➤ Como cada um funciona?<br>
+TCP e UDP são protocolos da camada de transporte e são usados de acordo com os requisitos do sistema. Isso fica claro na forma como cada um 
+funciona. Veja!<br><br>
+
+• TCP<br>
+Como dissemos, o TCP é um protocolo orientado à conexão. Isso significa que os dispositivos de comunicação devem estabelecer uma conexão 
+antes de transmitir os dados e devem fechar a conexão após a transmissão dos dados.
+<br><br>
+Quando você solicita uma página da web em seu navegador, seu computador envia pacotes TCP para o endereço do servidor da web, solicitando 
+que ele envie a página da web de volta para você. O servidor da web responde enviando um fluxo de pacotes TCP, que o seu navegador da web 
+une para formar a página da web. Quando você clica em um link, entra, posta um comentário ou faz qualquer outra coisa, seu navegador da web 
+envia pacotes TCP para o servidor e o servidor envia pacotes TCP de volta.
+<br><br>
+O TCP tem tudo a ver com confiabilidade — os pacotes enviados com TCP são rastreados para que nenhum dado seja perdido ou corrompido em 
+trânsito. É por isso que os downloads de arquivos não são corrompidos, mesmo se houver problemas na rede. Claro, se o destinatário estiver 
+offline, seu computador desistirá e você verá uma mensagem de erro dizendo que ele não pode se comunicar com o host remoto.
+<br><br>
+• UDP<br>
+O protocolo UDP funciona de forma semelhante ao TCP, mas elimina todo o material de verificação de erros. Toda a comunicação de ida e volta 
+introduz latência, tornando as coisas mais lentas.
+<br><br>
+Quando um aplicativo usa UDP, os pacotes são enviados apenas para o destinatário. O remetente não espera para ter certeza de que o 
+destinatário recebeu o pacote. Se o destinatário perder alguns pacotes UDP aqui e ali, o remetente não os reenviará. Perder toda essa 
+sobrecarga significa que os dispositivos podem se comunicar mais rapidamente.
+<br><br>
+UDP é usado quando a velocidade é desejável e a correção de erros não é necessária. Por exemplo, ele é frequentemente usado para transmissões 
+ao vivo e jogos online. Digamos que você esteja assistindo a um stream de vídeo ao vivo, que geralmente é transmitido usando UDP em vez de TCP. 
+O servidor apenas envia um fluxo constante de pacotes UDP para os computadores que estão assistindo.
+<br><br>
+Se você perder a conexão por alguns segundos, o vídeo pode congelar ou ficar trêmulo por um momento e, em seguida, pular para o trecho atual 
+da transmissão. Se ocorrer uma pequena perda de pacote, o vídeo ou áudio pode ficar distorcido por um momento, pois o vídeo continua a ser 
+reproduzido sem os dados ausentes.<br><br>

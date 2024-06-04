@@ -31,4 +31,68 @@
 
 <p class="resumo1"><br>
     <br><br><br><br>
-    <strong>◉ Evolução das redes ethernet </strong><br><br>
+    <strong>◉ Camada de Rede</strong><br><br>
+    
+Esta camada realiza a comunicação entre máquinas vizinhas através do protocolo IP. Para identificar cada máquina e a própria rede onde essas 
+estão situadas, é definido um identificador, chamado endereço IP, que é independente de outras formas de endereçamento que possam existir nos 
+níveis inferiores. No caso de existir endereçamento nos níveis inferiores é realizado um mapeamento para possibilitar a conversão de um 
+endereço IP em um endereço deste nível.<br><br>
+
+Dentre os vários protocolos existentes nesta camada, tais como o ICMP e o IGMP, o protocolo IP é o mais importante pois implementa a função 
+mais importante desta camada que é a própria comunicação inter-redes. Para isto ele realiza a função de roteamento que consiste no transporte 
+de mensagens entre redes e na decisão de qual rota uma mensagem deve seguir através da estrutura de rede para chegar ao destino.
+<br><br>
+O protocolo IP utiliza a própria estrutura de rede dos níveis inferiores para entregar uma mensagem destinada a uma máquina que está situada 
+na mesma rede que a máquina origem. Por outro lado, para enviar mensagem para máquinas situadas em redes distintas, ele utiliza a função de 
+roteamento IP. Isto ocorre através do envio da mensagem para uma máquina que executa a função de roteador. Esta, por sua vez, repassa a 
+mensagem para o destino ou a repassa para outros roteadores até chegar no destino.
+<br><br><br>
+<strong>◉ Protocolo ICMP</strong><br><br>
+O Internet Control Message Protocol (ICMP) é um conjunto de regras de comunicação que os dispositivos usam 
+para informar sobre erros de transmissão de dados em uma rede. Em uma troca de mensagens entre o remetente e
+ o destinatário, alguns erros inesperados podem ocorrer. Por exemplo, as mensagens podem ser muito longas ou
+  os pacotes de dados podem chegar fora de ordem o que impede o destinatário de montá-los. Nesses casos, o 
+  destinatário usa o ICMP para informar o remetente com uma mensagem de erro e solicita que a mensagem seja 
+  reenviada.<br><br>
+
+  ➤ Quais são os casos de uso do ICMP?<br>
+O Internet Control Message Protocol (ICMP) é um importante protocolo de camada de rede nas redes de 
+computadores. Ele fornece um mecanismo padronizado para que os dispositivos de rede comuniquem informações 
+vitais, como conectividade e status da rede. Todos os dispositivos conectados à rede, incluindo roteadores 
+e dispositivos do endpoint, podem processar mensagens ICMP. O ICMP foi adaptado para funcionar com IPv4 e IPv6.
+<br><br>
+➤ Relatório de erros<br>
+As mensagens de erro do ICMP relatam erros de rede, como destinos inacessíveis, tempos limite ou problemas 
+de fragmentação. As mensagens são importantes principalmente para o User Datagram Protocol (UDP), que tem um 
+modelo de comunicação sem conexão.<br><br>
+
+O UDP não fornece entrega confiável e ordenada de pacotes. Quando um pacote UDP é enviado, é possível que o 
+pacote seja perdido ou entregue com falhas, como erros de soma. Se isso acontecer, o receptor enviará 
+mensagens de relatório de erros do ICMP de volta ao remetente para notificá-lo sobre o problema.
+
+➤ Diagnóstico<br>
+Você pode usar o ICMP para diagnósticos de redes. Ele é mais comumente usado para os comandos ping e 
+traceroute.<br><br>
+
+O comando ping testa a acessibilidade dos dispositivos de rede enviando pacotes de solicitação de eco ICMP 
+para um dispositivo de destino. Se o dispositivo estiver acessível, ele retornará uma resposta de eco ICMP. 
+Ele verifica de forma confiável a latência da rede e garante que o dispositivo esteja disponível.<br><br>
+
+O comando traceroute rastreia o caminho percorrido pelos pacotes de uma origem até um destino. Para fazer 
+isso, o comando envia mensagens de solicitação de eco e resposta de eco para o destino pretendido.<br><br>
+
+As solicitações de eco contêm um valor de tempo de vida (TTL), que reduz uma unidade de valor a cada vez que 
+o pacote passa por um roteador. Quando um pacote chega a um roteador com um TTL de zero, o roteador envia 
+uma mensagem ICMP de volta à origem.<br><br>
+
+A mensagem contém informações sobre a rota percorrida pelo pacote. O Traceroute revela o caminho exato de um 
+pacote, o que pode fornecer informações sobre a performance da rede.<br><br>
+
+➤ Segurança de rede<br>
+Você pode usar o ICMP para detectar tráfego de rede não autorizado e permitir somente tráfego legítimo em 
+uma rede. Os firewalls usam o ICMP para permitir ou bloquear certos tipos de tráfego. Os administradores de 
+rede também usam ferramentas de monitoramento ICMP para rastrear o status e a conectividade dos dispositivos 
+de rede e detectar dispositivos desconhecidos.<br><br>
+
+Você também pode usá-las para identificar padrões de tráfego incomuns que podem indicar atividades não 
+autorizadas.<br><br>

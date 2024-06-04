@@ -5,6 +5,7 @@ body {
     display: grid;
     height: 100vh;
     margin: 1cm;
+    overflow-x: clip;/*barra de navegação na horizontal*/
    }
       
    header{
