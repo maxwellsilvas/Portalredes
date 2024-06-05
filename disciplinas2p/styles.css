@@ -1,4 +1,4 @@
-body, html {
+body {
     background-image: url("./imagem/fundo1.png");
     background-size: 15% 15%;
     background-attachment: fixed;
@@ -12,9 +12,9 @@ body, html {
        transform: scaleX(1.02);
        width:100%;
        height:15%;
-       background-color:rgba(0, 0, 0, 0);
+       background-color:rgba(0, 0, 0, 0.932);
        top: 0;
-       position: fixed;
+       position:absolute;
        
    }
    .logo{
@@ -26,7 +26,6 @@ body, html {
        transform: translate(120px, 50%);
        transform: scale(0.9, 0.9);
        width:100%;
-       
    }
    
    nav{
@@ -46,8 +45,8 @@ body, html {
        margin-right: 1px;
    }
    
-   nav ul li a{
-       text-decoration: none;
+nav ul li a{
+text-decoration: none;
        color: rgba(205, 214, 255, 0.904);
        padding: 7px 10px;
        filter: drop-shadow(0 0 10px rgb(176, 243, 255));
@@ -66,26 +65,25 @@ body, html {
    transition-property: color, background, filter;
    transition-duration: 0.7s;
    filter: drop-shadow(0 0 40px rgb(31, 221, 255));
-   
    }
 
-   .resumo1, .resumo2, .resumo3, .resumo4, .resumo5, .resumo6, .resumo7, ul li {
-    color: #ffffff;
-    text-align: justify;
-    font-family: 'Abel', sans-serif;
-   }
+.resumo1, .resumo2, .resumo3, .resumo4, .resumo5, .resumo6, .resumo7, ul li {
+   color: #ffffff;
+   text-align: justify;
+   font-family: 'Abel', sans-serif;
+  }
 
 #conteudos {
     display: flex;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
   }
 .user-card {
+    margin: 20px 20px 20px;
     border: 2px solid rgb(10, 82, 124);
     height: 150px;
     width: 150px;
     text-align: center;
   }
-  
 .user-card:hover {
     border: 2px solid rgb(255, 255, 255);
     height: 150px;
@@ -93,7 +91,6 @@ body, html {
     text-align: center;
     filter: drop-shadow(0 0 10px rgb(176, 243, 255));/*brilho na palavra*/
   }
-  
 .user-card .user-name {
     font-weight: bold;
     margin-bottom: 0.6rem;
