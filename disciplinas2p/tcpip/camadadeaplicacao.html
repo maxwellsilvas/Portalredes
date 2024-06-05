@@ -31,4 +31,137 @@
 
 <p class="resumo1"><br>
     <br><br><br><br>
-    <strong>◉ Evolução das redes ethernet </strong><br><br>
+    <strong>◉ Camada de Aplicação </strong><br><br>
+
+A camada de aplicação reúne os protocolos que fornecem serviços de comunicação ao sistema ou ao usuário. 
+Pode-se separar os protocolos de aplicação em protocolos de serviços básicos ou protocolos de serviços para 
+o usuário:<br><br>
+
+Protocolos de serviços básicos, que fornecem serviços para atender as próprias necessidades do sistema de 
+comunicação TCP/IP: DNS, BOOTP, DHCP.<br><br>
+
+Protocolos de serviços para o usuário: FTP, HTTP, Telnet, SMTP, POP3, IMAP, TFTP, NFS, NIS, LPR, LPD, ICQ, 
+RealAudio, Gopher, Archie, Finger, SNMP e outros.<br><br>
+A seguir conheça alguns dos principais protocolos da Camada de aplicação<br><br>
+➤ DHCP<br>
+DHCP é a sigla para Dynamic Host Configuration Protocol (protocolo de configuração de host dinâmico). O DHCP é um protocolo de gerenciamento 
+de rede que foi transformado em padrão em outubro de 1993 e que realiza a atribuição automática de endereços de IP e outros parâmetros de 
+comunicação para dispositivos conectados às redes.<br><br>
+
+Por exemplo: os roteadores geralmente funcionam como servidores DHCP na maioria das redes domésticas. O roteador da sua casa faz a atribuição 
+de endereços de IP para os dispositivos conectados na sua rede. A implementação deste protocolo agiliza vários processos de conectividade e 
+evita erros humanos que podem prejudicar a conexão com a internet.<br><br>
+
+Além de fazer a atribuição de endereços de IP, o protocolo DHCP também fornece outras informações relacionadas, como máscaras de subnet e 
+gateways padrões. Se o DHCP não existisse, os endereços teriam que ser informados manualmente, o que seria menos eficiente, levaria mais 
+tempo e poderia gerar mais erros.<br><br>
+
+➤ TFTP<br>
+O Trivial File Transfer Protocol (TFTP) é um protocolo de transferência de arquivos simples, que permite a transferência de arquivos entre 
+dispositivos em uma rede. Ele é uma versão simplificada do protocolo FTP (File Transfer Protocol), projetado para ser mais leve e fácil de 
+implementar. O TFTP é amplamente utilizado em ambientes de rede para transferir arquivos de configuração, imagens de inicialização e outros 
+tipos de arquivos.<br><br>
+
+O TFTP opera na camada de aplicação do modelo OSI, utilizando o protocolo UDP (User Datagram Protocol) como meio de transporte. 
+Ele não requer autenticação de usuário e não oferece recursos avançados de segurança, tornando-o mais vulnerável a ataques. No entanto, 
+sua simplicidade o torna ideal para transferências rápidas de arquivos em redes locais.<br><br> 
+
+➤ NTP<br>
+NTP significa Network Time Protocol ou Protocolo de Tempo para Redes. É o padrão que permite a sincronização dos relógios dos dispositivos 
+de uma rede como servidores, estações de trabalho, roteadores e outros equipamentos à partir de referências de tempo confiáveis. Além do 
+protocolo de comunicação em si, o NTP define uma série de algoritmos utilizados para consultar os servidores, calcular a diferença de tempo 
+e estimar um erro, escolher as melhores referências e ajustar o relógio local.<br><br>
+
+➤ SMTP<br>
+O protocolo SMTP é o responsável por garantir que os e-mails que você envia diariamente cheguem aos destinatários. O objetivo principal é 
+configurar regras de comunicação entre servidores, já que eles têm uma forma específica de se identificarem e anunciarem que tipo de 
+comunicação estão tentando realizar.<br><br>
+
+Este protocolo de comunicação padrão da internet possui dois componentes, o agente de usuário (o cliente SMTP) e o agente de transferência de 
+correio (o servidor SMTP). A logística é similar a uma agência de Correios. Enquanto o agente do usuário prepara a mensagem, cria o envelope 
+e coloca a mensagem ali, o agente de transferência de correio (MTA) transfere a correspondência, mas pela internet.<br><br>
+
+Alguns sistemas amplamente utilizados hoje em dia, como o Gmail, possuem protocolos próprios de transferência de e-mail, mas ainda usam o 
+SMTP para enviá-los. Por esse motivo, vale a pena entender melhor como funciona o protocolo SMTP e para que ele serve.<br><br>
+
+➤ POP3<br>
+O protocolo POP3 é um protocolo padrão da Internet usado por clientes de software de correio eletrônico local a fim de recuperar mensagens 
+de um servidor de e-mail remoto por meio de uma conexão TCP/IP. <br><br>
+
+Conforme uma frequência preestabelecida, os assinantes que usam o software cliente de e-mail para verificar a caixa de correio no servidor 
+remoto baixam todas as mensagens endereçadas a eles. Uma vez baixadas, elas são excluídas do servidor, embora algumas possam ser copiadas ou 
+salvas nele por certo período.<br><br>
+
+Nas implementações mais simples do POP3, o servidor realmente mantém uma coleção de arquivos de texto ‒ uma a cada conta de e-mail. Chegando 
+uma mensagem, o servidor POP3 simplesmente a anexa ao final do arquivo do destinatário.<br><br>
+
+➤ SSH<br>
+O protocolo SSH (Secure Shell) é uma ferramenta criada no início dos anos 90, por um engenheiro de software finlandês chamado Tatu Ylönen, 
+com o objetivo de prover uma conexão segura para acessar servidores remotamente. Na época, as conexões via Telnet e FTP eram amplamente 
+utilizadas, mas esses protocolos não ofereciam segurança para as informações transmitidas, o que permitia que terceiros interceptassem e 
+“ouvissem” as informações.<br><br>
+
+O SSH foi criado para resolver essa questão de segurança, permitindo a conexão e comunicação entre o cliente e o servidor de forma segura, 
+através da criptografia das informações. Isso significa que todas as informações transmitidas são cifradas, impedindo que qualquer pessoa 
+intercepte e leia essas informações.<br><br>
+
+Desde então, o SSH se tornou uma das ferramentas mais utilizadas para gerenciar servidores remotamente e tem sido amplamente utilizado em 
+vários setores, incluindo tecnologia, governo e negócios. Ele é uma das ferramentas mais confiáveis ​​e seguras para acessar servidores, 
+permitindo uma conexão privada e segura de qualquer lugar do mundo.<br><br>
+
+➤ FTP<br>
+O FTP (ou File Transfer Protocol) foi desenvolvido na década de 1970 pelo estudante de engenharia elétrica Abhay Bhushan. Ele é um tipo de 
+mensageiro, ou seja, ele transporta arquivos entre computadores pela internet.<br><br>
+
+Através do FTP, você pode mandar arquivos para outra máquina ou armazená-los em um servidor FTP. <br><br>
+
+O objetivo é melhorar a segurança da transferência de arquivos. Vale lembar que, naquela época, a internet se tornava mais acessível e o uso 
+de computadores domésticos crescia. Em conclusão, desencadeou um aumento no número de transferências de arquivos entre uma máquina e outra.<br><br>
+
+Como o FTP é um protocolo que realiza a troca de arquivos pela internet, ele é um “paralelo” do Cloud Computing.<br><br>
+
+O protocolo de transferência de arquivos, mesmo inventado há quase 50 anos, é usado até hoje, principalmente por quem administra domínios.<br><br>
+
+➤ HTTP<br>
+o protocolo HTTP “Hypertext Transfer Protocol” descreve um protocolo sem estado com o qual os dados podem ser 
+transmitidos em uma rede IP. A aplicação mais importante é a transferência de páginas da Internet e dados entre um servidor web e um 
+navegador. No entanto, ele não está restrito a sites, sendo usado para aplicativos.<br><br>
+
+Por exemplo, o protocolo de transferência de arquivos WebDAV é baseado no protocolo HTTP. O WebDAV é usado para transferir dados de diretório 
+e arquivos em uma rede IP. Os serviços da Web REST também são baseados no Protocolo de Transferência de Hipertexto. No modelo de camada, o 
+protocolo HTTP é atribuído à camada de aplicação.<br><br>
+
+O HTTP funciona sem criptografia e envia todas as informações em texto não criptografado. Túneis VPN criptografados (Rede Privada Virtual) 
+ou a variante criptografada do protocolo HTTPS podem ser usados ​​para evitar a escuta de conexões. No caso de um site utilizar protocolo HTTPS, 
+o Google Chrome identifica com um cadeado, e assim o visitante de um site pode identificar que os dados são criptografados e que o site é 
+seguro.<br><br>
+
+➤ DNS<br>
+O DNS — do inglês Domain Name System — é uma sigla para sistema de nomes de domínio. Como o nome sugere, é um registro que contém nomes 
+de sites e respectivos endereços IP associados. Essa correlação favorece a transferência de dados entre computadores e permite o acesso à internet.
+<br><br>
+Um entendimento mais simplificado do DNS requer apenas uma olhada na barra de endereços de um navegador. O domínio é o nome do site 
+(rockcontent.com, por exemplo), e o servidor de nomes armazena um conjunto deles.
+<br><br>
+Em suma: DNS nada mais é além do que uma abstração ao nível do usuário, que permite que páginas sejam encontradas na internet. Cada um deles 
+é único para cada site.
+<br><br>
+➤ NFS<br>
+NFS (Network File System) é um protocolo de rede para sistemas de arquivos distribuídos que possibilita aos usuários em uma rede de 
+computadores acessar e manipular pastas e arquivos em qualquer servidor de arquivos como se estivessem armazenados localmente em seus 
+próprios dispositivos.
+<br><br>
+Desenvolvido originalmente pela Sun Microsystems em 1984, o NFS é amplamente utilizado em ambientes Unix/Linux, mas também é compatível com 
+a maioria dos sistemas operacionais conhecidos, incluindo Windows e macOS.
+<br><br>
+Funcionando sobre a camada de aplicação na pilha de protocolos da Internet, o NFS permite que os sistemas de arquivos sejam compartilhados 
+em uma rede LAN (Local Area Network) ou pela Internet, facilitando a colaboração e o compartilhamento de recursos entre múltiplos usuários 
+e sistemas.
+<br><br>
+➤ RPC<br>
+O Remote Procedure Call (Chamada de Procedimento Remoto) é uma tecnologia para a criação de programas distribuídos servidor/cliente que 
+provê um paradigma de comunicação de alto nível no sistema operacional, já presumindo a existência de um protocolo de transporte, como 
+TCP/IP ou UDP, para carregar a mensagem entre os programas comunicantes.
+<br><br>
+Assim, o usuário pode utilizar procedimentos remotos como se fossem chamadas locais, sem precisar se preocupar com possíveis diferenças, 
+tal como a arquitetura, da máquina do processo cliente e do servidor.<br><br>
