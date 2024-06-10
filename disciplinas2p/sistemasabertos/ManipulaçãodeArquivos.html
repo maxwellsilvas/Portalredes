@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes de computadores</title>
+    <link rel="stylesheet" href="../styles.css" />
+    
+</head>
+<body>
+
+    <div>  
+        <header>
+            <div class="logo">
+                <a href="/index.html">
+                    <img  src="../imagem/LOGO.png" alt="Logo do portifólio">
+
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">INÍCIO</a></li>
+                        <li><a href="/index.html">DISCIPLINAS</a></li>
+                        <li><a href="#topo">CONHECIMENTOS</a></li>
+                        <li><a href="#contatos">CONTATOS</a></li>
+                    </ul>
+                </nav> 
+            </header>
+            </div>
+            </div>
+
+<p class="resumo1"><br>
+    <br><br><br><br>
+    <strong>◉ Manipulação de Arquivos</strong><br><br>
+
+
+Um comando Linux é um programa que você executa diretamente na linha de comando (CLI). Isto é, você digita o 
+comando na CLI e, em seguida, a interface processa aquela instrução e realiza o comando solicitado.<br><br>
+
+No Linux, os comandos são executados no Terminal — basta pressionar Enter ao terminar de digitar (ou copiar) 
+o comando desejado. Você pode executar comandos para realizar uma série de tarefas, como instalação de 
+pacotes, gerenciamento de usuários e manipulação de arquivos.
+<br><br>
+As três partes principais de um comando são:<br><br>
+
+• CommandName (nome). É a regra em si que você quer executar.<br>
+• Flag (opção). É um modificador para a operação do comando. Você pode incluí-lo no comando usando um hífen (-) ou dois (–).<br>
+• Argument (parâmetro). Serve para adicionar informações ou contexto ao comando.<br><br>
+Tendo isso em mente, a sintaxe básica de um comando Linux é a seguinte:<br><br>
+
+NomeDoComando [opção/opções] [parâmetro(s)]<br><br>
+Em alguns casos, um comando pode rodar sem a necessidade de opções ou parâmetros, mas a maioria deles exigirá 
+esses elementos para ser executado corretamente. Tenha em mente, também, que os comandos são sensíveis a 
+maiúsculas e minúsculas.<br><br>
+
+Confira abaixo uma lista com alguns comandos mais usados nos sistemas operacionais baseados em Linux para manipulação de arquivos:<br><br>
+
+pwd: encontra o caminho completo do diretório atual.<br>
+cd: permite navegar até determinada pasta.<br>
+ls: lista todos os arquivos e pastas dentro de um diretório.<br>
+cat: lista os conteúdos de um arquivo de texto na saída padrão (sdout).<br>
+cp: copia arquivos do diretório atual para uma pasta diferente.<br>
+mv: pode ser usado para mover ou renomear arquivos.<br>
+mkdir: cria um novo diretório.<br>
+rm: remove arquivos e diretórios.<br>
+sudo: executa um comando como superusuário.<br>
+find: para buscar arquivos em diretórios.<br><br>
+
+1. Comando pwd<br>
+Use o comando pwd para encontrar o caminho para o diretório atual (da pasta) em que você está. O comando vai retornar um caminho completo 
+(cheio), que é basicamente um caminho que começa com uma barra inclinada (/). Um exemplo de um caminho completo é /home/username.<br><br>
+
+O comando pwd usa a seguinte sintaxe:<br><br>
+
+pwd [opção]<br><br>
+
+Ele tem duas opções aceitáveis:<br><br>
+
+• -L ou –logical imprime o conteúdo da variável de ambiente, incluindo links simbólicos.<br>
+• -P ou –physical imprime o caminho real do diretório atual.<br><br><br>
+2. Comando cd<br>
+Para navegar pelos arquivos e diretórios Linux, use o comando cd. Ele requer ou um caminho completo ou o nome de um diretório, dependendo do 
+diretório atual em que você estiver.<br>
+
+Vamos dizer que você esteja em /home/username/Documents e quer ir para Photos, um subdiretório de Documents. Para fazer isso, simplesmente 
+digite cd Photos.<br><br>
+
+Outro cenário em que você quer mudar completamente de diretório, digamos, para /home/username/Movies. Nesse caso, você tem que digitar cd 
+seguido pelo caminho absoluto do diretório.<br><br>
+
+Existem alguns atalhos que você pode usar para navegar mais rapidamente.:<br><br>
+
+• Use cd .. (com dois pontos seguidos) para subir diretório acima<br>
+• Use cd ~[username] para acessar o diretório inicial de outro usuário.<br>
+• Use cd– (com um hífen) para mover para os diretórios anteriores.<br><br><br>
+
+3. Comando ls<br>
+O comando ls é usado para visualizar conteúdos em um diretório. Por padrão, esse comando vai mostrar os conteúdos apenas do diretório atual 
+em que você estiver.<br><br>
+
+Se você quiser ver o conteúdo de outros diretórios, digite ls e, então, o caminho do diretório. Por exemplo, digite ls /home/username/Documents 
+para ver os conteúdos de Documents.<br><br>
+
+Existem variações que você pode usar com o comando Is:<br><br>
+
+• ls -R vai listar todos os arquivos nos subdiretórios.<br>
+• ls -a vai mostrar todos os arquivos ocultos.<br>
+• ls -lh vai listar todos os tamanhos de arquivos em formatos fáceis, como MB, GB ou TB.<br><br><br>
+
+4. Comando cat<br>
+O cat (abreviação para concatenar) é um dos comandos Linux mais usados. Ele é usado para visualizar, criar e relacionar arquivos. <br><br>
+Para executar esse comando, digite cat seguido pelo nome do arquivo e sua extensão. Por exemplo: cat nomedoarquivo.txt.<br><br>
+
+Aqui estão outras maneiras de usar o comando cat:<br><br>
+
+• cat > nomedoarquivo.txt cria um novo arquivo<br>
+• cat nomedoarquivo1.txt nomedoarquivo2.txt > nomedoarquivo3.txt junta dois arquivos (1 e 2) em um novo (3).<br>
+• cat nomedoarquivo.txt exibe o conteúdo do arquivo em ordem reversa.<br><br><br>
+
+5. Comando cp<br>
+Use o comando cp para copiar arquivos ou diretórios e seu conteúdo. Abaixo, listamos alguns exemplos.<br><br>
+
+Para copiar um arquivo do diretório atual para outro, digite cp seguido do nome do arquivo e do diretório de destino. Por exemplo:<br><br>
+
+cp nomedoarquivo.txt /home/username/Documents<br><br>
+
+Para copiar arquivos para um diretório, digite os nomes dos arquivos seguidos do diretório de destino:<br><br>
+
+cp nomedoarquivo1.txt nomedoarquivo2.txt nomedoarquivo3.txt /home/username/Documents<br><br>
+
+Para copiar o conteúdo de um arquivo para um novo arquivo no mesmo diretório, digite cp seguido do arquivo de origem e do arquivo de destino:<br><br>
+
+cp nomedoarquivo1.txt nomedoarquivo2.txt
+<br><br>
+Para copiar um diretório inteiro, passe o sinalizador -R antes de digitar o diretório de origem, seguido pelo diretório de destino:<br><br>
+
+cp -R /home/username/Documents /home/username/Documents_backup<br><br><br>
+
+6. Comando mv<br>
+O uso mais comum do comando mv é mover arquivos, mas ele também pode ser usado para renomear arquivos.<br><br>
+
+Basta digitar mv seguido do nome do arquivo e do diretório de destino. Por exemplo, você deseja mover o arquivo nomedoarquivo.txt para o 
+diretório /home/username/Documents:<br><br>
+
+mv nomedoarquivo.txt /home/username/Documents.<br><br>
+
+Você também pode usar o comando mv para renomear um arquivo:<br><br>
+
+mv nomedoarquivo_antigo.txt nome_novo.txt<br><br><br>
+
+7. Comando mkdir<br>
+Use o comando mkdir para criar um ou vários diretórios de uma só vez e definir permissões para cada um deles. O usuário que executa esse 
+comando deve ter o privilégio de criar uma nova pasta no diretório principal, caso contrário, poderá receber um erro de permissão negada.<br><br>
+
+Aqui está a sintaxe básica:<br><br>
+
+mkdir [opção] nome_do_diretório<br><br>
+
+Por exemplo, você deseja criar um diretório chamado Music:<br><br>
+
+mkdir Music<br><br>
+
+Para criar um novo diretório chamado Songs dentro de Music, use este comando:<br><br>
+
+mkdir Music/Songs<br><br>
+
+O comando mkdir aceita muitas opções, como:<br><br>
+
+• -p ou –parents cria um diretório entre duas pastas existentes. Por exemplo, mkdir -p Music/2020/Songs criará o novo diretório “2020”.<br>
+• -m define as permissões do arquivo. Por exemplo, para criar um diretório com permissões completas de leitura, gravação e execução para todos 
+os usuários, digite mkdir -m777 nome_do_diretório.<br>
+• -v imprime uma mensagem para cada diretório criado.<br><br><br>
+
+8. Comando rmdir<br>
+Para excluir permanentemente um diretório vazio, use o comando rmdir. Lembre-se de que o usuário que executa esse comando deve ter privilégios 
+sudo no diretório pai.<br>
+
+Por exemplo, você deseja remover um subdiretório vazio chamado personal1 e sua pasta principal mydir:<br>
+
+rmdir -p mydir/personal1<br><br><br>
+
+9. Comando rm<br>
+O comando rm é usado para excluir arquivos em um diretório. Certifique-se de que o usuário que executa esse comando tenha permissões de 
+gravação.<br>
+
+Lembre-se do local do diretório, pois isso apagará o(s) arquivo(s) permanentemente e não há como desfazer a ação.<br><br>
+
+Aqui está a sintaxe geral:<br><br>
+
+rm nome_do_arquivo<br><br>
+
+Para remover vários arquivos, digite o seguinte comando:<br><br>
+
+rm nome_do_arquivo1 nome_do_arquivo2 nome_do_arquivo3<br><br>
+
+Aqui estão algumas opções que você pode adicionar:<br><br>
+
+• -i solicita a confirmação do sistema antes de excluir um arquivo.<br>
+• -f permite que o sistema faça a remoção sem confirmação.<br>
+• -r exclui arquivos e diretórios recursivamente.<br><br><br>
+
+10. Comando touch<br>
+O comando touch permite criar um arquivo vazio ou gerar e modificar um registro de data e hora na linha de comando do Linux.<br><br>
+
+Por exemplo, digite o seguinte comando para criar um arquivo HTML chamado Web no diretório Documents:<br><br>
+
+touch /home/username/Documents/Web.html<br><br><br>

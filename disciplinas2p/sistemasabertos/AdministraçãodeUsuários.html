@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes de computadores</title>
+    <link rel="stylesheet" href="../styles.css" />
+    
+</head>
+<body>
+
+    <div>  
+        <header>
+            <div class="logo">
+                <a href="/index.html">
+                    <img  src="../imagem/LOGO.png" alt="Logo do portifólio">
+
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">INÍCIO</a></li>
+                        <li><a href="/index.html">DISCIPLINAS</a></li>
+                        <li><a href="#topo">CONHECIMENTOS</a></li>
+                        <li><a href="#contatos">CONTATOS</a></li>
+                    </ul>
+                </nav> 
+            </header>
+            </div>
+            </div>
+
+<p class="resumo1"><br>
+    <br><br><br><br>
+    <strong>◉ Administração de Usuários</strong><br><br>
+    Exibir todos os usuários existentes na rede
+Comecemos a lista com alguns comandos básicos de user management. Suponhamos que você receba uma oportunidade de auxiliar administradores de 
+redes Linux em uma empresa (um estágio, por exemplo).<br><br>
+
+Uma rede pronta está à sua frente e a qualquer momento alguém pode delegar a você tarefas de gerenciamento, então o primeiro passo, 
+normalmente, é saber quantos e quais são os usuários existentes na rede da empresa.<br><br>
+
+O arquivo que guarda todas as contas disponíveis e respectivas informações de login é o /etc/passwd. Logo, para ter acesso à lista de usuários 
+(e também serviços e programas que utilizam senhas). Vamos testar? No terminal, utilize o comando: sudo cat /etc/passwd.<br><br>
+
+➤ Registrar e deletar usuários<br>
+Seguindo o exemplo do tópico acima, imaginemos que o administrador solicitou a você que registrasse usuários na rede e, também, removesse 
+alguns outros. Nesse caso, vamos começar pela adição de contas.<br><br>
+
+Existem duas maneiras de se adicionar usuários por meio do terminal, que são os comandos useradd e adduser — embora muito similares e fáceis 
+de confundir, este último é mais prático, visto que o useradd é um binário de baixo nível.<br><br>
+
+➤ Comando useradd<br>
+Começando pelo próprio useradd, vejamos que não se trata de algo complicado, muito pelo contrário! Ao digitarmos o comando useradd –help, o 
+terminal retorna todas as opções possíveis para criação de usuário<br><br>
+
+São mais de 20 opções de ação disponíveis no useradd. Podemos criar diferentes tipos de contas (usuário, grupo, sistema…) aplicando algumas 
+configurações (com ou sem diretório /home, diretórios alternativos, data de expiração…) e, ainda, fazer consultas a contas já existentes 
+(visualizar ID, listar grupos e diretórios…).
+<br><br>
+Criar os usuários é muito simples. Basta digitar o comando useradd -m nome_do_usuário. Exemplos:<br><br>
+
+• useradd -m manoel<br><br>
+• useradd -m carlos_silva<br><br>
+
+A opção -m, conforme a tabela acima, cria um diretório /home para o usuário recém-criado. Por isso, sempre que criamos usuários com esse 
+método, um novo diretório é gerado pelo sistema.<br><br>
+
+➤ Registrar senhas<br>
+Para completar o processo é necessário registrar uma senha para cada usuário. Nesse caso, utiliza-se o comando passwd, conforme o exemplo 
+a seguir.<br><br>
+
+• passwd manoel<br><br>
+Assim que executado o comando, o terminal retornará um campo no qual deve ser digitada a senha.<br><br>
+
+➤ Remover usuários<br>
+Para deletar usuários, o comando utilizado é o userdel, acompanhado do nome do usuário. Com isso, tanto o usuário como todos os itens 
+atrelados à conta dele são removidos, também.<br><br>
+
+• userdel -r manoel<br><br>
+A opção -r é usada para remover a conta declarada no fim do comando.<br><br>
+
+➤ Criar grupos e adicionar usuários a eles<br><br>
+Além de criar usuários, o administrador da rede também pode criar grupos para facilitar o gerenciamento quando há grande quantidade de 
+usuário ou alguma segmentação se faz necessária (departamentos, times, divisões etc.), deixando o acesso a arquivos e recursos mais bem 
+organizado.<br><br>
+
+Neste exemplo, vamos criar dois tipos de grupos: o primeiro será composto por usuários com permissões para editar arquivos (denominado 
+“diretores”) e o segundo, por usuários que podem fazer a leitura somente (denominado “operadores”). Criando os dois grupos:<br><br>
+
+• addgroup diretores<br><br>
+
+• addgroup operadores<br><br>
+Como saber se os grupos foram indexados corretamente pelo sistema? Basta digitar o comando less /etc/group e verificar se ambos constam 
+na lista.<br><br>
+
+Agora, vamos supor que Carlos Silva e Manoel sejam, respectivamente, diretor e assistente do departamento financeiro da empresa. 
+Para adicioná-los em seus devidos grupos, digite:<br><br>
+
+• usermod -a -G diretores carlos_silva<br><br>
+
+• usermod -a -G operadores<br><br>
+Pronto! Os usuários foram adicionados aos respectivos grupos e eles já podem ser gerenciados pelo administrador.<br><br>
+
+Criando permissões aos grupos<br><br>
+Simplificando o cenário, suponha-se que o administrador do sistema tenha criado um diretório denominado /Arquivos para armazenar os dados 
+gerados pela equipe. A partir disso, ele começa a atribuir permissões aos grupos em relação ao diretório recém-criado. Exemplo:<br><br>
+
+• setfacl -m g:diretoria:rwx -R /Arquivos<br><br>
+A opção -m tem a função de modificar as permissões atuais de arquivos no diretório. Já a instrução -R nada mais é que a aplicação das novas 
+regras aos subdiretórios. Processo similar é feito para os demais usuários, como o Manoel.<br><br>
+
+• setfacl -m g:operadores:rx -R /Arquivos<br><br>
+Com a configuração acima, o grupo “operadores” conseguirá ler os arquivos guardados no diretório /Arquivos, mas não poderão editá-los de 
+maneira alguma.<br><br>
+
+➤ Atualizar informações de usuário<br>
+O comando usermod é a chave para se fazer alterações em diferentes aspectos de uma conta. A sintaxe do comando é simples: usermod opção 
+username. Ela permite, por exemplo, que se determine expiração de conta, insira usuários a grupos de forma suplementar, mudar diretórios 
+do user etc. Abaixo, alguns exemplos.<br><br>
+
+➤ Configurar data de expiração<br>
+Determinar uma data de expiração de uma conta é interessante para evitar o acumulo de usuáros inativos ou, por exemplo, controlar o acesso 
+de um usuário que venha a usar o servidor temporariamente.<br><br>
+
+Vamos supor que no dia 25 de novembro de 2019 tenha sido criado o usuário Roberto (roberto_E), contratado para estagiar na empresa por 
+seis meses, então o administrador cria a conta de modo que esta seja expirada no fim do vínculo entre as partes. Exemplo:<br><br>
+
+• usermod -e 2020-05-26 roberto_E<br>
+Feito isso, digite chage -l roberto_E para verificar as informações atualizadas da conta. Se as informações correspondem, Roberto terá 
+o login disponível até o fim do último dia de trabalho; já no dia seguinte a conta terá sido expirada.
+<br><br>
+➤ Alterar o local padrão do diretório /home<br>
+Alterar o diretório /home do usuário é muito simples. O ideal é que o processo seja feito em duas etapas; primeiramente, consulta-se o 
+diretório atual e depois, se necessário, configura-se outro local. Exemplo:<br><br>
+
+• grep -E '/home/angela' /etc/passwd<br><br>
+o comando exibe o diretório /home configurado atualmente<br><br>
+
+• usermod -d /var/development/angela<br><br>
+mudamos o diretório /home para o referido caminho<br><br>
+
+➤ Inserir informações em uma conta<br>
+Para fins de organização, é possível acrescentar informações às contas, individualmente, fornecendo outros parâmetros de pesquisa. 
+A seguir, vejamos como vincular o username ao cargo ocupado pelo usuário.<br><br>
+
+• usermod -c "Analista de Testes" laura<br><br>
+Agora, utilize o comando grep para consultar alguns detalhes da conta:<br><br>
+
+grep -E 'laura' /etc/passwd<br><br>
+laura:x:500:500:Analista de Testes:/home/testes/laura:/bin/sh # resultado exibido<br><br>
+
+Num ambiente com muitos funcionários tal medida facilita bastante a identificação dos usuários.<br><br>
+
+➤ Mudar os dados de login<br>
+Diversas situações podem nos levar a mudanças no login, desde a adoção de um padrão para criação de usuários à alteração em função de nova 
+ocupação do usuário, entre outros casos.<br><br>
+
+Vejamos o que fazer, por exemplo, para mudar o username regis para regis_admin:<br><br>
+
+• usermod -l regis_admin regis<br><br>
+Isso fará com que as credenciais sejam modificadas, mas preservando todos os diretórios e outros elementos vinculados à conta desde a 
+sua criação.<br><br>
+
+➤ Trancar e destrancar uma conta<br>
+Trancar contas de usuário é uma medida de segurança consideravelmente útil, pois evita que determinada conta tenha permissões para 
+navegar pelo sistema. Supondo que aconteça um ataque ao servidor por meio de uma credencial que o invasor violou, o bloqueio, por si só, 
+já mitigaria o problema.<br><br>
+
+Para trancar uma conta, use o comando -L:<br><br>
+
+• usermod -L maria<br><br>
+Utilize a opção -U para destrancar:<br><br>
+
+• usermod -U maria<br><br>
+Apenas para memorizar: o comando -L se refere a lock, que significa “trancar” em português; o -U segue a mesma linha, porém para unlock 
+(destrancar).<br><br>
+
+➤ Consultar user logs (registros do usuário)<br>
+Analisar o histórico de atividades do sistema um processo fundamental para estabelecer o controle. Isso porque muitos problemas 
+são compreendidos a partir dos registros de eventos que ocorrem durante a navegação do usuário.<br><br>
+
+A partir dos registros é que são feitas avaliações de brechas de segurança, por exemplo, entre outras atividades forense ou auditorias. 
+O monitoramento frequente ajuda, também, a identificar potenciais vulnerabilidades antes que estas sirvam de brecha para ataques.<br><br>
+
+No diretório /var/log, dependendo da distribuição (no exemplo, estou trabalhando com Ubuntu), você encontra o arquivo auth.log, onde é 
+possível consultar todos os logs do usuário. Para acessá-lo, digite: sudo tail /var/log/auth.log.<br><br>
+
+➤ Localizar arquivos de usuários<br>
+Por meio do comando find, conseguimos listar todos os arquivos pertencentes a um determinado usuário de forma rápida e fácil, podendo, 
+inclusive, criar filtros de busca de acordo com o diretório e o formato do arquivo.<br><br>
+
+Vejamos, abaixo, como encontrar arquivos de texto criados pelo usuário cuja ID é 300:<br><br>
+
+• find /home -uid 300 | tee 300-files.txt<br><br>
+Vale destacar que o mesmo se aplica a grupos. Nesse caso, em vez da ID de usuário (UID) usa-se de grupo (GID).<br><br>
+
+➤ Como obter e gerenciar informações como UID e GID<br>
+Conseguir a ID de usuário ou grupo é muito simples, bastando utilizar o comando id:<br><br>
+
+• id user<br><br>
+
+• uid=1000(user), gid=1000(user), groups=1000(user), 4(adm), 24(cdrom), 27(sudo), 30(dip), 46(plugdev), 118(lpadmin), 127(sambashare)
+Você pode, também, criar um grupo com GID específico, ou seja, escolhendo como ele será identificado. Exemplo:<br><br>
+
+• groupadd -g 188 group1<br><br>
+Se quiser modificar o GID atual, digite:<br><br>
+
+• groupmod -g 55 group1<br><br>
+Como podemos ver, não há necessidade de gerar informações aleatoriamente, dificultando a memorização de IDs, por exemplo.<br><br>
+
+➤ Transferir permissões de arquivos<br>
+O que fazer quando uma série de arquivos pertecentes a um ex-funcionário precisa ser transferido a outro responsável? O administrador 
+de sistemas utiliza o comando chown para executar as redefinições, transferindo o diretório /home para outro user. Exemplo:<br><br>
+
+• chown -R newuser:flavio /home/marcia<br><br>
+A prática vem a calhar, também, quando um novo colaborador é contratado para assumir a ocupação de alguém que foi desligado da empresa. 
+O recém-contratado herda os arquivos do antigo funcionário, não as suas credenciais.<br><br><br><br>

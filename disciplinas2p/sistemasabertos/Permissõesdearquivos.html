@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes de computadores</title>
+    <link rel="stylesheet" href="../styles.css" />
+    
+</head>
+<body>
+
+    <div>  
+        <header>
+            <div class="logo">
+                <a href="/index.html">
+                    <img  src="../imagem/LOGO.png" alt="Logo do portifólio">
+
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">INÍCIO</a></li>
+                        <li><a href="/index.html">DISCIPLINAS</a></li>
+                        <li><a href="#topo">CONHECIMENTOS</a></li>
+                        <li><a href="#contatos">CONTATOS</a></li>
+                    </ul>
+                </nav> 
+            </header>
+            </div>
+            </div>
+
+<p class="resumo1"><br>
+    <br><br><br><br>
+    <strong>◉ Permissões de arquivos</strong><br><br>
+    Quando falamos de permissões em sistema Linux (ou MacOs) logo entendemos que vamos usar os comandos chmod e chown em algum terminal. 
+    Mas entender como eles funcionam de fato é algo que geralmente é postergado por anos.<br><br>
+
+Se você quiser entender como eles funcionam, para que servem, e aprender isso de um jeito simples, invista 10 minutos na leitura e compreensão 
+deste artigo.<br><br>
+
+Erros de permissão, sejam eles no Magento, no Symfony, no WordPress ficarão mais fáceis de serem compreendidos, e você entenderá que chmod 777 
+não é a solução correta para seus problemas.<br><br>
+
+➤ Grupo e dono: todo arquivo tem um<br>
+Quando um arquivo é criado ele possui um dono (quem o criou) e um grupo. Todo usuário pertence a um ou mais grupos.<br><br>
+
+Digitando whoami (quemsoueu) você descobrirá o nome do usuário atual, e digitando groups descobrirá a quais grupos este usuário pertence.<br><br><br>
+
+$ whoami<br>
+magenteiro<br><br>
+$ groups<br>
+magenteiro www-data<br><br>
+
+O comando ls -la listará todos os arquivos do diretório atual, trazendo informações sobre o nome do dono, o grupo que cada arquivo e diretório 
+pertencem e quais permissões cada um deles tem sobre cada item.<br><br>
+<img  src="../imagem/ls-la.png" alt=" permissoes " width="700"> <br><br><br>
+
+• Primeira coluna (drwxr-xr-x)<br>
+Traz informações sobre as permissões que o dono, o grupo e outros usuários tem sobre o item. A primeira letra indica se o item é um diretório 
+(d) ou um arquivo (-).<br>
+
+• Terceira coluna (magenteiro, root, etc)
+Nome do usuário que é o dono do arquivo ou diretório<br>
+• Quarta coluna (www-data, root, etc)
+Nome do grupo ao qual o arquivo ou diretório pertence<br><br><br>
+
+
+➤ Entendendo as permissões rwx<br>
+
+As permissões de um arquivo são divididas na seguinte ordem:<br><br>
+
+<img  src="../imagem/chmod-permissoes-2-500x150.png" alt=" permissões " width="600"> <br><br><br>
+
+Cada letra representa uma permissão que cada um tem sobre o arquivo ou pasta.
+
+As letras geralmente são:<br>
+
+• r – read (leitura)<br>
+• w – write (escrita)<br>
+• x – execute (execução)<br><br>
+E há ainda a letra s que é menos utilizada. Ela representa permissão de ajuste de user id (setuid). Esta é uma permissão especial que permite 
+que qualquer usuário execute o arquivo como se fosse o dono. Em outras palavras, supondo que o dono do arquivo seja o root, qualquer usuário 
+poderia executá-lo com o comando sudo.<br><br>
+
+No exemplo da imagem acima, o dono do arquivo possui permissão para ler (r) e escrever/modificar(w) o arquivo. Usuários que estiverem no 
+mesmo grupo que este arquivo pertence poderão apenas ler(r) o arquivo. Enquanto outros usuários, mesmo que não sejam o dono, nem façam parte 
+deste grupo, poderão apenas ler (r) o arquivo.<br><br>
+
+➤ Entendendo os erros de permissão<br>
+Quando nosso servidor web (apache ou nginx por exemplo) serve uma aplicação (PHP por exemplo), ele faz isso usando um usuário que está 
+inserido em um ou mais grupos. Sendo assim, se este usuário não tiver permissão de leitura nos arquivos da nossa aplicação, certamente teremos 
+erros de permissão.<br><br>
+
+Permissão de escrita também é necessária quando nossa aplicação tenta escrever arquivos de sessão, gerar arquivos de cache, ou mesmo quando 
+fazemos upload de um arquivo e o mesmo tenta ser salvo em determinada pasta que nosso servidor web não possui a permissão necessária.<br><br>
+
+➤ Alterando as permissões (um jeito simples de entender)<br>
+O comando chmod é o responsável por alterar as permissões de um arquivo ou pasta. Geralmente este comando é seguido de uma sequência de 3 
+números (ex: chmod 754 arquivo.txt).<br><br>
+
+No entanto, existe uma forma um pouco mais fácil de utilizá-lo e que facilita bastante a nossa vida.<br><br>
+
+chmod [tipo][operador][permissão] arquivo<br><br>
+
+Onde tipo pode ser:<br><br>
+
+• u: dono do arquivo (user who owns it)<br>
+• g: grupo do arquivo (group)<br>
+• o: outros (others)<br>
+• a: todos os acima (all)<br><br>
+Os operadores podem ser:<br><br>
+
+• +: o sinal de mais adicionará as permissões a seguir<br>
+• -: o sinal de menos removerá as permissões a seguir<br><br>
+E a permissão, pode ser a combinação de uma ou mais das letras que já vimos acima.<br><br>
+
+• r: para leitura (read)<br>
+• w: para escrita (write)<br>
+• x: para execução (execute)<br><br>
+Exemplos:<br><br>
+
+• chmod u+rwx arquivo.txt<br>
+Adiciona permissão de leitura, escrita e execução para o dono do arquivo<br>
+• chmod g-w arquivo.txt<br>
+Remove permissão de escrita para pessoas inseridas no grupo ao qual o arquivo pertence<br>
+• chmod a+r arquivo.txt<br>
+Dá permissão de leitura para todo mundo<br>
+• chmod u+x,g-w,o+r arquivo.txt<br>
+Acrescenta permissão de execução para o dono, remove permissão de escrita para o grupo, e adiciona permissão de leitura para outros.<br>
+• chmod -R u+rw diretório<br>
+Dá permissão de leitura e escrita para o dono em todos os arquivos e diretórios dentro de uma pasta recursivamente.<br>
+• chmod o-rwx *.sql<br>
+Remove todas as permissões de que não é o dono nem faz parte do grupo, em todos os arquivos do diretório atual com extensão .sql.<br><br>
+
+➤ Alterando o dono e o grupo<br>
+Por fim, temos o comando chown (change owner) que nos permite alterar o usuário e/ou grupo de um arquivo ou pasta.<br><br>
+
+• chown magenteiro:www-data arquivo.txt<br>
+O dono passa a ser “magenteiro” e o grupo “www-data”<br>
+• chown :www-data arquivo.txt<br>
+O grupo passa a ser “www-data” e o dono permanece o mesmo<br>
+• chown magenteiro arquivo.txt<br>
+O dono passa a ser “magenteiro” e o grupo permanece o mesmo<br>
+• chown -R :www-data diretorio<br>
+Altera o grupo de um diretório e todos seus arquivos e subpastas recursivamente.<br><br><br>

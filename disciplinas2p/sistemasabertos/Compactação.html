@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes de computadores</title>
+    <link rel="stylesheet" href="../styles.css" />
+    
+</head>
+<body>
+
+    <div>  
+        <header>
+            <div class="logo">
+                <a href="/index.html">
+                    <img  src="../imagem/LOGO.png" alt="Logo do portifólio">
+
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">INÍCIO</a></li>
+                        <li><a href="/index.html">DISCIPLINAS</a></li>
+                        <li><a href="#topo">CONHECIMENTOS</a></li>
+                        <li><a href="#contatos">CONTATOS</a></li>
+                    </ul>
+                </nav> 
+            </header>
+            </div>
+            </div>
+
+<p class="resumo1"><br>
+    <br><br><br><br>
+    <strong>◉ compactando e descompactando arquivos com o zip</strong><br><br>
+    Se você precisa lidar com arquivos compactados e não quer depender demais das ferramentas gráficas ou possui acesso apenas à 
+    linha de comando, veja como compactar e descompactar arquivos no Linux via Terminal.<br><br>
+
+    Compactar e descompactar arquivos no Linux não é mais um bicho de sete cabeças. Já existem diversas opções de aplicativos gráficos para 
+    essa tarefa e os principais ambientes desktop, já oferecem opções nativas de compactação/descompactação.<br><br>
+
+    Apesar disso, é importante conhecer o processo a fundo para não depender demais das ferramentas gráficas, e quando for necessário, 
+    usar o terminal para compactar e descompactar arquivos no Linux.<br><br><br>
+
+Embora a compactação e a descompactação sejam uma coisa relativamente simples, neste artigo, você verá como compactar e descompactar 
+arquivos da sua distribuição Linux favorita, usando comandos no terminal.<br><br>
+
+➤ Como compactar e descompactar arquivos no Linux via Terminal<br>
+Para compressão e descompressão, vamos usar dois pacotes fundamentais, já que eles são provavelmente os formatos mais exigidos e com os 
+quais nos deparamos mais frequentemente quando estamos trabalhando em sistemas semelhantes ao Unix. Estou me referindo ao gzip e bzip2.<br><br>
+
+➤ Como descompactar e compactar arquivos no Linux via Terminal usando o Gzip<br>
+
+Para compactar com gzip, o formato que vamos usar é o Lempel-Zi (LZ77), e não o ZIP como tal, porque o nome pode causar confusão. O nome 
+gzip vem do GNU ZIP, e foi criado para ser um substituto para o formato ZIP, mas não é o mesmo. É preciso deixar isso bem claro.<br><br>
+
+Ciente disso, para compactar um arquivo, use o gzip assim:<br><br>
+
+• gzip document.txt<br><br>
+Isso gera um arquivo com o mesmo nome do original, só que com a extensão .gz.<br><br>
+
+O resultado do exemplo anterior seria um arquivo com o nome document.txt.gz.<br><br>
+
+Caso você queira modificar o nome de saída para um nome específico, use assim:<br><br>
+
+• gzip -c document.txt> new_name.gz<br><br>
+Para descomprimir um arquivo que já está comprimido, é igualmente simples, embora possamos usar dois comandos diferentes com o mesmo efeito:<br><br>
+
+• gzip -d document.gz<br><br>
+• gunzip documento.gz<br><br>
+E coo resultado de qualquer um dos dois comandos, você irá obter o arquivo descompactado sem extensão .gz.<br><br>
+
+➤ Como compactar e descompactar arquivos no Linux via Terminal usando o bzip2<br>
+
+Quanto ao bzip2, ele é semelhante ao programa anterior, mas com um algoritmo de compressão diferente chamado codificação Burrows-Wheeler 
+and Huffman. A extensão que temos neste caso é .bz2.<br><br>
+
+Para poder compactar um arquivo nesse formato, basta usar:<br><br>
+
+• bzip2 document.txt<br><br>
+Com isso você obtém um document.txt.bz2 compactado. Também é possível mudar o nome da saída com a opção -c:<br><br>
+
+• bzip2 -c document.txt> name.bz2<br><br>
+Para descompressão, use a opção -d:<br><br>
+
+• bzip2 -d documento.bz2<br><br>
+Ou a ferramenta bunzip2:<br><br>
+
+• bunzip2 documento.bz2<br><br>
+
+Complementando<br><br>
+Como os comandos citados acima não cobrem todas as tarefas de descompactação, confira abaixo os comandos mais comuns:<br><br>
+
+Para descompactar um arquivo zip na pasta atual, use:<br><br>
+
+• unzip arquivo.zip<br><br>
+Para descompactar um arquivo zip em outra pasta, use:<br><br>
+
+• unzip arquivo.zip -d /pasta/<br><br>
+Para descompactar uma pasta que está dentro do arquivo zip na pasta atual, use:<br><br>
+
+• unzip arquivo.zip linux64/*<br><br>
+Para descompactar uma pasta que está dentro do arquivo zip em outra pasta, use:<br><br>
+
+• unzip arquivo.zip linux64/* -d /pasta/<br><br>
+Para descompactar um arquivo tar.bz2 na pasta atual, use:<br><br>
+
+• tar -xjvf arquivo.tar.bz2<br><br>
+Para descompactar um arquivo tar.bz2 em outra pasta, use:<br><br>
+
+• tar -xjvf arquivo.tar.bz2 -C /pasta/<br><br>
+Para descompactar um arquivo tar.xz na pasta atual, use:<br><br>
+
+• tar xvf arquivo.tar.xz<br><br>
+Para descompactar um arquivo tar.xz em outra pasta, use:<br><br>
+
+• tar xvf arquivo.tar.xz -C /pasta/<br><br>
+Para descompactar um arquivo tar.gz na pasta atual, use:<br><br>
+
+• tar -vzxf arquivo.tar.gz<br><br>
+Para descompactar um arquivo tar.gz em outra pasta, use:<br><br>
+
+• tar -vzxf arquivo.tar.gz -C /pasta/<br><br><br><br>
