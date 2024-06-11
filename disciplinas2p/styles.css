@@ -45,6 +45,7 @@ body {
        margin-right: 1px;
    }
    
+   kbd {color: rgb(143, 255, 118);}
 nav ul li a{
 text-decoration: none;
        color: rgba(205, 214, 255, 0.904);

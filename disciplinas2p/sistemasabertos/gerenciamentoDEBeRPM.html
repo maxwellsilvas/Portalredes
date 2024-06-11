@@ -29,7 +29,100 @@
             </div>
             </div>
 
-<p class="resumo1"><br>
+<p class="resumo1"><br> 
     <br><br><br><br>
-    <strong>◉ O padrão de hierarquia do sistema de arquivos</strong><br><br>
-    
+    <strong>◉ Gerenciador de pacotes DPKG do Debian e derivados</strong><br><br>
+    O dpkg é o gerenciador de pacotes do Debian e seus derivados como Ubuntu e Linux Mint. Através dele é possível instalar, remover e 
+    construir pacotes. A extensão utilizada pelos pacotes criados e que serão instalados é .deb.<br><br>
+   
+    Sua instalação é relativamente simples, basta digitar o comando <kbd>dpkg -i nome_do_pacote.deb</kbd> e ele fará todo o processo automaticamente. 
+    Mas é preciso observar que o dpkg não fará a atualização e instalação de dependências automaticamente, diferente do APT (Advanced 
+    Packaging Tool).<br><br>
+
+Por isso é importante saber quais são as dependências que o seu pacote precisa para poder ser instalado corretamente. Para verificar as 
+dependências necessárias digite <kbd>dpkg -I nome_do_pacote.deb</kbd> e observe na saída o item Depends.<br><br>
+
+Também existe o cenário em que o usuário não verificou as dependências antes da instalação e depois de rodar o comando <kbd>dpkg -i 
+nome_do_pacote.deb</kbd> irá receber um erro no final do processo, informando que a instalação encontrou problemas por conta das dependências 
+que faltam.<br><br>
+
+Para solucionar (ou pelo menos tentar) o problema das dependências que faltaram durante a instalação, rode o comando <kbd>apt install -f</kbd>. 
+Este comando é a versão resumida do <kbd>apt –fix-broken install.</kbd><br><br>
+
+Exemplos de uso dos comandos:<br><br>
+<kbd>• dpkg -i nome_do_pacote.deb</kbd> – instala o pacote .deb.<br><br>
+
+<kbd>• dpkg -r nome_do_pacote</kbd> – remove o pacote inteiro exceto os arquivos de configuração.<br><br>
+
+<kbd>• dpkg -P nome_do_pacote</kbd> – remove o pacote e apaga todos os arquivos de configuração.<br><br>
+
+<kbd>• dpkg -s nome_do_pacote</kbd> – exibe o status.<br><br>
+
+Para informações mais completas, consulte toda a documentação do DPKG.<br><br><br><br>
+
+
+<strong>◉ Gerenciador de pacotes RPM</strong><br><br>
+
+O rpm (recursivo acrônimo para RPM Package Manager) é um gerenciador de pacotes que pode ser usado para construir, instalar, consultar, 
+verificar, atualizar e desinstalar pacotes de software. Um pacote consiste em um arquivo de arquivos e informações sobre o pacote, 
+incluindo nome, versão e descrição.<br><br>
+Os pacotes RPM possuem o seguinte formato:<br><br><br>
+
+pacote-versão-release.plataforma.rpm<br><br><br>
+
+Por exemplo, gtk+-3.6.0-2.ram1.x86_64.rpm, significa<br><br>
+
+<kbd>• nome do arquivo = gtk+;</kbd><br>
+<kbd>• versão = 3.6.0;</kbd><br>
+<kbd>• release = 2;</kbd><br>
+<kbd>• plataforma = x86_64.</kbd><br><br>
+
+O termo “ram1” indica que o pacote foi desenvolvido para a distribuição Linux Ramone.<br><br><br>
+
+➤ Algumas opções do comando<br><br>
+
+Modo de Consulta<br>
+<kbd></kbd>rpm -q [opções]</kbd><br><br>
+
+Exemplos:<br><br>
+
+• <kbd>-q aplicativo </kbd>: exibe a versão do pacote que forneceu o aplicativo especificado.<br>
+• <kbd>-qa </kbd>: exibe a versão de todos os pacotes instalados.<br>
+• <kbd>-qf arquivo</kbd> : consulta o pacote que contém o arquivo especificado.<br>
+• <kbd>-qi pacote</kbd> : exibe as informações sobre o pacote, incluindo nome, versão e descrição.<br>
+• <kbd>-ql pacote </kbd>: exibe a lista dos arquivos do pacote.<br>
+• <kbd>-qlc pacote </kbd>: exibe a lista apenas dos arquivos de configuração do pacote.<br>
+• <kbd>-qld pacote</kbd> : exibe a lista apenas dos arquivos de documentação do pacote.<br>
+• <kbd>-qR pacote</kbd> : exibe a lista dos pacotes dos quais o pacote especificado depende.<br>
+• <kbd>-qs pacote</kbd> : exibe o estado de cada arquivo do pacote (normal, instalado ou substituído).<br><br>
+Modo de Verificação<br><br>
+<kbd>rpm -V|–verify [opções]</kbd><br><br><br>
+
+Exemplos:<br><br>
+
+<kbd>• -V pacote </kbd>: verifica pacote.<br>
+<kbd>• -Va </kbd>: verifica todos os pacote instalados.<br>
+<kbd>• -Vf arquivo </kbd>: verifica o pacote que possui o arquivo especificado.<br>
+<kbd>• -Vp pacote</kbd> : verifica o pacote instalado e o arquivo de pacote RPM.<br><br>
+Outras opções<br><br>
+<kbd>• -i pacote</kbd> : instala pacote.<br>
+<kbd>• -e pacote </kbd>: desinstala pacote.<br>
+<kbd>• -F pacote </kbd>: atualiza pacote já instalado (compara as versões).<br>
+<kbd>• –version </kbd>: informa a versão do aplicativo.<br>
+<kbd>• -v </kbd>: exibe informações mais detalhadas das operações sendo realizadas.<br>
+<kbd>• -vh</kbd> : exibe o caractere # à medida em que o arquivo é desempacotado e verifica dependências.<br>
+<kbd>• -U pacote </kbd>: substituir pacote (desinstalar e instalar novamente).<br><br><br>
+
+➤ Exemplos<br><br>
+Para instalar e verificar o pacote que contém o compilador gcc, digite
+<kbd>rpm -ivh gcc-4.8.0-0.8.fc19.x86_64.rpm</kbd><br><br>
+
+A instalação acima não será feita caso o pacote seja dependente de outro(s) pacote(s). Neste caso, o sistema especifica o nome do 
+pacote que está faltando, e você deve instalar o pacote citado antes de tentar instalar o gcc novamente.
+<br><br>
+Para desinstalar o compilador gcc, basta digitar<br><br>
+<kbd>rpm -e gcc-4.8.0-0.8.fc19.x86_64.rpm</kbd><br><br><br>
+
+➤ Observações<br><br>
+A distribuição Ubuntu tem na sua interface gráfica a Central de Programas do Ubuntu que permite instalar e remover pacotes.
+Para instalar pacotes no Linux pode-se também usar apt-get,  aptitude, dpkg, yum ou snap.<br><br><br><br>

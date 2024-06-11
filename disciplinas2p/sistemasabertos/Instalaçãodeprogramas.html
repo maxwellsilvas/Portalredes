@@ -31,4 +31,51 @@
 
 <p class="resumo1"><br>
     <br><br><br><br>
-    <strong>◉ O padrão de hierarquia do sistema de arquivos</strong><br><br>
+    <strong>◉ COMO INSTALAR PROGRAMAS PELO CÓDIGO FONTE NO GNU/LINUX</strong><br><br>
+    Você deseja instalar algum programa no GitHub, por exemplo, mas o arquivo não é distribuído em formatos mais convencionais, como 
+    .deb e .rpm, e sim em tar.gz, e é a sua única opção. O que fazer?<br><br>
+
+    Até aqui, procuramos entender o que leva a isso; agora, vamos deixar de encarar o tar.gz como problema, pois aprenderemos a 
+    instalar pacotes em qualquer distribuição baseada em Linux.<br><br>
+
+Como você já deve ter notado, existe uma série de variantes do tar, como tar.xz e tar.bz2. Não explicaremos a diferença entre elas aqui,
+ porém, quanto da instalação e de outros procedimentos próprios das variantes, digite o comando man tar no seu terminal.<br><br><br>
+
+ ➤ Extração de tar.gz<br><br>
+Voltando ao “suposto” programa que você baixou do GitHub, chamado software.ver_7.0.tar.gz, e que se encontra no diretório Downloads.<br><br>
+
+Abra o terminal e acesse o diretório em questão e descompacte o arquivo tar.gz usando o comando tar com a flag -zxvf. Só elucidando:<br><br>
+
+<kbd>z</kbd> = filtra o arquivo por meio do gzip;<br><br>
+<kbd>x</kbd> = extrai itens do arquivo;<br><br>
+<kbd>v</kbd> = verbose;<br><br>
+<kbd>f </kbd></kbd>= cria arquivo com o nome especificado.<br><br><br>
+Exemplo de uso do comando:<br><br>
+
+<kbd>cd Downloads<br><br></kbd>
+
+<kbd>tar -zxvf software.ver_7.0.tar.gz</kbd><br><br>
+Agora há uma pasta no diretório Downloads com o mesmo nome do arquivo tar.gz, correto? Você pode movê-la usando o comando sudo mv 
+software.ver_7.0/ /opt/ (recomenda-se o diretório opt porque ele é acessível a todos os usuários) ou continuar a partir do diretório atual, 
+mesmo.<br><br>
+
+➤ Instalando do arquivo tar.gz descompactado<br><br>
+Explorando o novo diretório, busque por um arquivo que cujo nome é INSTALL, INSTALL.txt ou README (ou algo similar). 
+No terminal, basta usar o comando ls e uma lista de objetos será exibida. Supondo-se que encontre o arquivo INSTALL, 
+abra-o com o xdg-open:<br><br>
+
+<kbd>xdg-open INSTALL<br><br></kbd>
+
+O arquivo em si tem as instruções para prosseguir com o processo de instalação, que normalmente são três:<br><br>
+
+<kbd>./configure<br><br></kbd>
+
+<kbd>make<br><br></kbd>
+
+<kbd>sudo make install<br><br></kbd>
+Quando há dependências necessárias, a primeira etapa, configure, retorna uma lista com as dependências que estão faltando. 
+No caso, temos como alternativa substituir “make install” por “checkinstall”.    <br><br>  <br> 
+
+➤ O procedimento não funcionou?<br>
+Como em qualquer outros procedimento de instalação, o processo acima é suscetível a falhas e elas são bem comuns. Por isso, 
+a leitura do arquivo INSTALL (ou README) é importante, pois é bem provável que alguma instrução alternativa a ser usada mediante falhas.<br><br><br>
