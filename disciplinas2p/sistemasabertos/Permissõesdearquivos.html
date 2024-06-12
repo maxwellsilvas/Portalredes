@@ -38,30 +38,30 @@
 Se você quiser entender como eles funcionam, para que servem, e aprender isso de um jeito simples, invista 10 minutos na leitura e compreensão 
 deste artigo.<br><br>
 
-Erros de permissão, sejam eles no Magento, no Symfony, no WordPress ficarão mais fáceis de serem compreendidos, e você entenderá que chmod 777 
+Erros de permissão, sejam eles no Magento, no Symfony, no WordPress ficarão mais fáceis de serem compreendidos, e você entenderá que <kbd>chmod 777</kbd> 
 não é a solução correta para seus problemas.<br><br>
 
 ➤ Grupo e dono: todo arquivo tem um<br>
 Quando um arquivo é criado ele possui um dono (quem o criou) e um grupo. Todo usuário pertence a um ou mais grupos.<br><br>
 
-Digitando whoami (quemsoueu) você descobrirá o nome do usuário atual, e digitando groups descobrirá a quais grupos este usuário pertence.<br><br><br>
+Digitando <kbd>whoami </kbd>(quemsoueu) você descobrirá o nome do usuário atual, e digitando groups descobrirá a quais grupos este usuário pertence.<br><br>
 
-$ whoami<br>
+<kbd>whoami<br></kbd>
 magenteiro<br><br>
-$ groups<br>
+<kbd> groups<br></kbd>
 magenteiro www-data<br><br>
 
-O comando ls -la listará todos os arquivos do diretório atual, trazendo informações sobre o nome do dono, o grupo que cada arquivo e diretório 
+O comando <kbd>ls -la</kbd> listará todos os arquivos do diretório atual, trazendo informações sobre o nome do dono, o grupo que cada arquivo e diretório 
 pertencem e quais permissões cada um deles tem sobre cada item.<br><br>
 <img  src="../imagem/ls-la.png" alt=" permissoes " width="700"> <br><br><br>
 
-• Primeira coluna (drwxr-xr-x)<br>
+• Primeira coluna <kbd>(drwxr-xr-x)</kbd><br>
 Traz informações sobre as permissões que o dono, o grupo e outros usuários tem sobre o item. A primeira letra indica se o item é um diretório 
 (d) ou um arquivo (-).<br>
 
-• Terceira coluna (magenteiro, root, etc)
+• Terceira coluna <kbd>(magenteiro, root, etc)</kbd>
 Nome do usuário que é o dono do arquivo ou diretório<br>
-• Quarta coluna (www-data, root, etc)
+• Quarta coluna <kbd>(www-data, root, etc)</kbd>
 Nome do grupo ao qual o arquivo ou diretório pertence<br><br><br>
 
 
@@ -75,9 +75,10 @@ Cada letra representa uma permissão que cada um tem sobre o arquivo ou pasta.
 
 As letras geralmente são:<br>
 
-• r – read (leitura)<br>
-• w – write (escrita)<br>
-• x – execute (execução)<br><br>
+• <kbd>r </kbd>– read (leitura)<br>
+• <kbd>w</kbd> – write (escrita)<br>
+• <kbd>x </kbd>– execute (execução)<br><br>
+
 E há ainda a letra s que é menos utilizada. Ela representa permissão de ajuste de user id (setuid). Esta é uma permissão especial que permite 
 que qualquer usuário execute o arquivo como se fosse o dono. Em outras palavras, supondo que o dono do arquivo seja o root, qualquer usuário 
 poderia executá-lo com o comando sudo.<br><br>
@@ -96,50 +97,50 @@ fazemos upload de um arquivo e o mesmo tenta ser salvo em determinada pasta que 
 
 ➤ Alterando as permissões (um jeito simples de entender)<br>
 O comando chmod é o responsável por alterar as permissões de um arquivo ou pasta. Geralmente este comando é seguido de uma sequência de 3 
-números (ex: chmod 754 arquivo.txt).<br><br>
+números (ex: <kbd>chmod 754 arquivo.txt</kbd>).<br><br>
 
 No entanto, existe uma forma um pouco mais fácil de utilizá-lo e que facilita bastante a nossa vida.<br><br>
 
-chmod [tipo][operador][permissão] arquivo<br><br>
+<kbd>chmod [tipo][operador][permissão] arquivo</kbd><br><br>
 
 Onde tipo pode ser:<br><br>
 
-• u: dono do arquivo (user who owns it)<br>
-• g: grupo do arquivo (group)<br>
-• o: outros (others)<br>
-• a: todos os acima (all)<br><br>
+• <kbd>u</kbd>: dono do arquivo (user who owns it)<br>
+• <kbd>g</kbd>: grupo do arquivo (group)<br>
+• <kbd>o</kbd>: outros (others)<br>
+• <kbd>a</kbd>: todos os acima (all)<br><br>
 Os operadores podem ser:<br><br>
 
-• +: o sinal de mais adicionará as permissões a seguir<br>
-• -: o sinal de menos removerá as permissões a seguir<br><br>
+• <kbd>+</kbd>: o sinal de mais adicionará as permissões a seguir<br>
+• <kbd>-</kbd>: o sinal de menos removerá as permissões a seguir<br><br>
 E a permissão, pode ser a combinação de uma ou mais das letras que já vimos acima.<br><br>
 
-• r: para leitura (read)<br>
-• w: para escrita (write)<br>
-• x: para execução (execute)<br><br>
+• <kbd>r</kbd>: para leitura (read)<br>
+• <kbd>w</kbd>: para escrita (write)<br>
+• <kbd>x</kbd>: para execução (execute)<br><br>
 Exemplos:<br><br>
 
-• chmod u+rwx arquivo.txt<br>
+• <kbd>chmod u+rwx arquivo.txt</kbd><br>
 Adiciona permissão de leitura, escrita e execução para o dono do arquivo<br>
-• chmod g-w arquivo.txt<br>
+• <kbd>chmod g-w arquivo.txt<br></kbd>
 Remove permissão de escrita para pessoas inseridas no grupo ao qual o arquivo pertence<br>
-• chmod a+r arquivo.txt<br>
+• <kbd>chmod a+r arquivo.txt<br></kbd>
 Dá permissão de leitura para todo mundo<br>
-• chmod u+x,g-w,o+r arquivo.txt<br>
+• <kbd>chmod u+x,g-w,o+r arquivo.txt<br></kbd>
 Acrescenta permissão de execução para o dono, remove permissão de escrita para o grupo, e adiciona permissão de leitura para outros.<br>
-• chmod -R u+rw diretório<br>
+• <kbd>chmod -R u+rw diretório<br></kbd>
 Dá permissão de leitura e escrita para o dono em todos os arquivos e diretórios dentro de uma pasta recursivamente.<br>
-• chmod o-rwx *.sql<br>
+• <kbd>chmod o-rwx *.sql<br></kbd>
 Remove todas as permissões de que não é o dono nem faz parte do grupo, em todos os arquivos do diretório atual com extensão .sql.<br><br>
 
 ➤ Alterando o dono e o grupo<br>
 Por fim, temos o comando chown (change owner) que nos permite alterar o usuário e/ou grupo de um arquivo ou pasta.<br><br>
 
-• chown magenteiro:www-data arquivo.txt<br>
-O dono passa a ser “magenteiro” e o grupo “www-data”<br>
-• chown :www-data arquivo.txt<br>
-O grupo passa a ser “www-data” e o dono permanece o mesmo<br>
-• chown magenteiro arquivo.txt<br>
-O dono passa a ser “magenteiro” e o grupo permanece o mesmo<br>
-• chown -R :www-data diretorio<br>
+• <kbd>chown magenteiro:www-data arquivo.txt<br></kbd>
+O dono passa a ser “magenteiro” e o grupo “www-data”<br><br>
+• <kbd>chown :www-data arquivo.txt<br></kbd>
+O grupo passa a ser “www-data” e o dono permanece o mesmo<br><br>
+• <kbd>chown magenteiro arquivo.txt<br></kbd>
+O dono passa a ser “magenteiro” e o grupo permanece o mesmo<br><br>
+• <kbd>chown -R :www-data diretorio<br></kbd>
 Altera o grupo de um diretório e todos seus arquivos e subpastas recursivamente.<br><br><br>

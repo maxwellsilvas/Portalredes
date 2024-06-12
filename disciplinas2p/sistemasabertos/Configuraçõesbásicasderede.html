@@ -31,4 +31,53 @@
 
 <p class="resumo1"><br>
     <br><br><br><br>
-    <strong>◉ O padrão de hierarquia do sistema de arquivos</strong><br><br>
+    <strong>◉ Configuração de rede linux via terminal</strong><br><br>
+    
+    
+    Digite o comando <kbd>nano /etc/network/interfaces</kbd><br>
+
+    Irá abrir um arquivo de configurações como na imagem, basta apagá-lo e digitá-lo conforme sua necessidade ficando assim<br><br>
+<img  src="../imagem/interface.png" alt="hierarquia de arquivos" width="50%"><br><br>
+
+Deste modo a primeira placa de rede vai receber o endereço Ip via Servidor DHCP e a segunda vai ficar com Ip estático. 
+Caso queira colocar Ip estático nas duas placas de rede basta deixá-lo assim:<br><br>
+
+<img  src="../imagem/interface1.png" alt="hierarquia de arquivos" width="50%"><br><br>
+<kbd>auto eth0 </kbd>- serve para dizer que quando reiniciarmos a rede com o comando<kbd> /etc/init.d/networking restart</kbd>, 
+essa interface também será reiniciada.<br>
+
+<kbd>allow-hotplug</kbd> - reinicia a rede quando o cabo Lan for conectado.<br>
+<kbd>iface eth0 inet static</kbd> - diz que a placa de rede terá um endereço Ip estático.<br>
+<kbd>iface eth0 inet dhcp </kbd>- diz que a placa de rede receberá um endereço Ip via servidor DHCP.<br><br>
+
+Lembrando que eth0 é a primeira placa de rede com fio, eth1 a segunda placa de rede com fio e wlan0 a primeira placa 
+wireless caso tenha alguma instalada.<br><br>
+
+O arquivo abaixo é ditado automaticamente caso você receba o endereço do servidor DNS por DHCP. Para configurar o nosso 
+servidor DNS edite o seguinte arquivo com o comado:<br><br>
+
+<kbd> nano /etc/resolv.conf<br><br></kbd>
+
+Ficando o arquivo desta forma:<br><br>
+<img  src="../imagem/interface2.png" alt="hierarquia de arquivos" width="20%"><br><br>
+
+O arquivo /etc/network/interfaces diz as configurações gerais de cada interface de rede. Já o arquivo /etc/resolv.conf, 
+diz qual será o nosso servidor DNS. Após editar o arquivo com as suas configurações, salve-o e depois feche. No Terminal 
+reinicie as placas de rede para que as novas configurações entrem em vigor usando o comando:<br><br>
+
+<kbd>/etc/init.d/networking restart<br><br></kbd>
+
+Para conferir digite:<kbd> ifconfig</kbd><br><br>
+
+Verifique no terminal se as configurações estão realmente corretas.<br><br>
+
+Quando você troca uma placa de rede o Linux poderá automaticamente renomeá-la para (ethX), 
+fazendo com que sua conexão continue sem funcionar, isso acontece porque o Linux identifica a placa 
+de rede pelo seu endereço MAC (que é único). Para alterar o nome da placa de rede basta alterar o seguinte arquivo com o comando:<br><br>
+
+<kbd>nano /etc/udev/rules.d/70-persistent-net.rules</kbd><br><br>
+
+No comando acima onde está o número 70 pode mudar conforme a distribuição Linux. O seguinte arquivo será aberto, bastando ir em NAME 
+e alterar o nome da placa e em seguida salvar.<br><br>
+
+<img  src="../imagem/interface3.png" alt="hierarquia de arquivos" width="50%"><br><br>
