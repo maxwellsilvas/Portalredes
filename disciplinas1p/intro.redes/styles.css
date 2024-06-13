@@ -7,7 +7,9 @@ body {
     margin: 1cm;
     overflow-x: clip;/*barra de navegação na horizontal*/
    }
-      
+   kbd {color: rgb(143, 255, 118);}
+
+   strong {font-size: 170%; }
    header{
        transform: scaleX(1.02);
        width:100%;

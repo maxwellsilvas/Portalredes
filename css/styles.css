@@ -3,7 +3,7 @@ body, html {
  background-size: 15% 15%;
  background-attachment: fixed;
  display: grid;
- height: 100vh;
+ 
  overflow-x: clip;/*barra de navegação na horizontal*/
 
 }
@@ -77,6 +77,9 @@ animation: myAnim 1s ease 0s 1 normal forwards;
 		transform: translateY(0);
 	}
 }
+kbd {color: rgb(143, 255, 118);}
+
+strong {font-size: 170%; }
 
 h1 { color: rgba(134, 198, 255, 0.459);
 text-align: center;
