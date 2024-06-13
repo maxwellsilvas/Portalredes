@@ -31,4 +31,69 @@
 
 <p class="resumo1"><br>
     <br><br><br><br>
-    <strong>◉ O padrão de hierarquia do sistema de arquivos</strong><br><br>
+    <strong>◉Agendamento de tarefas</strong><br><br>
+    O Cron Job é uma ferramenta de agendamento de tarefas que permite automatizar a execução de comandos em um determinado momento ou 
+    com uma determinada frequência. Com o Cron Job, você pode automatizar tarefas como backups de bancos de dados, envio de relatórios 
+    por e-mail, atualizações de software e muito mais, economizando tempo e esforço no gerenciamento do seu servidor. <br><br>
+
+    ➤ O que é o Cron Job e como ele funciona<br>
+O Cron Job é uma ferramenta de agendamento de tarefas em sistemas Unix e Unix-like. Ele permite agendar a execução de comandos ou scripts 
+em um momento específico ou com uma determinada frequência.<br><br>
+
+O Cron Job é composto por um arquivo de configuração chamado crontab, que contém as informações de agendamento das tarefas, e um daemon 
+que é responsável por executar essas tarefas nos momentos programados.<br><br>
+As tarefas podem ser agendadas em intervalos de minutos, horas, dias, semanas ou meses, e as expressões Cron são utilizadas para especificar 
+o momento exato de execução. As expressões Cron utilizam campos separados por espaços que representam os diferentes elementos da data e hora 
+em que a tarefa deve ser executada, como minutos, horas, dias do mês, mês e dia da semana.<br><br>
+
+Uma vez agendadas, as tarefas são executadas automaticamente pelo Cron Job, sem a necessidade de intervenção do usuário. É possível agendar 
+tarefas para uma hora específica do dia ou para períodos de tempo específicos, o que é útil para executar backups, atualizações de software, 
+envio de e-mails e outras tarefas rotineiras.<br><br>
+
+➤ Como funciona a sintaxe do Cron Job?<br>
+A sintaxe do cron job consiste em cinco campos separados por espaços, que indicam o horário e a frequência de execução da tarefa. 
+Os cinco campos são os seguintes:<br><br>
+<img  src="../imagem/crontab.png" alt="hierarquia de arquivos" width="60%"><br><br>
+Cada campo pode ser preenchido com um valor numérico, um intervalo de valores separados por um hífen, uma lista de valores separados 
+por vírgula, um valor com um intervalo de tempo especificado usando uma barra ou o caractere especial “*” para indicar “qualquer valor”.<br><br>
+
+Por exemplo, se quisermos agendar uma tarefa para ser executada às 9h da manhã todos os dias da semana, a sintaxe seria a seguinte:<br><br>
+<kbd>0 9 * * *<br><br></kbd>
+
+O primeiro campo representa o minuto, então “0” indica que a tarefa será executada no início da hora. O segundo campo representa a hora, 
+então “9” indica que a tarefa será executada às 9h da manhã. Os últimos três campos indicam que a tarefa deve ser executada todos os dias 
+do mês, todos os meses e em todos os dias da semana.<br><br>
+
+Além disso, é possível definir um comando ou script a ser executado, adicionando-o no final da linha de configuração. Por exemplo:<br><br>
+<kbd>0 9 * * * /usr/bin/meu-script.sh<br><br></kbd>
+
+Isso significa que o script <kbd>/usr/bin/meu-script.sh</kbd> será executado às 9h da manhã todos os dias da semana.<br><br>
+
+➤ Como criar um Cron Job via linha de comando<br>
+O comando de linux crontab permite agendar comandos, scripts e programas para serem executados automaticamente em intervalos regulares de 
+tempo. Aqui estão os passos básicos para usar o crontab:<br><br>
+
+1 - Abra um terminal de linha de comando.<br><br>
+2 - Digite o comando crontab -e para editar o arquivo de agendamento do usuário atual. Para saber editar o arquivo, é recomendável conhecer 
+melhor sobre os editores de texto de terminal como o vim. Confira como usar o editor de texto Vim do Linux.<br><br>
+3 - Adicione as linhas que descrevem as tarefas que deseja agendar, usando a sintaxe apropriada.<br><br>
+4 - Salve e feche o arquivo de agendamento.<br><br>
+Aqui está um exemplo de sintaxe para agendar uma tarefa para ser executada a cada hora:<br><br>
+
+<kbd>0 * * * * /usr/bin/comando-a-ser-executado<br><br></kbd>
+
+Nesse exemplo, 0 indica que a tarefa deve ser executada quando o relógio do sistema marca o início da hora (00:00, 01:00, 02:00, etc.). 
+Os asteriscos após o número zero indicam que a tarefa deve ser executada em qualquer dia do mês, qualquer mês do ano, qualquer dia da semana. 
+<kbd>/usr/bin/comando-a-ser-executado</kbd> é o caminho completo para o comando, script ou programa que você deseja executar.<br><br>
+
+Existem várias variações do comando crontab, incluindo:<br><br>
+
+<kbd>crontab -l</kbd>: lista as tarefas agendadas atualmente.<br><br>
+<kbd>crontab -r</kbd>: remove todas as tarefas agendadas do usuário atual.<br><br>
+<kbd>crontab -u <username></kbd>: permite que o usuário atual edite as tarefas agendadas de outro usuário (substitua username pelo nome de usuário 
+    desejado).<br><br>
+    <kbd>crontab -e -u <username></kbd>: permite que o usuário atual edite suas próprias tarefas agendadas ou as tarefas agendadas de outro usuário 
+    (substitua username pelo nome de usuário desejado).<br><br>
+    <kbd>crontab -i</kbd>: solicita confirmação antes de remover todas as tarefas agendadas do usuário atual.<br><br>
+Essas são algumas das variações mais comuns do comando crontab. Consulte o manual do usuário para obter mais informações sobre como usar 
+o crontab em um sistema específico.<br><br>

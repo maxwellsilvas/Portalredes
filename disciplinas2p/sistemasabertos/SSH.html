@@ -31,4 +31,42 @@
 
 <p class="resumo1"><br>
     <br><br><br><br>
-    <strong>◉ O padrão de hierarquia do sistema de arquivos</strong><br><br>
+    <strong>◉ Conectando em um servidor via SSH</strong><br><br>
+
+    O que é SSH?
+Bom, para entendermos melhor o conceito de SSH vale fazermos a separação dos termos Secure e Shell.<br><br>
+
+Secure: representa a segurança na conexão SSH com o servidor que é criptografada, ou seja, qualquer dado interceptado em uma conexão SSH 
+será ilegível e somente o servidor a qual você está conectando terá como descriptografar a mensagem.<br><br>
+
+Shell: basicamente é uma interface de usuário, para acessar os serviços de um sistema operacional. O Shell tem uma biblioteca de comandos 
+e o usuário que tiver conhecimento desses comandos pode fazer várias ações no sistema, desde coisas simples como: criar diretórios, 
+compactar e mover arquivos. Até coisas mais complexas, como: visualizar processos, criar scripts, criar comandos, etc.<br><br><br>
+
+1 - Primeiro, abra o terminal de sua preferência, nesse caso utilizarei o próprio Prompt de Comando que já vem instalado no Windows.<br><br>
+
+2 - Após acessar o terminal, digite o seguinte comando:<br><br>
+<kbd>$ ssh [USUARIO]@[IP-DO-SERVIDOR]<br><br></kbd>
+
+Substitua os termos da seguinte forma:<br><br>
+
+<kbd>[USUARIO]</kbd> – usuário da conta cPanel a ser acessada. Caso você deseje conectar como root, inserir root.<br><br>
+<kbd>[IP-DO-SERVIDOR] </kbd>– IP do servidor, seria algo como <kbd>123.45.67.89</kbd>, caso saiba de um domínio que esteja apontado para o servidor da hospedagem, 
+pode utilizar também o domínio como parâmetro aqui. Ex: <kbd>ssh root@dominio-principal.com.br</kbd><br><br>
+Após preencher com seus dados, dê um enter e se estiver tudo certo, deverá seguir como o exemplo abaixo:<br><br>
+<img  src="../imagem/ssh.png" alt="hierarquia de arquivos" width="60%"><br><br>
+
+3 - Se for sua primeira conexão, o servidor deve retornar uma mensagem semelhante a essa:<br><br>
+
+<kbd>The authenticity of host '162.214.163.227 (162.214.163.227)' can't be established.<br>
+ECDSA key fingerprint is SHA256:0CQ6B6xGGPiFJptvy7aeDazIma9wju5geICStT4GPMs.<br>
+Are you sure you want to continue connecting (yes/no/[fingerprint])?<br><br></kbd>
+
+Digite yes e tecle Enter. Deve aparecer a seguinte mensagem:<br><br>
+
+<kbd>root@162.214.163.227's password:<br><br></kbd>
+
+4 - Insira a senha da conta cPanel que você esta tentando acessar, ou em caso de estar acessando como root, inserir a senha do root. 
+Nesse momento tudo que você digitar não irá gerar nenhum carácter por motivos de segurança. Após inserir a senha tecle Enter.<br><br>
+
+5 - Pronto! Se inseriu tudo corretamente, você terá conseguido se conectar com sucesso ao terminal do servidor.<br><br>

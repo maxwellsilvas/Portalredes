@@ -31,4 +31,185 @@
 
 <p class="resumo1"><br>
     <br><br><br><br>
-    <strong>◉ O padrão de hierarquia do sistema de arquivos</strong><br><br>
+    <strong>◉ Shell script: um guia básico</strong><br><br>
+
+    Shell script (sh) é uma linguagem de script usada em ambiente de linha de comando. Ela permite automatizar comandos de terminal 
+    em sistemas baseados em Unix, como Linux e MacOS.<br><br>
+
+    ➤ Primeiros passos<br>
+Scripts são arquivos de texto que devem ser salvos com a extensão “<kbd>.sh</kbd>“. Por exemplo:<br><br>
+
+<kbd>meu_script_shell.sh</kbd><br><br>
+
+Para executá-lo, o sistema deve ter a permissão de execução. Para isso, acesse o terminal, acesse o diretório em que o script se encontra 
+(use o comando cd) e rode o comando:<br><br>
+
+<kbd>chmod +x meu_script_shell.sh<br><br></kbd>
+
+Para executar o script, no terminal, digite:<br><br>
+
+<kbd>./meu_script_shell.sh<br><br></kbd>
+
+Podemos ainda executar o programa, chamando no terminal:<br><br>
+
+<kbd>sh meu_script_shell.sh</kbd><br><br>
+
+➤ Comandos básicos em Shell Script<br>
+Agora, vamos criar um script básico que apenas exibe uma mensagem na tela. Crie um novo arquivo chamado <kbd>teste.sh</kbd>. Agora adicione as 
+seguintes linhas de código:<br><br>
+
+<img  src="../imagem/script.png" alt="hierarquia de arquivos" width="40%"><br><br>
+
+Ao executá-lo, veremos:<br><br>
+
+
+<img  src="../imagem/script1.png" alt="hierarquia de arquivos" width="40%"><br><br>
+
+O script foi executado com <kbd>./teste.sh</kbd>. Note que essa mensagem foi apagada da tela pelo comando de terminal “clear”.<br><br>
+
+➤ Criando variáveis em Shell Script<br>
+Podemos criar uma variável apenas inserindo um nome e atribuindo um valor com o operador <kbd>=</kbd>. Note que não podemos ter espaços entre 
+o nome da variável, o operador <kbd>=</kbd> e o valor atribuído. Veja:<br><br>
+<img  src="../imagem/script2.png" alt="hierarquia de arquivos" width="40%"><br><br>
+Observe o resultado:<br><br>
+<img  src="../imagem/script3.png" alt="hierarquia de arquivos" width="40%"><br><br>
+Comando executado no terminal. Neste caso, executamos um script chamado <kbd>teste.sh</kbd><br><br>
+
+Note que para chamar as variáveis, precisamos declarar um cifrão <kbd>$</kbd> antes de seu nome. Entretanto, esse cifrão não é necessário na hora de declará-la.<br><br>
+
+➤ Recebendo argumentos<br>
+Podemos receber argumentos enviados na chamada do programa usando as variáveis $1, $2, $3, … $9:<br><br>
+<img  src="../imagem/script4.png" alt="hierarquia de arquivos" width="40%"><br><br>
+<img  src="../imagem/script5.png" alt="hierarquia de arquivos" width="40%"><br><br>
+Neste exemplo, três parâmetros foram passados na chamada do programa.<br><br>
+
+➤ Estruturas condicionais<br>
+Estruturas condicionais podem ser aplicadas usando as estruturas <kbd>if</kbd>, <kbd>elif</kbd> e <kbd>else</kbd>. Veja a sintaxe:<br><br>
+<img  src="../imagem/script6.png" alt="hierarquia de arquivos" width="40%"><br><br>
+Condições são aplicadas entre colchetes <kbd>[ ]</kbd>. Após cada condição, devemos adicionar <kbd>; then</kbd>. Além disso, ao final precisamos adicionar o comando <kbd>fi</kbd>.<br><br>
+
+Note que para avaliarmos uma condição, precisamos primeiro conhecer os operadores relacionais, lógicos ou aritméticos.<br><br>
+
+➤ Operadores relacionais<br>
+Para comparar valores, precisamos utilizar os operadores relacionais. São eles:<br><br>
+<img  src="../imagem/script7.png" alt="shell script" width="40%"><br><br>
+Operadores comparativos em Shell Script.<br><br>
+
+Observe um exemplo com o operador <kbd>-gt</kbd> (greater than/maior que):<br><br>
+<img  src="../imagem/script8.png" alt="shell script" width="40%"><br><br>
+Veja que será exibido:<br><br>
+<img  src="../imagem/script9.png" alt="shell script" width="40%"><br><br>
+Note que poderíamos, fazer isso usando uma única estrutura condicional, usando <kbd>elif</kbd>:<br><br>
+<img  src="../imagem/script10.png" alt="shell script" width="40%"><br><br>
+Podemos ainda adicionar uma condição final, caso nenhuma outra condição seja verdadeira:<br><br>
+<img  src="../imagem/script11.png" alt="shell script" width="40%"><br><br>
+<img  src="../imagem/script12.png" alt="shell script" width="40%"><br><br>
+
+Neste caso, x é igual a y.<br><br>
+➤ Operadores lógicos<br><br>
+Já os osperadores lógicos permitem realizar múltiplas comparações. Eles podem ser:<br><br>
+<img  src="../imagem/script13.png" alt="shell script" width="40%"><br><br>
+
+Observe um exemplo:<br><br>
+<img  src="../imagem/script14.png" alt="shell script" width="40%"><br><br>
+<img  src="../imagem/script15.png" alt="shell scripts" width="40%"><br><br>
+
+➤ Operadores aritméticos<br>
+Operadores aritméticos permitem realizar operações matemáticas em Shell Script. Eles podem ser:<br><br>
+<img  src="../imagem/script16.png" alt="shell script" width="40%"><br><br>
+
+Observe como podemos fazer uma simples soma:<br><br>
+<img  src="../imagem/script17.png" alt="shell script" width="40%"><br><br>
+<img  src="../imagem/script18.png" alt="shell script" width="40%"><br><br>
+
+➤ Estruturas de repetição<br>
+Há duas principais estruturas de repetição: <kbd>for</kbd> e <kbd>while</kbd>.<br><br>
+
+Observe um exemplo usando o comando <kbd>for</kbd>:<br><br>
+<img  src="../imagem/script19.png" alt="shell script" width="40%"><br><br>
+<img  src="../imagem/script20.png" alt="shell script" width="40%"><br><br>
+
+Veja como podemos usar for para pegar todos os argumentos enviados na chamada do script:<br><br>
+<img  src="../imagem/script21.png" alt="hierarquia de arquivos" width="40%"><br><br>
+<img  src="../imagem/script22.png" alt="hierarquia de arquivos" width="40%"><br><br>
+
+Três chamadas distintas do script. Observe os argumentos impressos.<br><br>
+Observe como podemos usar o comando <kbd>while</kbd> para criar um menu de seleção:<br><br>
+<img  src="../imagem/script23.png" alt="hierarquia de arquivos" width="40%"><br><br>
+<img  src="../imagem/script24.png" alt="hierarquia de arquivos" width="40%"><br><br>
+
+➤ Automatizando comandos com Shell Script<br>
+Podemos usar qualquer comando de terminal dentro de um arquivo <kbd>.sh</kbd>. Por isso, podemos utilizar esse tipo 
+de script para automatizar tarefas administrativas ou até mesmo execução múltipla de scripts.<br><br>
+
+➤ Lendo todos os arquivos de um diretório<br>
+Podemos ler todos os arquivos de um diretório usando o comando <kbd>ls</kbd>. Veja:<br><br>
+<img  src="../imagem/script25.png" alt="hierarquia de arquivos" width="40%"><br><br>
+
+Este comando irá listar todo o conteúdo do diretório atual.<br><br>
+
+Agora, vamos fazer algo mais avançado. Vamos concatenar vários comandos em sequência.<br><br>
+<img  src="../imagem/script26.png" alt="hierarquia de arquivos" width="40%"><br><br>
+
+Acima, estamos criando uma pasta chamada teste com o comando <kbd>mkdir</kbd>, depois entramos nessa pasta e escrevemos a palavra <kbd>teste</kbd> 
+que será salva em um arquivo chamado <kbd>exemplo.txt</kbd>. Por fim, executamos o comando <kbd>ls</kbd> para ver se o arquivo realmente foi criado.<br><br>
+
+Note que ao executar o código, você verá apenas isto:<br><br>
+<img  src="../imagem/script28.png" alt="hierarquia de arquivos" width="40%"><br><br>
+
+De fato, o arquivo desejado foi criado. Podemos perceber isso, executando novamente o código (o sistema retornará um erro, dizendo 
+que a pasta já existe).<br><br>
+<img  src="../imagem/script29.png" alt="hierarquia de arquivos" width="40%"><br><br>
+
+➤ Lendo vários arquivos de texto usando shell script<br>
+Agora, vamos criar vários arquivos de texto em um diretório e lê-los usando shell script:<br><br>
+<img  src="../imagem/script30.png" alt="hierarquia de arquivos" width="40%"><br><br>
+
+Note que o operador <kbd>></kbd> joga o resultado impresso na tela para um arquivo.<br><br>
+<img  src="../imagem/script31.png" alt="hierarquia de arquivos" width="40%"><br><br>
+
+Conseguimos detectar os arquivos, mas como podemos fazer para lê-los? Basta usar o comando <kbd>cat</kbd> no lugar de <kbd>echo</kbd>.<br><br>
+<img  src="../imagem/script32.png" alt="hierarquia de arquivos" width="40%"><br><br>
+<img  src="../imagem/script33.png" alt="hierarquia de arquivos" width="40%"><br><br>
+
+Podemos ainda gravá-lo em um único arquivo, usando o operador <kbd>>></kbd>, que joga o resultado da execução para um arquivo (modo incremental).<br><br>
+
+No exemplo a seguir, vamos ler todos os arquivos com cat e gravá-los em um outro arquivo chamado <kbd>“todos_exemplos.txt”</kbd>:<br><br>
+
+<img  src="../imagem/script34.png" alt="hierarquia de arquivos" width="40%"><br><br>
+
+➤ Automatizando a execução de scripts Python<br>
+Com tudo que aprendemos neste artigo, podemos por exemplo, automatizar a execução de múltiplos scripts Python ou de um mesmo 
+script que deve ser executado com diferentes parâmetros.<br><br>
+
+Por exemplo, digamos que você deseja realizar várias análises com arquivos no formato <kbd>txt</kbd>. Você poderia fazer isso com <kbd>.sh</kbd>, 
+mas digamos que um script Python foi feito por um colega seu, e você deseja usar esse código (afinal, você não precisa 
+“reinventar a roda”). O script que seu colega fez é este:<br><br>
+<img  src="../imagem/script35.png" alt="hierarquia de arquivos" width="40%"><br><br>
+
+O código Python acima é bem simples. Ele apenas recebe um argumento com o nome de um arquivo de entrada e faz o processamento dele 
+(neste caso, não há processamento real, apenas uma mensagem na tela de que vamos fazer isso).<br><br>
+
+Como podemos automatizar a leitura de muitos arquivos “.txt”?<br><br>
+
+Podemos fazer isso com um shell script.<br><br>
+<img  src="../imagem/script36.png" alt="hierarquia de arquivos" width="40%"><br><br>
+
+Aqui, lemos todos os arquivos de texto no diretório atual. A seguir, usamos o comando for para ler cada um deles e executar o script 
+Python passando cada arquivo como parâmetro. Veja o resultado:<br><br>
+<img  src="../imagem/script37.png" alt="hierarquia de arquivos" width="40%"><br><br>
+
+➤ Executando comandos em background<br>
+Agora, digamos que os scripts Python que você deseja automatizar sejam bastante pesados. No exemplo acima, a execução será sequencial, 
+logo um dependerá que outro tenha terminado para que possa começar sua execução.<br><br>
+
+Você pode executar múltiplos comandos em background usando o comando <kbd>nohup</kbd> e o operador <kbd>&</kbd>. Veja:<br><br>
+<img  src="../imagem/script38.png" alt="hierarquia de arquivos" width="40%"><br><br>
+
+Neste caso, o resultado da execução será gravado no arquivo <kbd>nohup.out</kbd>. Além disso, se houver erros na execução dos scripts, 
+eles serão gravados no arquivo <kbd>nohup.err</kbd>.<br><br>
+<img  src="../imagem/script39.png" alt="hierarquia de arquivos" width="40%"><br><br>
+
+Observe que as mensagens que seriam exibidas estão no arquivo <kbd>nohup.out</kbd>:<br><br>
+<img  src="../imagem/script40.png" alt="hierarquia de arquivos" width="40%"><br><br>
+
