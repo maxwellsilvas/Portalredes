@@ -1,13 +1,71 @@
 body, html {
+ /* background-color: rgb(2, 2, 13);*/
  background-image: url("../imagem/fundo1.png");
  background-size: 15% 15%;
  background-attachment: fixed;
  display: grid;
- 
  overflow-x: clip;/*barra de navegação na horizontal*/
-
+ transition: 1s;
+ 
 }
 
+h1{
+  color: aliceblue;
+  transition: 1s;
+  }
+  
+  p{
+  color: antiquewhite;
+  transition: 1s;
+  }
+  
+  .trilho {
+    width: 50px;
+    height: 20px;
+    background-color: rgb(84, 83, 83);
+    border-radius: 50px;
+    position: relative;
+  cursor: pointer;
+  position: absolute;
+  top: 2%;
+  left: 90%;
+  }
+  
+  .trilho .indicador{
+    width: 20px;
+    height: 20px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+   transform: scale(.9);
+   position: absolute;
+   left: 0;
+   transition: 1s;
+   position: absolute;
+  }
+  
+  .trilho.dark{
+    background-color: antiquewhite;
+    position: absolute;
+  }
+  
+  .trilho.dark .indicador{
+  left: 30px;
+  background-color: rgb(0, 0, 0);
+  position: absolute;
+  }
+  
+  body.dark{
+    background-color: rgb(142, 142, 142);
+  }
+  
+  body.dark h1{
+    color: black;
+  }
+  
+  body.dark p{
+    color: black;
+  }
+  
 /*animação do nome*/
 .nome { 
 top: 7%;
@@ -170,12 +228,13 @@ table, th {
 
 }
 .card {
-  border-radius: 7%;
+  border-radius: 10%;
   margin: 20px 20px 100px;
   background: linear-gradient(90deg, rgba(49, 162, 91, 0.451) 0%, rgba(13, 90, 132, 0.257) 50%, rgba(42, 171, 199, 0.382) 100%);
   padding: 1rem;
   width: 165px;
   text-align: center;
+  border: 2px solid rgba(168, 165, 165, 0.694);
 }
 
 .card img {
@@ -442,4 +501,49 @@ nav > ul > li > a {
   text-decoration: none;
   color: #fff;
   background-color: rgb(29, 79, 215, 0.7);
+}
+
+
+
+/* RODAPÉ */
+
+.rodape{
+  background-color: #02a3f310;
+  color: white;
+  height: auto;
+  width: 100%;
+  font-size: 14px;
+  font-family: helvetica;
+  
+}
+.rodape a{
+  text-decoration: none;
+  color: white;
+}
+.rodape p{
+  margin-bottom: 5px;
+}
+.rodape-div{
+  display: flex;
+  flex-wrap: wrap;
+  width:100%;
+  margin: auto;
+  align-items: stretch;
+  padding: 60px 10px 40px 10px;
+}
+.rodape-div-1, .rodape-div-2, .rodape-div-3, .rodape-div-4{
+  display: flex;
+  width: calc(100% / 4 - 20px);
+  padding: 10px;
+}
+.rodape span{
+  font-size: 20px;
+  color: rgb(85, 84, 84);
+}
+.rodape-direitos{
+  width: calc(100% - 20px);
+  background-color: rgba(0, 0, 0, 0.727);
+  padding: 10px;
+  margin: 0px;
+  text-align: center;
 }
