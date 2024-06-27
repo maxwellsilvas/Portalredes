@@ -1,15 +1,13 @@
 body {
-    background-image: url("../Programação1/imagem/fundo1.png");
+    background-image: url("./imagem/fundo1.png");
     background-size: 15% 15%;
     background-attachment: fixed;
     display: grid;
-    height: 100vh;
+    
     margin: 1cm;
     overflow-x: clip;/*barra de navegação na horizontal*/
    }
-   kbd {color: rgb(143, 255, 118);}
-
-   strong {font-size: 170%; }  
+      
    header{
        transform: scaleX(1.02);
        width:100%;
@@ -19,6 +17,7 @@ body {
        position:absolute;
        
    }
+   
    .logo{
        position: fixed;
        width:300px;
@@ -46,6 +45,10 @@ body {
        list-style: none;
        margin-right: 1px;
    }
+   
+   kbd {color: rgb(143, 255, 118);}
+   strong {font-size: 170%; }
+
    
 nav ul li a{
 text-decoration: none;
