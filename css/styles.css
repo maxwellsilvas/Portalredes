@@ -1,7 +1,7 @@
 body, html {
  /* background-color: rgb(2, 2, 13);*/
  background-image: url("../imagem/fundo1.png");
- background-size: 15% 15%;
+ background-size: 70% 60%;
  background-attachment: fixed;
  display: grid;
  overflow-x: clip;/*barra de navegação na horizontal*/
@@ -258,10 +258,10 @@ table, th {
 /* Carrossel de anúncios - aqui começa*/ 
 body1 {
   height: 70vh;
-  width: 215vh;
+  width: 160vh;
   display: grid;
   place-items: center;
-  overflow: hidden;
+ margin-left: 100px;
 }
 main {
   position: relative ;
