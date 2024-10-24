@@ -25,4 +25,150 @@
             </div>
 
             <p class="resumo1"><br><br><br><br><br>
-                <strong>◉ Formatação e Modulação em Banda Básica </strong><br><br>
+                <strong>◉ Principais Padrões de Redes sem Fio </strong><br><br>
+
+                O padrão IEEE é um conjunto de normas criado pelo Institute of Electrical and Electronic
+                 Engineers (IEEE) para padronizar tecnologias de eletricidade e informação.<br><br><br>
+
+
+                 <strong>◉  Padrões IEEE802.11</strong><br><br>
+
+                 • 802.11a: Protocolo lançado em 1999 e funciona apenas na frequência de 5 GHz, com 
+                 velocidades de até 54 Mb/s. Sua adesão foi baixa em comparação com o 802.11b, 
+                 lançado no mesmo ano.<br><br>
+
+                 • 802.11b: Trata-se do primeiro padrão Wi-Fi que ganhou popularidade. Foi lançado em 1999, permite 
+velocidades nominais de até 11 Mb/s e funciona na frequência de 2,4 GHz, com canais de 22 MHz e 
+modulação DSSS.<br><br>
+
+• 802.11g: Lançado em 2003, o 802.11g utiliza a frequência de 2,4 GHz, modulação OFDM e utiliza canais de 5 MHz,
+ 10 MHz ou 20 MHz e entrega velocidade nominal de até 54 Mb/s.<br><br>
+
+ • 802.11n: Também conhecido como Wi-Fi 4, o 802.11n funciona nas frequências de 2,4 GHz e 5 GHz e tem 
+velocidades nominais de até 600 Mb/s. Uma das vantagens é a utilização da modulação OFDM com tecnologia MIMO.<br><br>
+
+• 802.11ac (Wi-Fi 5): Lançado em 2013, o Wi-Fi 5 opera exclusivamente na frequência de 5 GHz e
+trouxe tecnologia MU-MIMO além de suportar Beamforming.<br><br>
+
+• 802.11ax (Wi-Fi 6 e 6E): Lançado em 2021, o padrão 802.11ax utiliza as frequências de 2,4 GHz e 5 GHz,
+ enquanto a versão Wi-Fi 6E também utiliza o espectro de 6 GHz. O Wi-Fi 6/6E tem velocidade máxima teórica 
+ de 9,6 Gb/s e utiliza modulação OFDMA 1024QAM.<br><br>
+
+ • 802.11be (Wi-Fi 7): com previsão para certificação em 2024, o Wi-Fi 7 pode chegar a velocidades de até 
+46,1 Gb/s. Seu principal diferencial é a agregação multi-link, que permite comunicação em mais de uma 
+frequência simultânea entre o dispositivo e o roteador.<br><br>
+
+Além desses padrões comuns, existem outros pouco usados, como o 802.11ad, 802.11af, 802.11ah e 802.11ai,
+ entre outros.<br><br><br>
+
+<strong>◉  Padrões IEEE802.15</strong><br><br>
+A WPAN (802.15) é o padrão estabelecido pelo IEE (Instituto de Engenharia Elétricas e Eletrônicos), 
+visando auxiliar os grupos de comunicação, onde o padrão 802.15 é específico para redes de área pessoal 
+sem fio para diferentes aplicações.<br><br>
+
+Diferente das WLANs, que são redes de área local sem fio, as WPANs não necessitam de uma infraestrutura
+ para estar em funcionamento, fazendo com que seja bastante econômica. Porém, as WPANs são de curta distância.
+ <br><br>
+As WPANs são subdivididas em categorias onde as comuns são:
+<br>
+• 802.15.1 — Bluetooth.<br>
+• 802.15.3 — Alta taxa de dados (ultra-wideband[UWB]).<br>
+• 802.15.4 — Media Access Control (MAC) e Low Rate Wireless Personal Area Networks (LR-WPAN).<br>
+• 802.15.6 — Redes de área corporal.<br><br>
+O padrão 802.15 traz uma complexidade e custo muito baixos. A taxa de dados brutos é suficiente, 
+tanto para satisfazer um conjunto de aplicações, quanto para as necessidades de sensores e automação. <br>
+Onde são de 250Kb/s e 20Kb/s respectivamente.<br><br>
+
+Características da Rede<br><br>
+
+Como dito anteriormente, o padrão 802.15 é dividido em categorias onde a mais conhecida é a do Bluetooth 
+(8002.15.1), porém também há o padrão 802.15.4 que trata das LR-WPANs que é uma rede de comunicação 
+simples de baixo custo, fácil instalação, transferência de dados segura e uso razoável de bateria.<br><br>
+
+Há dois tipos de dispositivos que são capazes de fazer parte de uma LR-WPAN, dispositivos FFD e a RFD.
+ O FFD é um dispositivo de função completo que funciona como um roteador coordenador. Já o RFD é um 
+ dispositivo de função reduzida, ou seja, que não é capaz de fazer a função do FFD, somente recepta.
+  Uma aplicação bastante usada desses dispositivos é a de um interruptor de luz infravermelho.<br><br>
+
+Topologia de rede<br><br>
+
+A rede WPAN, para ser composta, necessita possuir três requisitos: o PAN coordenador, o coordenador
+ e o end device. De acordo com a rede LR-WPAN, irá funcionar com dois tipos de topografias:<br><br>
+
+ • Topologia em estrela.<br>
+ • Topologia peer-to-peer.<br><br>
+A topologia em estrela consiste em uma comunicação estabelecida entre um controlador central 
+(coordenador PAN) e os dispositivos. O coordenador será frequentemente alimentado por rede elétrica,
+ enquanto os dispositivos por bateria na maioria dos casos. As aplicações mais usadas por esse modelo
+  são o de automação residencial,periféricos de computadores pessoais e cuidados de saúde pessoal.
+
+Já o modelo peer-to-peer, apesar de também possuir um coordenador PAN, se difere da topologia em estrela. 
+Onde ela permite uma interação mais complexa, fazendo com que um dispositivo possa se comunicar com 
+qualquer outro dispositivo, criando uma topologia de rede malha. O peer-to-peer é geralmente mais 
+usado em áreas mais complexas, como no controle e monitoramento industrial, redes de sensores sem fio, 
+agricultura inteligente, entre outras.<br><br>
+
+• Arquitetura
+<br><br>
+O modelo de arquitetura usado pelo padrão WPAN é acordado pela OSI (Open Systems Interconnection)
+ definindo suas duas camadas de atuação: camada física (PHY — Physical Layer) e a camada de Controle
+  de Acesso ao Meio (MAC- Medium Access Control). O PHY é o que define as condições de frequência, 
+  energia, modulação, entre outras condições sem fio do link. Já o MAC define o formato do tratamento 
+  de dados.<br><br>
+
+  • Zigbee<br><br>
+
+Em 2002, criada pela Zigbee Alliance, o protocolo Zigbee surgiu para estabelecer uma pilha protocolar
+ de implementação simplificada. Tendo 3 características principais de estrutura: o baixo custo, baixo 
+ consumo de energia e redução de taxa de transferência de dados (250Kbps).<br><br>
+
+O protocolo Zigbee é constituído por duas camadas, a Camada de Aplicação APL (Application Layer) e a
+ Camada de Rede NWK (Network Layer).<br><br>
+
+O Zigbee é dividido, em sua maioria, em quatro serviços diferentes:<br>
+
+Serviço de Encriptação Extra — As chaves de aplicações e de rede implementam a criptografia AEC extra
+ de 128n.<br><br>
+
+Associação e autenticação.<br>
+
+Protocolo de roteamento — Protocolo adaptativo ad hoc (AODV) que tende a evitar desperdício de banda
+ e minimizar o processamento de nós.<br><br>
+
+Serviços de Aplicação — Conceito de aglomeração introduzindo na aplicação, definindo um número 
+pré-definido de ações, como por exemplo um conjunto de sistema de luz de uma casa, fazendo o apagar
+ e acender das luzes.<br><br>
+
+Os modos de operação do Zigbee são basicamente dois:<br>
+
+Modo Beaconing — Trata-se de um modo em que os roteadores enviam periodicamente mensagens sinalizadoras 
+que confirmam sua presença na rede, fazendo com que os nós da rede se mantenham inativos durante esse 
+intervalo, poupando energia.<br><br>
+
+Modo Non-Beaconing — Mantém os dispositivos ativos o tempo todo, tornando o gasto de energia maior<br><br>
+
+• O Bluetooth<br><br>
+
+O modo físico do Bluetooth é compartilhado por um grupo de dispositivos que estão sincronizados
+ com o mesmo clock e seguindo o mesmo padrão de salto em frequência, deste modo o dispositivo prevê
+  a sincronização ao qual é conhecido como mestre, um grupo de dispositivos conectados e sincronizados
+   forma uma piconet. A comunicação sempre é feita entre mestre e escravo.<br><br>
+
+Quando um dispositivo quer descobrir quais os bluetooths estão em seu alcance ele transmite mensagens
+ de inquiry em diferentes canais de frequência. Os dispositivos habilitados a responder retornarão um 
+ pacote FHS (Frequency Hop Synchronization) o qual contém todas as informações necessárias para o 
+ estabelecimento de um canal físico, após selecionar um dispositivo para se comunicar é necessário 
+ questionar se suporta ou não o serviço desejado no qual esse processo se chama paging. O dispositivo
+  habilitado a receber solicitações de consulta responderá com as informações necessárias sobre os 
+  serviços disponíveis.<br><br>
+
+No ano de 2002, o grupo de padrões IEEE aprovou o padrão IEEE 802.15.1 para uma WPAN, porém com uma 
+adaptação da especificação bluetooth sendo assim mais compatível com a versão já existente 1.1 o padrão 
+IEEE 802.15.1 define especificações para as camadas físicas PHY e de controle de acesso ao meio, o MAC 
+(Medium Access Control) para conectividade sem fio com dispositivos móveis ou fixos que esteja dentro 
+de um espaço de operação pessoal, cerca de 10m que seja de pouco poder computacional, baixo custo e 
+consumo de energia.<br><br>
+
+
+<strong>◉  Padrões IEEE802.16</strong><br><br>
+
