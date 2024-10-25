@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes de computadores</title>
+    <link rel="stylesheet" href="../styles.css" />
+    
+</head>
+<body>
+
+    <div>  
+        <header>
+            <div class="logo">
+                <a href="/index.html">
+                    <img  src="../imagem/LOGO.png" alt="Logo do portifólio"></a>
+
+                </div>
+ 
+                
+            </header>
+            
+                </div>
+            </div>
+
+            <p class="resumo1"><br><br><br><br><br>
+                <strong>◉ Roteamento</strong><br><br>
+
+                O que é roteamento?<br>
+                O roteamento é a forma mais importante, utilizada na internet, para a entrega de pacotes 
+                de dados entre hosts (equipamentos de rede de uma forma geral, incluindo computadores, 
+                roteadores etc).<br><br>
+                
+                Sua função primária, desse modo, é realizar a entrega consistente de pacotes fim-a-fim,
+                 para aplicações ou outras camadas de protocolos, através de uma infraestrutura de redes
+                  interconectadas.<br><br>
+                
+                Para tanto, o roteamento executa funções de determinação de caminhos de comunicação, de 
+                comutação de pacotes por esses caminhos e de processamento de rotas para um determinado 
+                sistema de comunicação.<br><br>
+                
+                Em outras palavras, para que os pacotes sejam encaminhados utilizando a comutação de
+                 mensagem ou pacote, uma rota deve ser determinada ou escolhida continuamente. 
+                 A determinação e escolha dessa rota é o que foi nomeado como roteamento.<br><br>
+                
+                Modelo de roteamento<br>
+                O modelo de roteamento comumente utilizado é o do salto-por-salto (hop-by-hop).<br><br>
+                
+                Nele, cada roteador recebe e abre um pacote de dados, verifica o endereço de destino no 
+                cabeçalho IP, calcula o próximo salto que vai deixar o pacote um passo mais próximo de 
+                seu destino e entrega o pacote nesse próximo salto. Esse processo se repete e assim segue 
+                até a entrega do pacote ao seu destinatário.<br><br>
+                
+                A função de determinação de caminhos permite que os roteadores selecionem qual sua porta 
+                mais apropriada para repassar os pacotes recebidos.<br><br>
+                
+                O serviço de roteamento possibilita que o roteador analise os caminhos disponíveis para 
+                um determinado destino e estabeleça qual o caminho de preferência para o envio de pacotes
+                 para esse destino. Nessa determinação de caminhos de comunicação, os serviços de roteamento
+                  executam:<br><br>
+                
+                  • Inicialização e manutenção de tabelas de rotas;<br>
+                  • Processos e protocolos de atualização de rotas;<br>
+                  • Especificação de endereços e domínios de roteamento;<br>
+                  • Atribuição e controle de métricas de roteamento.<br><br>
+
+                As informações de rotas para a propagação de pacotes podem ser configuradas de 
+                forma estática pelo administrador da rede ou ser coletadas através de processos 
+                dinâmicos executados na rede.<br>
+                
+                ➤ Roteamento estático<br>
+                Geralmente, redes com número limitado de roteadores para outras redes são configuradas
+                 a partir do roteamento estático.<br><br>
+                
+                Nesse caso, uma tabela de roteamento estático é construída manualmente pelo administrador 
+                do sistema, e pode ou não ser divulgada para outros dispositivos de roteamento na rede.<br><br>
+                
+                Tabelas estáticas não se ajustam automaticamente a alterações na rede, portanto, devem ser
+                 utilizadas somente onde as rotas não sofrem alterações.<br><br>
+                
+                Algumas vantagens do roteamento estático são a segurança obtida pela não divulgação de 
+                rotas que devem permanecer escondidas e a redução do overhead introduzido pela troca de
+                 mensagens de roteamento na rede.<br><br>
+                
+                 ➤ Roteamento dinâmico<br>
+                As redes com mais de uma rota possível para o mesmo ponto devem utilizar roteamento dinâmico.
+                 Nesse contexto, uma tabela de roteamento dinâmico é construída a partir de informações 
+                 trocadas entre protocolos de roteamento.<br><br>
+                
+                Os protocolos são desenvolvidos para distribuir informações que ajustam rotas dinamicamente 
+                para refletir alterações nas condições da rede. Protocolos de roteamento podem resolver 
+                situações complexas de roteamento mais rápida e eficientemente que o administrador do sistema.
+                <br><br>
+                Protocolos de roteamento são desenvolvidos para trocar para uma rota alternativa quando 
+                a rota primária se torna inoperável e para decidir qual é a rota preferida para um destino.
+                 Em redes onde existem várias alternativas de rotas para um destino devem ser utilizados 
+                 protocolos de roteamento.<br><br>
+                
+                Todos os protocolos de roteamento realizam as mesmas funções básicas. Eles determinam a 
+                melhor rota para cada destino e distribuem informações de roteamento entre os sistemas 
+                da rede.<br><br>
+                
+                A forma pela qual eles decidem qual é a melhor rota é o que determina a diferença entre 
+                os pacotes de roteamento existentes, que podem ser internos ou externos.<br><br>
