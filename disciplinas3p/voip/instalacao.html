@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes de computadores</title>
+    <link rel="stylesheet" href="../styles.css" />
+    
+</head>
+<body>
+
+    <div>  
+        <header>
+            <div class="logo">
+                <a href="/index.html">
+                    <img  src="../imagem/LOGO.png" alt="Logo do portifólio"></a>
+
+                </div>
+ 
+                
+            </header>
+            
+                </div>
+            </div>
+
+            <p class="resumo1"><br><br><br><br><br>
+                <strong>◉ Instalação do Asterisk</strong><br><br>
+
+• O Asterisk é um software de PABX que usa o conceito de software
+
+livre. Ele é licenciado através de uma licença do tipo GPL<br><br>
+
+• O Asterisk permite conectividade em tempo real entre a rede pública
+
+de telefonia e redes VoIP.<br><br>
+
+• A rede pública de telefonia é freqüentemente referida pela sua
+
+sigla em inglês PSTN (Public Switched Telephony Network).<br><br>
+
+• Hardware - O Asterisk usa o processador de forma intensa para fazer o
+processamento os canais de voz, isso deve ser levado em consideração na
+elaboração do seu projeto.<br><br>
+
+• Sistema Operacional - O Asterisk foi desenvolvido para rodar em Linux,
+embora possa ser usado em BSD ou OS X.<br><br><br>
+
+• Obtendo códigos fontes do asterisk<br><br>
+
+•<kbd> http://downloads.asterisk.org/pub/telephony/dahdi-linux-complete/dahdi-linux-
+complete-current.tar.gz<br></kbd>
+
+• <kbd>http://downloads.asterisk.org/pub/telephony/libpri/libpri-1.4-current.tar.gz<br></kbd>
+• <kbd>http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-11-current.tar.gz<br><br></kbd>
+<br>
+• Descompacte os arquivos no diretório /usr/local/src:<br><br>
+<kbd># cd /usr/local/src<br></kbd>
+<kbd># tar -zxvf libpri-1.X.Y.tar.gz<br></kbd>
+<kbd># tar -zxvf dahdi-linux-complete-2.X.Y+2.X.Y.tar.gz<br></kbd>
+<kbd># tar -zxvf asterisk-11-current.tar.gz<br><br></kbd>
+
+• Instale os headers do Kernel em execução:<br>
+<kbd>#apt-get install linux-headers-`uname –r`<br><br></kbd>
+
+• Instale o módulo DAHDI:<br>
+<kbd># cd /usr/local/src/dahdi-linux-complete-2.X.Y+2.X.Y<br></kbd>
+<kbd># make<br></kbd>
+<kbd># make install<br></kbd>
+<kbd># make config<br><br></kbd>
+
+• Instale o Módulo LibPRI<br>
+<kbd># cd /usr/local/src/libpri-1.X.Y<br></kbd>
+<kbd># make<br></kbd>
+<kbd># make install<br><br></kbd>
+
+• Checando os requisitos para instalação do Asterisk:<br>
+<kbd># cd /usr/local/src/asterisk-11.X.Y<br></kbd>
+<kbd># ./configure</kbd>
+<br><br>
+O configure checa todas as dependências individualmente, para poupar tempo o
+Asterisk possui um script para instalar todas elas de uma vez, caso o configure retorne
+alguma dependência, execute os passos abaixo antes de rodar o configure novamente:<br>
+<kbd># cd contrib/scripts<br></kbd>
+<kbd># ./install_prereq install<br><br></kbd>
+
+• O Asterisk permite a personalização dos módulos a serem<br><br>
+
+instalados:<br><br>
+<kbd># make menuselect<br><br></kbd>
+
+• Instale o Asterisk:<br>
+<kbd># make</kbd><br>
+<kbd># make install</kbd><br>
+<kbd># make samples</kbd><br>
+<kbd># make config</kbd><br><br>
+
+• Configure o Logrotate<br>
+<kbd># make install-logrotate<br><br></kbd>
+
+• Verificar a instalação<br>
+<kbd># /etc/init.d/asterisk start<br></kbd>
+<kbd># /etc/init.d/asterisk status<br><br></kbd>
+
+• Criar usuário asterisk<br><br>
+
+• <kbd>adduser --system --group asterisk<br><br>
+</kbd>
+• <kbd>Incluir as linhas abaixo no arquivo /etc/init.d/asterisk:<br><br></kbd>
+
+AST_USER="asterisk"<br>
+AST_GROUP="asterisk"<br><br>
+
+• Modificar dono dos arquivos<br>
+<br>
+• <kbd>chown --recursive asterisk:asterisk /etc/asterisk<br></kbd>
+• <kbd>chown --recursive asterisk:asterisk /var/lib/asterisk<br></kbd>
+• <kbd>chown --recursive asterisk:asterisk /var/log/asterisk<br></kbd>
+• <kbd>chown --recursive asterisk:asterisk /var/run/asterisk<br></kbd>
+• <kbd>chown --recursive asterisk:asterisk /var/spool/asterisk<br></kbd>
+• <kbd>chown --recursive asterisk:asterisk /dev/dahdi<br><br></kbd>
+
+• <kbd>/etc/asterisk/extensions.conf<br><br></kbd>
+<img  src="../imagem/voip.png" alt="VOIP "><br><br><br>
+
+•<kbd> /etc/asterisk/sip.conf<br><br></kbd>
+<img  src="../imagem/voip1.png" alt="VOIP "><br><br><br>
