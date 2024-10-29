@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes de computadores</title>
+    <link rel="stylesheet" href="../styles.css" />
+    
+</head>
+<body>
+
+    <div>  
+        <header>
+            <div class="logo">
+                <a href="/index.html">
+                    <img  src="../imagem/LOGO.png" alt="Logo do portifólio"></a>
+
+                </div>
+            
+            </header>
+            </div>
+            </div>
+
+<p class="resumo1"><br>
+    <br><br><br><br>
+    <strong>◉ Configuração de Servidor DNS no Linux </strong><br><br>
+
+    Configurar um servidor DNS (Domain Name System) no Linux é uma tarefa essencial para quem deseja
+     hospedar seus próprios sites ou gerenciar a resolução de nomes em uma rede local. O DNS é 
+     responsável por traduzir nomes de domínio em endereços IP, permitindo que os usuários 
+     acessem os sites digitando apenas o nome em vez do endereço numérico.<br><br>
+
+     Passo 1: Instalação do BIND<br>
+O primeiro passo é instalar o BIND em seu servidor Linux. Você pode fazer isso utilizando o 
+gerenciador de pacotes de sua distribuição. Por exemplo, se estiver utilizando o Ubuntu, execute 
+o seguinte comando:<br><br>
+
+<kbd>sudo apt-get install bind9<br><br></kbd>
+Após a instalação, o BIND estará pronto para ser configurado.<br><br>
+
+Passo 2: Configuração do arquivo named.conf<br>
+O próximo passo é configurar o arquivo <kbd>named.conf</kbd>, que é o arquivo de configuração principal 
+do BIND. Esse arquivo fica localizado no diretório<kbd> /etc/bind/.<br><br></kbd>
+
+Você pode utilizar qualquer editor de texto para abrir o arquivo named.conf. Dentro do arquivo,
+ você encontrará várias seções e diretivas. A seção mais importante é a seção options, onde 
+ você deve definir as configurações gerais do servidor DNS. Por exemplo:<br><br>
+ <kbd>
+options {<br>
+    directory "/var/cache/bind";<br>
+    forwarders {<br>
+        8.8.8.8;<br>
+        8.8.4.4;<br>
+    };<br>
+    dnssec-validation no;<br>
+    listen-on-v6 { any; };<br>
+};<br><br><br></kbd>
+Neste exemplo, estamos configurando o servidor DNS para utilizar os servidores DNS do Google 
+(8.8.8.8 e 8.8.4.4) como forwarders. Também estamos desabilitando a validação de DNSSEC e 
+permitindo que o servidor escute conexões IPv6.<br><br>
+
+Passo 3: Configuração das zonas DNS<br>
+O próximo passo é configurar as zonas DNS, que são responsáveis por armazenar as informações 
+de resolução de nomes. Existem dois tipos principais de zonas: a zona direta (forward zone) 
+e a zona reversa (reverse zone).<br><br>
+
+Para configurar uma zona direta, você deve adicionar uma seção como esta no arquivo named.conf:<br><br>
+
+<kbd>zone "exemplo.com" {<br>
+    type master;<br>
+    file "/etc/bind/db.exemplo.com";<br>
+};<br><br></kbd>
+Neste exemplo, estamos configurando uma zona direta para o domínio exemplo.com. O arquivo 
+db.exemplo.com é o arquivo de zona, onde você deve adicionar os registros DNS correspondentes 
+ao domínio.<br>
+
+Para configurar uma zona reversa, você deve adicionar uma seção como esta no arquivo named.conf:
+<br><br>
+<kbd>zone "1.168.192.in-addr.arpa" {<br>
+    type master;<br>
+    file "/etc/bind/db.192.168.1";<br>
+};<br><br></kbd>
+
+Neste exemplo, estamos configurando uma zona reversa para o bloco de endereços IP 192.168.1.0/24.
+ O arquivo<kbd> db.192.168.1 </kbd>é o arquivo de zona reversa, onde você deve adicionar os registros DNS 
+ correspondentes aos endereços IP.<br><br>
+
+Passo 4: Configuração dos arquivos de zona<br>
+Após configurar as zonas no arquivo named.conf, você deve criar os arquivos de zona correspondentes.
+ Por exemplo, se você configurou uma zona direta para o domínio exemplo.com, crie o 
+ arquivo<kbd> /etc/bind/db.exemplo.com</kbd> e adicione os registros DNS dentro dele.<br><br>
+
+Os arquivos de zona utilizam uma sintaxe específica. Por exemplo, para adicionar um registro A 
+para o domínio exemplo.com, você deve adicionar uma linha como esta:<br><br>
+
+<kbd>www    IN    A    192.168.1.100<br><br></kbd>
+Neste exemplo, estamos configurando um registro A para o subdomínio www, apontando para o endereço 
+IP 192.168.1.100.<br><br>
+
+Passo 5: Reiniciar o BIND<br>
+Após configurar as zonas e os arquivos de zona, reinicie o serviço do BIND para que as 
+configurações entrem em vigor. Você pode fazer isso utilizando o seguinte comando:<br><br>
+
+<kbd>sudo service bind9 restart<br><br></kbd>
+
+Pronto! Seu servidor DNS no Linux está configurado e pronto para ser utilizado. Agora você pode 
+adicionar seus próprios registros DNS e gerenciar a resolução de nomes em sua rede local ou na
+ internet.<br><br>
