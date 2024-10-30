@@ -24,4 +24,316 @@
 
 <p class="resumo1"><br>
     <br><br><br><br>
-    <strong>◉ Evolução das redes ethernet </strong><br><br>
+    <strong>◉ Como Instalar o Servidor Web Apache</strong><br><br>
+
+    O servidor HTTP Apache é o servidor Web mais amplamente usado no mundo. Ele fornece muitas 
+    características poderosas, incluindo módulos carregáveis dinamicamente, suporte robusto de 
+    mídia e uma integração extensa com outros softwares populares.<br><br>
+
+    Passo 1 — Instalando o Apache<br>
+O Apache está disponível dentro dos repositórios padrão de software do Ubuntu, possibilitando 
+que ele seja instalado utilizando ferramentas convencionais de gerenciamento de pacotes.<br><br>
+
+Vamos começar atualizando o índice de pacotes local para refletir as últimas alterações do upstream:<br><br>
+
+<kbd>sudo apt update<br><br></kbd>
+Então, instale o pacote apache2:<br><br>
+
+<kbd>sudo apt install apache2<br><br></kbd>
+Após confirmar a instalação, o apt irá instalar o Apache e todas as dependências necessárias.<br><br>
+
+Passo 2 — Ajustando o Firewall<br>
+Antes de testar o Apache, é necessário modificar as configurações do firewall para permitir o 
+acesso externo às portas Web padrão. Supondo que você tenha seguido as instruções nos pré-requisitos,
+ você deve ter um firewall UFW configurado para restringir o acesso ao seu servidor.<br><br>
+
+Durante a instalação, o Apache registra-se com o UFW para fornecer alguns perfis de aplicativo que
+ podem ser usados para habilitar ou desabilitar o acesso ao Apache através do firewall.<br><br>
+
+Liste os perfis de aplicativo ufw digitando:<br><br>
+
+<kbd>sudo ufw app list<br><br></kbd>
+Você receberá uma lista dos perfis de aplicações:<br><br>
+
+<kbd>Output<br>
+Available applications:<br>
+  Apache<br>
+  Apache Full<br>
+  Apache Secure<br>
+  OpenSSH<br><br></kbd>
+
+Como indicado pela saída, há três perfis disponíveis para o Apache:<br><br>
+
+• Apache: Este perfil abre apenas a porta 80 (normal, tráfego Web não criptografado)<br>
+• Apache Full: Este perfil abre ambas as portas 80 (normal, tráfego Web não criptografado) e 443
+ (tráfego TLS/SSL criptografado)<br>
+ • Apache Secure: Este perfil abre apenas a porta 443 (tráfego TLS/SSL criptografado)<br><br>
+
+É recomendável que habilite o perfil mais restritivo que ainda assim permitirá o tráfego que você
+ configurou. Como ainda não configurou o SSL para seu servidor neste guia, nós precisaremos apenas
+  permitir o tráfego na porta 80:<br><br>
+
+<kbd>sudo ufw allow 'Apache'<br><br></kbd>
+
+Você pode verificar a mudança digitando:<br><br>
+
+<kbd>sudo ufw status<br><br></kbd>
+
+A saída fornecerá uma lista de tráfego HTTP permitido:<br><br>
+<kbd>
+Output<br>
+Status: active<br>
+
+To                         Action      From<br>
+--                         ------      ----<br>
+OpenSSH                    ALLOW       Anywhere  <br>                
+Apache                     ALLOW       Anywhere   <br>             
+OpenSSH (v6)               ALLOW       Anywhere (v6)  <br>           
+Apache (v6)                ALLOW       Anywhere (v6)<br><br></kbd>
+
+
+Como indicado pela saída, o perfil foi ativado para permitir o acesso ao servidor web Apache.<br><br>
+
+Passo 3 — Verificando seu Servidor Web<br>
+No final do processo de instalação, o Ubuntu 20.04 inicia o Apache. O servidor Web já deve 
+estar em funcionamento.<br><br>
+
+Verifique com o sistema init systemd para garantir que o serviço esteja funcionando digitando:<br><br>
+
+<kbd>sudo systemctl status apache2<br><br></kbd>
+
+<kbd>Output<br>
+● apache2.service - The Apache HTTP Server<br>
+     Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor preset: enabled)<br>
+     Active: active (running) since Thu 2020-04-23 22:36:30 UTC; 20h ago<br>
+       Docs: https://httpd.apache.org/docs/2.4/<br>
+   Main PID: 29435 (apache2)<br>
+      Tasks: 55 (limit: 1137)<br>
+     Memory: 8.0M<br>
+     CGroup: /system.slice/apache2.service<br>
+             ├─29435 /usr/sbin/apache2 -k start<br>
+             ├─29437 /usr/sbin/apache2 -k start<br>
+             └─29438 /usr/sbin/apache2 -k start<br><br><br></kbd>
+
+             Como confirmado por esta saída, o serviço foi iniciado com sucesso. No entanto, 
+             a melhor maneira de testar isso é solicitando uma página do Apache.<br><br>
+
+             Você pode acessar a página de destino padrão do Apache para confirmar que o software 
+             está funcionando corretamente através do seu endereço IP: Se você não sabe o endereço 
+             IP do seu servidor, você pode obtê-lo de algumas maneiras diferentes a partir da linha
+              de comando.<br><br><br>
+             
+             Tente digitar isso no prompt de comando do seu servidor:<br><br>
+             
+             <kbd> hostname -I<br><br></kbd>
+
+             Você receberá alguns endereços separados por espaços. Você pode testar cada um no seu 
+             navegador web para ver se eles funcionam.<br><br>
+             
+             Outra opção é usar a ferramenta Icanhazip, que deve dar a você o endereço IP público 
+             como visto de outro local na Internet:<br><br>
+             
+             <kbd>curl -4 icanhazip.com<br><br></kbd>
+
+             Quando você tiver o endereço IP do seu servidor, digite-o na barra de endereço do seu 
+             navegador:<br><br>
+             
+             <kbd>http://your_server_ip<br><br></kbd>
+
+             Você deve ver a página web padrão do Apache no Ubuntu 20.04:<br><br>
+             
+             Esta página indica que o Apache está funcionando corretamente. Ela também inclui algumas
+              informações básicas sobre arquivos importantes do Apache e localizações de diretórios 
+              importantes.<br><br>
+
+Passo 4 — Gerenciando o Processo Apache<br>
+Agora que você tem seu servidor web funcionando, vamos ver alguns comandos básicos de gerenciamento 
+usando o systemctl<br><br>
+
+Para parar seu servidor Web, digite:<br><br>
+
+<kbd>sudo systemctl stop apache2<br><br></kbd>
+
+Para iniciar o servidor quando ele for parado, digite:<br><br>
+
+<kbd>sudo systemctl start apache2<br><br></kbd>
+
+Para parar e então iniciar o serviço novamente, digite:<br><br>
+
+<kbd>sudo systemctl restart apache2<br><br></kbd>
+
+Se você estiver simplesmente fazendo alterações de configuração, o Apache geralmente pode 
+recarregar sem quedas na conexão. Para fazer isso, utilize este comando:<br><br>
+
+<kbd>sudo systemctl reload apache2<br><br></kbd>
+
+Por padrão, o Apache está configurado para iniciar automaticamente quando o servidor for 
+iniciado. Se isso não é o que você quer, desative este comportamento digitando:<br><br>
+
+<kbd>sudo systemctl disable apache2<br><br></kbd>
+
+Para reativar o serviço de inicialização no boot, digite:<br><br>
+
+<kbd>sudo systemctl enable apache2<br><br></kbd>
+
+O Apache deve iniciar automaticamente quando o servidor for iniciado outra vez.<br><br>
+
+Passo 5 — Configurando Hosts Virtuais (Recomendado)<br>
+Ao usar o servidor Web Apache, você pode usar hosts virtuais (similares a blocos de servidor 
+no Nginx) para encapsular detalhes de configuração e hospedar mais de um domínio de um único 
+servidor. Vamos configurar um domínio chamado your_domain, mas você deve substituí-lo por seu
+ próprio nome de domínio. Se você estiver configurando um nome de domínio com a DigitalOcean,
+  consulte nossa Documentação de Rede.<br><br>
+
+O Apache no Ubuntu 20.04 tem um bloco de servidor habilitado por padrão que está configurado para 
+servir documentos do diretório /var/www/html. Enquanto isso funciona bem para um único site, ele
+ pode tornar-se indevido se você estiver hospedando vários sites. Ao invés de modificar o 
+ /var/www/html, vamos criar uma estrutura de diretórios dentro do /var/www para um site
+  your_domain, deixando o /var/www/html no lugar como o diretório padrão para ser exibido 
+  se um pedido de cliente não corresponder a nenhum outro site.<br><br>
+
+Crie o diretório para o your_domain como segue:<br><br>
+
+<kbd>sudo mkdir /var/www/your_domain<br><br></kbd>
+
+Em seguida, atribua a propriedade do diretório com a variável de ambiente $USER:<br><br>
+
+<kbd>sudo chown -R $USER:$USER /var/www/your_domain<br><br></kbd>
+
+As permissões dos seus web roots devem estar corretas se você não tiver modificado seu valor 
+de umask, que define permissões padrão de arquivos. Para garantir que suas permissões estejam
+ corretas e permitam que o proprietário leia, escreva e execute os arquivos, enquanto concede 
+ apenas permissões de leitura e execução para grupos e outros, você pode digitar o seguinte comando:
+ <br><br>
+
+<kbd>sudo chmod -R 755 /var/www/your_domain<br><br></kbd>
+
+A seguir, crie uma página de amostra index.html utilizando o nano ou seu editor favorito:<br><br>
+
+<kbd>sudo nano /var/www/your_domain/index.html<br><br></kbd>
+
+Dentro, adicione a seguinte amostra HTML:<br><br>
+
+<kbd>/var/www/your_domain/index.html<br><br></kbd>
+
+<kbd>< html><br>
+    < head><br>
+        < title>Welcome to Your_domain!< /title><br>
+    < /head><br>
+    < body><br>
+        < h1>Success!  The your_domain virtual host is working!< /h1><br>
+    < /body><br>
+< /html><br><br></kbd>
+
+
+
+
+Salve e feche o arquivo quando você terminar.<br><br>
+
+Para que o Apache sirva este conteúdo, é necessário criar um arquivo de host virtual com 
+as diretivas corretas. Em vez de modificar o arquivo de configuração padrão localizado em
+ /etc/apache2/sites-available/000-default.conf diretamente, vamos criar um novo em 
+ /etc/apache2/sites-available/your_domain.conf:<br><br>
+
+ <kbd>sudo nano /etc/apache2/sites-available/your_domain.conf<br><br></kbd>
+
+Cole no seguinte bloco de configuração, que é similar ao padrão, mas atualizado para nosso
+ novo diretório e nome de domínio:<br><br>
+
+ <kbd>/etc/apache2/sites-available/your_domain.conf<br><br></kbd>
+
+ <kbd>< VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    ServerName your_domain
+    ServerAlias www.your_domain
+    DocumentRoot /var/www/your_domain
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</ VirtualHost><br><br></kbd>
+
+Note que atualizamos o DocumentRoot para nosso novo diretório e o ServerAdmin para um e-mail
+ que o administrador do site your_domain pode acessar. Também adicionamos duas diretivas: o 
+ ServerName, que estabelece o domínio base que deve corresponder e essa definição de host 
+ virtual, e o ServerAlias, que define nomes adicionais que devem corresponder como se fossem
+  o nome base.<br><br>
+
+Salve e feche o arquivo quando você terminar.<br><br>
+
+Vamos habilitar o arquivo com a ferramenta a2ensite:<br><br>
+
+<kbd>sudo a2ensite your_domain.conf<br><br></kbd>
+
+Desabilite o site padrão definido em 000-default.conf:<br><br>
+
+<kbd>sudo a2dissite 000-default.conf<br><br></kbd>
+
+Em seguida, vamos testar à procura de erros de configuração:<br><br>
+
+<kbd>sudo apache2ctl configtest<br><br></kbd>
+
+Você deve receber a seguinte saída:<br><br>
+
+<kbd>Output<br>
+Syntax OK<br><br></kbd>
+
+Reinicie o Apache para implementar as suas alterações:<br><br>
+
+<kbd>sudo systemctl restart apache2<br><br></kbd>
+
+O Apache agora deve estar atendendo seu nome de domínio. Você pode testar isso navegando
+ para <kbd>http://your_domain</kbd>, onde você deve ver algo assim:<br><br>
+
+
+Passo 6 — Familiarizando-se com Arquivos e Diretórios Importantes do Apache<br>
+Agora que você sabe como gerenciar o serviço do Apache, você deve gastar alguns minutos para 
+familiarizar-se com alguns diretórios e arquivos importantes.<br><br>
+
+Conteúdo<br>
+<kbd>/var/www/html</kbd>: O conteúdo Web em si, que por padrão apenas consiste na página Apache padrão que 
+você viu antes, é servido do diretório /var/www/html. Isso pode ser alterado mudando os arquivos 
+de configuração do Apache.<br><br>
+
+Configuração do Servidor<br>
+<kbd>/etc/apache2</kbd>: o diretório de configuração do Apache. Todos os arquivos de configuração do Apache
+ residem aqui.<br><br>
+
+ <kbd>/etc/apache2/apache2.conf</kbd>: O arquivo de configuração principal do Apache. Isso pode ser modificado
+ para fazer alterações na configuração global do Apache. Este arquivo é o responsável por carregar 
+ muitos dos outros arquivos no diretório de configuração.<br><br>
+
+ <kbd>/etc/apache2/ports.conf</kbd>: Este arquivo especifica as portas nas quais o Apache irá escutar. Por 
+padrão, o Apache escuta na porta 80 e adicionalmente escuta na porta 443 quando um módulo que 
+fornece capacidades SSL está ativo.<br><br>
+
+<kbd>/etc/apache2/sites-available/</kbd>: O diretório onde hosts virtuais de cada site podem ser armazenados.
+ O Apache não usará os arquivos de configuração encontrados neste diretório a menos que estejam
+  ligados ao diretório sites-enabled. Normalmente, todas as configurações de bloco do servidor 
+  são feitas neste diretório e então habilitadas ligando-as ao outro diretório com o 
+  comando a2ensite.<br><br>
+
+  <kbd>/etc/apache2/sites-enabled/</kbd>: O diretório onde hosts virtuais habilitados de cada site são 
+armazenados. Normalmente, eles são criados ligando arquivos de configuração encontrados no 
+diretório sites-available com o a2ensite. O Apache lê os arquivos de configuração e links 
+encontrados neste diretório quando inicia ou recarrega para compilar uma configuração completa.<br><br>
+
+<kbd>/etc/apache2/conf-available/</kbd>, <kbd>/etc/apache2/conf-enabled/</kbd>: Estes diretórios têm a mesma 
+relação que os diretórios sites-available e sites-enabled, mas são usados para armazenar
+ fragmentos de configuração que não pertencem em um host virtual. Arquivos no diretório 
+ conf-available podem ser habilitados com o comando a2enconf e desabilitados com o comando
+  a2disconf.<br><br>
+
+  <kbd>/etc/apache2/mods-available/</kbd>,<kbd></kbd> /etc/apache2/mod-enabled/</kbd>: Estes diretórios contêm os 
+módulos disponíveis e habilitados, respectivamente. Arquivos com final .load contêm fragmentos
+ para carregar módulos específicos, enquanto os arquivos com final .conf contêm a configuração 
+ para esses módulos. Módulos podem ser habilitados e desabilitados utilizando os comandos a2enmod
+  e a2dismod.<br><br>
+
+Registros do Servidor<br>
+<kbd>/var/log/apache2/access.log</kbd>: Por padrão, cada solicitação feita para seu servidor é gravada 
+neste arquivo de registro a menos que o Apache esteja configurado para fazer de outro modo.<br><br>
+
+<kbd>/var/log/apache2/error.log</kbd>: Por padrão, todos os erros são gravados neste arquivo. A diretiva 
+LogLevel na configuração do Apache especifica quanto detalhe os registros de erros irão conter.<br><br><br>
+
+Agora que você tem seu servidor Web instalado, você tem muitas opções para o tipo de conteúdo 
+que você pode oferecer e as tecnologias que você quiser usar para criar uma experiência mais rica.<br><br>

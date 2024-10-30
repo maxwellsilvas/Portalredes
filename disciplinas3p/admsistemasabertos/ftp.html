@@ -24,4 +24,134 @@
 
 <p class="resumo1"><br>
     <br><br><br><br>
-    <strong>◉ Evolução das redes ethernet </strong><br><br>
+    <strong>◉ Transferência de arquivos (FTP)</strong><br><br>
+
+    O Protocolo de transferência de arquivos (File transfer protocol, FTP) é um protocolo de 
+    rede padrão usado para a transferência de arquivos de um host para outro por meio de uma 
+    rede baseada em TCP, como a Internet.<br><br>
+
+O FTP funciona abrindo duas conexões que conectam os computadores tentando se comunicar entre si.
+ Uma conexão é designada para os comandos e respostas que são enviados entre os dois clientes, e 
+ o outro canal lida com a transferência de dados. Durante uma transmissão FTP, há quatro comandos
+  usados pelos computadores, servidores ou servidores proxy que estão se comunicando. Eles são 
+  “enviar”, “obter”, “alterar diretório” e “transferir”.<br><br>
+
+Ao transferir arquivos, o FTP usa três modos diferentes: bloquear, transmitir e compactar. 
+O modo de fluxo permite que o FTP gerencie informações em uma sequência de dados sem nenhum
+ limite entre eles. O modo de bloco separa os dados em blocos, e no modo de compressão, o FTP 
+ usa um algoritmo chamado Lempel-Ziv para compactar os dados.<br><br>
+
+ As três formas mais comuns de usar o FTP incluem:<br><br>
+
+Por meio de um navegador da web: Com um navegador da web, você não precisa fazer download de 
+nenhum software especial ou de um cliente para baixar arquivos de servidores que fornecem sites 
+de FTP.<br><br>
+
+Um cliente FTP de interface de usuário geral (General user interface, GUI): Essas aplicações de
+ terceiros permitem que os usuários se conectem e enviem arquivos por FTP.<br><br>
+
+Linha de comando de FTP: Os principais sistemas operacionais vêm equipados com recursos de cliente
+ FTP como uma linha de comando.<br><br><br>
+
+ <strong>◉ Transferindo arquivos</strong><br><br>
+
+É extremamente simples transferir arquivos entre um servidor e outro utilizando, por exemplo, 
+o protocolo FTP (“File Transfer Protocol”, ou “Protocolo de Transferência de Arquivos”) através 
+da linha de comando. É possível tanto enviar quanto receber arquivos e pastas, desta maneira, e 
+os procedimentos são bem rápidos.<br><br>
+
+Após realizar login em um servidor via SSH, utilize o comando “ftp” para se conectar ao servidor
+ remoto, usando uma das alternativas abaixo:<br><br>
+
+ <kbd>ftp ipdoservidor<br>
+ftp endereçodohost<br></kbd>
+Por exemplo: “<kbd>ftp 127.0.0.1<ENTER></kbd>” ou “<kbd>ftp host.dominio.tld</kbd><ENTER>”.<br><br>
+
+Logo em seguida, você deverá fornecer os dados de login para a conexão (<kbd>“Name/User” = Usuário / 
+“Password” = Senha</kbd>). Confira abaixo:<br><br>
+
+<kbd>root@host [/]# ftp ipdoservidorremoto<br>
+Connected to ipdoservidorremoto (ipdoservidorremoto).<br>
+220———- Welcome to Pure-FTPd [privsep] [TLS] ———-<br>
+220-You are user number 3 of 50 allowed.<br>
+220-Local time is now 13:59. Server port: 21.<br>
+220-This is a private system – No anonymous login<br>
+220-IPv6 connections are also welcome on this server.<br>
+220 You will be disconnected after 15 minutes of inactivity.<br>
+Name (ipdoservidorremoto:root): usuario<br>
+331 User usuario OK. Password required<br>
+Password:<br>
+230 OK. Current restricted directory is /<br>
+Remote system type is UNIX.<br>
+Using binary mode to transfer files.<br>
+ftp><br></kbd>
+<br>
+O usuário e a senha são solicitados de maneira sequencial, e não se preocupe se ao digitar a 
+senha nada aparecer na linha de comando. Continue normalmente e tecle <ENTER> após a inserção
+     da mesma (alguns clientes, como o Bitvise Tunnelier, por exemplo – veja acima – ainda 
+     suportam CTRL+C e CTRL+V).<br><br>
+
+Para a transferência de arquivos, utilizaremos os comandos “get” (para o download / recepção) 
+e “put” (para o envio / upload). Vale lembrar que, após a conexão ao servidor remoto, também
+ podemos utilizar os comandos “cd” (para acessar diretórios) ou “ls”, para listar o conteúdo 
+ dos diretórios. O “pwd” também pode ser bastante útil caso você se “perca”.<br><br>
+
+Confira abaixo:<br><br>
+<kbd>
+ftp> ls<br>
+227 Entering Passive Mode (ipdoservidorremoto)<br>
+150 Accepted data connection<br>
+drwxr-x—    3 usuario      99               4096 Sep 18 14:06 .<br>
+drwx–x–x    9 usuario      usuario      4096 Sep 18 13:32 ..<br>
+drwxr-xr-x    2 usuario      usuario      4096 Sep 18 13:29 cgi-bi<br>
+226-Options: -a -l<br>
+226 3 matches total<br>
+ftp></kbd>
+<br><br><br>
+
+<strong>◉ Enviando um arquivo via FTP, do servidor local para um remoto</strong><br><br>
+
+Agora, vamos enviar um arquivo para o servidor remoto. A sintaxe é a seguinte:<br><br>
+
+put arquivolocal arquivoremoto<br><br>
+Confira:<br><br>
+<kbd>
+ftp> put /usertest/Codigofonte.php /public_html/Codigofonte.php<br>
+local: /usertest/Codigofonte.php remote: /public_html/Codigofonte.php<br>
+227 Entering Passive Mode (ipdoservidorremoto)<br>
+150 Accepted data connection<br>
+226-File successfully transferred<br>
+226 0.012 seconds (measured here), 1.52 Kbytes per second<br>
+19 bytes sent in 0.0113 secs (1.69 Kbytes/sec)<br>
+ftp><br><br></kbd>
+
+Ou seja, no exemplo acima, enviamos o arquivo “Codigofonte.php” do diretório “/usertest/”, no 
+servidor local, para o diretório “<kbd>/public_html/</kbd>” no servidor remoto.<br><br><br>
+
+
+<strong>◉ Baixando um arquivo via FTP, do servidor remoto para o local</strong><br><br>
+
+Neste caso, a sintaxe é a seguinte:<br><br>
+
+get arquivoremoto arquivolocal<br><br>
+Confira:<br><br>
+<kbd>
+ftp> get /public_html/Codigofonte.php /usertest/Codigofonte.php<br>
+local: /usertest/Codigofonte.php remote: /public_html/Codigofonte.php<br>
+227 Entering Passive Mode (ipdoservidorremoto)<br>
+150 Accepted data connection<br>
+226-File successfully transferred<br>
+226 0.000 seconds (measured here), 475.68 Kbytes per second<br>
+19 bytes received in 2e-05 secs (950.00 Kbytes/sec)<br>
+ftp><br><br></kbd>
+
+No exemplo acima, baixamos o arquivo “<kbd>Codigofonte.php</kbd>” do diretório “<kbd>/public_html/</kbd>”, no 
+servidor remoto, para o diretório “<kbd>/usertest/</kbd>” do servidor local.<br><br>
+
+Finalizando<br><br>
+
+E para sair do FTP na linha de comando, basta digitar “quit” e teclar <ENTER>.<br><br>
+
+Utilizando os comandos “put” e “get”, você pode facilmente realizar transferências de arquivos.
+ Transferências de backups compactados, por exemplo (arquivos .tar.gz, digamos), entre diversos
+  servidores web.<br><br>
