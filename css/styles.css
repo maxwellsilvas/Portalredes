@@ -82,11 +82,11 @@ animation: myAnim 1s ease 0s 1 normal forwards;
 }
 
 .img-redes {
-  left: 0%;
+  left: -4%;
   top: -10%;
   position: absolute;
   filter: blur(2px);/*embaçamento*/
-  opacity: 7%;/*transparencia*/
+  opacity: 3%;/*transparencia*/
 }
 
 .globo {

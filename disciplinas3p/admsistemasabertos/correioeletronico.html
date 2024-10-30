@@ -25,4 +25,174 @@
 
 <p class="resumo1"><br>
     <br><br><br><br>
-    <strong>◉ Evolução das redes ethernet </strong><br><br>
+    <strong>◉  Diferenças entre POP (POP3), IMAP e SMTP</strong><br><br>
+
+    Em termos mais práticos, não está de todo errado dizer que o SMTP é usado no envio de mensagens 
+    de e-mail e o POP e IMAP, são usados quando se quer ler as mensagens recebidas.<br><br>
+
+Aqui cabe destacar uma sutileza, já que não raramente, muitos explicam que POP e IMAP são usados 
+para o recebimento de mensagens.<br><br>
+
+O correto é o acesso às mensagens para sua leitura, já que elas já foram recebidas pelo servidor 
+responsável por sua conta de e-mail.<br><br>
+
+Tudo isso ficará mais claro conforme explicarmos melhor cada um dos três protocolos.<br><br>
+
+➤ O que é SMTP?<br>
+Quando se pensa em uma mensagem eletrônica (e-mail), a coisa toda começa com a geração dessa 
+mensagem e o seu envio. Neste ponto entra em ação o primeiro protocolo, que é o SMTP, sendo um 
+acrônimo para Simple Mail Transfer Protocol, que em português significa Protocolo de Transferência 
+de Correio Simples.<br><br>
+
+A primeira diferença importante, além do fato de que todo envio de mensagens de correio eletrônico 
+ser feito usando o SMTP, é que existem duas instâncias diferentes: envio por um usuário final 
+(você e sua conta) e envio por um servidor de e-mail.<br><br>
+
+Quando você configura sua conta em um programa qualquer (o cliente de e-mail), orienta-se a 
+informar a porta 587.<br><br>
+
+Uma porta associada a um endereço IP ou nameserver, é uma implementação necessária para que o 
+sistema operacional “compreenda” que aquele dispositivo que solicita conexão pela porta 587, é 
+um usuário e não outro servidor.<br><br>
+
+Aqui entra a importância dos protocolos.<br><br>
+
+O serviço que está associado a essa porta, é o serviço de e-mail e o conjunto de regras (protocolo) 
+para permitir a conexão é ligeiramente diferente do conjunto de regras de outro servidor que tenta 
+conectar-se para entregar mensagens e que compreende as verificações que precisam ser feitas, como 
+usuário e sua respectiva senha e até em quais arquivos de logs do sistema operacional que serão 
+registradas as ações executadas.<br><br>
+
+Já no padrão entre servidor, que faz uso da porta 25 em vez da 587, o servidor que recebe uma
+ mensagem, checa DNSs e DNS autoritativo, IP reverso, filtros e regras de SPAM e registra tudo 
+ em outros arquivos de logs. Logo, há diferenças no respectivo protocolo ou conjunto de regras,
+  se preferir.<br><br>
+
+Ainda no âmbito do serviço de e-mail ocorrendo entre um usuário e o servidor responsável pelo 
+envio das mensagens (porta 587), o SMTP determina que o emissor da mensagem deve efetuar a 
+autoidentificação (usuário e senha), além de informar o endereço de e-mail do remetente, 
+destinatário(s), campo assunto, corpo da mensagem e outras informações relativas à mensagem que 
+está sendo enviada, como anexos ou uma solicitação de recebimento e leitura.<br><br>
+
+Em resumo, ainda que nas duas instâncias o propósito seja o mesmo (envio de mensagens), a depender 
+da porta e consequentemente, se é um usuário ou outro servidor, há variações do protocolo.<br><br>
+
+➤ O que é POP ou POP3?<br>
+POP nada mais é do que a sigla de Post Office Protocol e assim como o SMTP, é também um protocolo, 
+mas que rege como o dispositivo do destinatário – usando um cliente de e-mail – deve conectar-se 
+ao servidor no qual sua conta está hospedada, para efetuar a transmissão (download) da mensagem 
+para o dispositivo.<br><br>
+
+Quando você encontra POP3 em vez de apenas POP, deve-se ao fato de que se trata da versão 3 do POP.
+ Ou seja, dependendo da consulta e da fonte pesquisada, referem-se à mesma coisa, pois não há 
+ atualmente quem faça uso da versão inicial do POP.<br><br>
+
+Da mesma forma que o SMTP, ao configurar o POP (ou POP3), é preciso informar a porta, que 
+originalmente utiliza a porta 110. No entanto, a medida que as preocupações com a segurança
+ na Internet tornam-se cada vez maiores, atualmente todos os serviços têm usado a porta 995,
+  o que significa que além do protocolo padrão, a troca de informações entre dispositivo e 
+  servidor, será por conexões criptografadas via SSL (Secure Sockets Layer) ou TSL (Transport 
+  Layer Security).<br><br>
+
+Via de regra, as mensagens são apagadas do servidor quando a transferência para o dispositivo 
+de destino é concluída, no entanto, geralmente os programas de gerenciamento de e-mail 
+(MS Outlook, Thunderbird, Apple Mail, etc) permitem habilitar uma opção pela qual uma cópia da
+ mensagem é mantida no servidor.<br><br>
+
+Essa característica tem desdobramentos importantes e que voltaremos a comentar quando falarmos 
+de qual protocolo utilizar para a leitura das suas mensagens.
+<br><br> 
+
+➤ O que é IMAP?<br>
+Como dito anteriormente, o IMAP (Internet Message Access Protocol), que significa Protocolo de 
+Acesso a Mensagem de Internet, é outra forma de leitura das mensagens e, portanto, seria a 
+alternativa ao POP3.<br><br>
+
+Porém a grande diferença é que ao se acessar uma conta de e-mail usando IMAP, ocorre a leitura 
+da estrutura de pastas e do conteúdo – as mensagens – existentes nela, em tempo real, ou seja,
+ há a sincronização entre o programa usado e a conta. Não se faz download do conteúdo da conta 
+ para o dispositivo do usuário, como ocorre com o POP3.<br><br>
+
+Por meio do IMAP, o que se está fazendo é acessar o servidor e tudo que é feito no cliente de 
+e-mail, afeta diretamente o conteúdo do servidor.<br><br>
+
+Assim, se são criadas pastas, seus conteúdos são movidos ou removidos, ou talvez renomeadas, 
+constituindo ações que refletem diretamente no que existe na conta.<br><br>
+
+A segunda diferença importante e que na verdade é uma decorrência disso, é que se não houver 
+conectividade com o servidor, não há acesso ao seu conteúdo, diferentemente do POP3, que faz 
+o download para o dispositivo.<br><br>
+
+➤ POP3 ou IMAP, qual protocolo usar?<br>
+Deve ter ficado claro que entre os três protocolos, você sempre usará o SMTP, restando decidir
+ entre POP3 ou IMAP no caso da leitura das mensagens.<br><br>
+
+No passado, quando as pessoas não tinham mais do que um desktop ou no máximo um notebook para 
+acessar seus e-mails, era comum que as contas fossem configuradas para se usar POP3, pois as 
+mensagens eram acessadas apenas e sempre do desktop ou notebook.<br><br>
+
+Com a proliferação de dispositivos e o aumento da dependência em relação ao e-mail como ferramenta 
+de comunicação e negócios e até mesmo o aumento de disponibilidade de conexões com boa velocidade 
+com a internet, como é o caso do 4G e 5G, uma pessoa pode acessar uma mensagem de casa, do trabalho,
+ viajando, etc.<br><br>
+
+Mas não é só isso que determina qual protocolo de e-mail é o mais indicado.<br><br>
+
+Podem existir necessidades e desejos da atividade e uso que se faz, que privilegiem um ou outro
+ e que podem ser satisfeitas quando se conhecem as características de cada um.<br><br>
+
+ ➤ Características do POP3<br>
+A forma como o protocolo POP3 opera junto ao servidor e clientes de e-mail, proporciona as seguintes
+ características:<br><br>
+
+ • Todo conteúdo que tenha sido feito o download para o dispositivo, está nele e, portanto, mesmo sem
+ conectividade com a conta / servidor, ele pode ser acessado;<br><br>
+
+ • Se ativada a opção no cliente de e-mail pela qual o usuário opta por “manter uma cópia das mensagens
+ baixadas no servidor”, isso produz alguns desdobramentos:<br><br>
+
+ • Pode-se configurar outros dispositivos nos quais as mensagens também podem ser baixadas;<br><br>
+
+ • Tem-se uma “espécie de backup”, já que se algum conteúdo for acidentalmente removido, pode-se 
+recorrer ao servidor para recuperá-lo. Vale destacar que não constitui um verdadeiro backup em 
+sua concepção;<br><br>
+
+• Com o passar do tempo e especialmente nos casos de usuários que recebem muitos e-mails, sua conta
+ pode acumular muitas mensagens e consumir muito espaço em disco da conta;<br><br>
+
+ • O gerenciamento da conta para por exemplo, remover mensagens muito antigas, desnecessárias, ou por
+ outra razão, exige o acesso via Webmail ou painel de controle;<br><br>
+
+ • Ao não habilitar a opção de “manter uma cópia no servidor”, tudo que for baixado, estará apenas no
+ dispositivo e em apenas um;<br><br>
+
+ • Pode-se ter estruturas de pastas e de mensagens diferentes no dispositivo e no servidor, porque a 
+estrutura e administração no cliente de e-mail não afeta o servidor e vice-versa;<br><br>
+
+• Menor consumo de dados (tráfego e transferência) em relação ao IMAP;<br><br>
+
+• Menos demanda do serviço de e-mail do servidor.<br><br>
+
+➤ Características do IMAP<br>
+Comparativamente ao POP3, o IMAP caracteriza-se por:<br><br>
+
+• Administração mais eficiente do conteúdo presente no servidor, já que o que se está visualizando,
+ bem como todas as alterações (criação, remoção ou renomeação) das pastas e de seus respectivos
+  conteúdos, são feitas diretamente na conta / servidor;<br><br>
+
+  • Se dois ou mais dispositivos – ou mesmo usuários – acessarem a conta, tudo o que fizerem afeta o
+ que é visualizado no outro dispositivo e pelo segundo usuário;<br><br>
+
+ • Maior consumo de dados (tráfego e transferência) em relação ao POP3;<br><br>
+
+ • No caso de muitos usuários com contas de e-mail sob um domínio, é preciso configurar com maior 
+intervalo as verificações de novas mensagens, do contrário pode haver uma sobrecarga de conexões 
+ao serviço, acarretando bloqueio no firewall, por exemplo, que pode interpretar que o excesso de 
+conexões partindo de um mesmo IP, pode ser uma tentativa de ataque;<br><br>
+
+• Qualquer tipo de ocorrência que impeça a conexão com o servidor, também impede o acesso de todo o
+ seu conteúdo, como a simples leitura de uma mensagem;<br><br>
+
+ • Permite que o usuário tenha literalmente todas as suas mensagens disponíveis em quase qualquer 
+situação e a qualquer momento, porque está sempre se acessando o servidor. Assim, no caso de um
+ novo dispositivo, não há necessidade de preocupação com migração de conteúdo.<br><br>
