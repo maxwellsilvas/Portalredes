@@ -547,3 +547,40 @@ nav > ul > li > a {
   margin: 0px;
   text-align: center;
 }
+ 
+/* ANIMAÇÃO EGG */
+.egg {
+  padding-left: 100%;
+position: sticky;
+z-index: 1;
+top: 500px;
+}
+
+
+.egg:hover {
+  animation: slide-left 0.4s ease; 
+
+}
+
+
+@-webkit-keyframes slide-left {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-100px);
+            transform: translateX(-100px);
+  }
+}
+@keyframes slide-left {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-100px);
+            transform: translateX(-100px);
+  }
+}
+
