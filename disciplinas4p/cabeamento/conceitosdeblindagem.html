@@ -25,4 +25,192 @@
             </div>
 
             <p class="resumo1"><br><br><br><br><br>
-                <strong>◉ Comunicação em Rádio de Microondas </strong><br><br>
+                <strong>◉ ATERRAMENTO E BLINDAGEM EM PROFIBUS</strong><br><br>
+    
+                O Profibus é um protocolo digital utilizado em sistemas de controle, que permite 
+                a conexão com interoperabilidade de diversos equipamentos e fabricantes. Possui 
+                uma série de vantagens em relação à tecnologia 4-20 mA, onde resumidamente pode-se
+                 citar, dentre outras: <br><br>
+                 • Fácil cabeamento com redução de custos;<br>
+                 • Simples operação, através da sala de controle;<br>
+                 • Aplicações em área classificadas;<br>
+                 • Altas taxas de comunicação no Profibus-DP;<br>
+                 • Poderosas ferramentas de configuração/parametrização e gerenciamento de ativos;<br>
+                 • Tecnologia aberta e em contínua evolução.<br><br>
+
+                Assim como em outras tecnologias digitais, o sucesso de uma rede Profibus está 
+                diretamente ligado à qualidade das instalações.<br><br>
+                
+                Muitas vezes a confiabilidade de um sistema de controle é colocada em risco devido
+                 às más instalações. Comumente, os usuários fazem vista grossa a estes problemas e,
+                  em análises mais criteriosas, descobrem-se problemas com as instalações, 
+                  envolvendo cabos e suas rotas e acondicionamentos, blindagens e aterramentos.<br><br>
+                
+                Neste artigo veremos algumas dicas sobre aterramento e o uso da blindagem (shield).<br>
+                ARQUITETURA DO SISTEMA DE CONTROLE DE PROCESSO<br><br>
+                 
+                 Na prática existem diversos fabricantes de sistemas de controle, assim como várias
+                  possibilidades de arquiteturas, mas basicamente deve-se atentar para:<br><br>
+                • O número de estações host e estações de engenharia;<br>
+                • O número de controladores;<br>
+                • A hierarquia da comunicação;<br>
+                • As atribuições dos dispositivos e equipamentos de campo aos seus respectivos 
+                controladores;<br>
+                • O método de conexão dos equipamentos de campo;<br>
+                • As condições envolvendo áreas à prova de explosão, segurança intrínseca, emissões 
+                eletromagnéticas, condições ambientais, distribuição de cabeamento, aterramento etc.<br><br>
+                 
+                 A figura mostra uma arquitetura típica, onde se tem o controlador Profibus, 
+                 estações de engenharia, ferramentas de parametrização, acopladores e outros
+                  elementos da rede.<br><br>
+                Vejamos a seguir detalhes e dicas sobre aterramento e o uso da blindagem (shield),
+                 lembrando sempre que regulamentações locais, em caso de dúvida, prevalecem. <br><br>
+                 
+                 <img  src="../imagem/aterramento.png" alt="aterramento" width="40%"><br><br>
+
+                 ➤ NBR-5410<br>
+A NBR-5410 é a norma brasileira para instalações elétricas de baixa tensão e prescreve as normas
+ para projeto, execução e verificação das instalações. Estas regras visam garantir a segurança 
+ das pessoas, dois incentivos e dois benefícios contra riscos e danos que possam ocorrer quando 
+ as instalações eléctricas são utilizadas de forma adequada e garantir o correcto funcionamento 
+ dessas instalações. Orienta como configurar e calcular os sistemas de aterramento, bem como os
+  pontos equipotenciais para ligação de dois sistemas de proteção elétrica, eletrônica e sistemas 
+  de proteção contra raios.<br><br>
+Regras complementares:<br>
+
+• NBR 5456 – Equipamentos elétricos e eletrônicos em geral;<br>
+• NBR 5444 – Símbolos gráficos para instalações elétricas pré-construídas;<br>
+• NBR 13570 – Instalações elétricas em locais de transporte público;<br>
+• NBR 13543 – Instalações elétricas em estabelecimentos de saúde;<br>
+• NBR 5418 – Instalação de equipamentos elétricos em atmosferas potencialmente explosivas. <br><br>
+
+➤ FIO TERRA<br>
+Todo circuito deve possuir um condutor de proteção em toda sua extensão. <br><br>
+
+TERMINAÇÕES SENSÍVEIS DE EQUIPAMENTOS ELÉTRICOS<br><br>
+
+ Os sistemas de aterramento devem desempenhar diversas funções simultâneas, como proporcionar 
+ segurança pessoal e de equipamentos. Resumidamente, apresenta-se uma lista de funções básicas
+  de dois sistemas de aterramento: <br><br>
+
+a) Proporcionar segurança pessoal aos usuários;<br>
+b) Fornecer caminho de retorno de baixa impedância (baixa resistência) ao terra, proporcionando 
+o desligamento automático dos dispositivos de proteção de forma rápida e segura, quando devidamente
+ projetado;<br>
+c) Fornecer controle das tensões desenvolvidas não apenas quando a fase curta de terra retorna à 
+terra para uma fonte próxima ou distante;<br>
+d)Estabilizar a tensão durante transitórios no sistema elétrico causados ​​por faltas à terra;  <br>
+e) Verificar cargas estáticas acumuladas em estruturas, suportes e carcaças de equipamentos em geral;<br> 
+f) Fornecer um sistema para que os equipamentos eletrônicos possam operar satisfatoriamente
+ tanto em altas como em baixas frequências;<br>
+g) Fornecer referência de tensão padrão para os sinais e circuitos;<br>
+h) Minimizar os efeitos da EMI (Emissão Eletromagnética).<br><br>
+ 
+Para atender às funções acima, destacamos três características fundamentais da unidade: <br><br>
+
+• Capacidade de condução; <br> 
+• Baixo valor de resistência; <br> 
+• Configuração do eletrodo que habilita ou controla o gradiente de potencial.<br><br>
+
+Independentemente da finalidade, proteção ou funcionalidade, o aterramento deve ser único em 
+cada local de instalação. Existem situações em que as terras podem ser separadas, por isso devem 
+ser tomados cuidados.<br>
+Em relação à instalação de dois componentes do sistema de aterramento, alguns critérios devem ser
+ seguidos:<br><br>
+
+ • O valor da resistência de aterramento não deve ser modificado – deve ser considerado ao longo do 
+tempo;<br>
+• Os componentes devem resistir às condições térmicas, termomecânicas e eletromecânicas;<br>
+• Os componentes devem ser robustos e também possuir proteção mecânica adequada para atender 
+às condições de influências externas;<br>
+• Devem ser evitados danos nos elétrodos e outras peças metálicas devido aos efeitos da eletrólise. <br><br>
+
+EQUIPOTENCIALIZAR <br><br>
+
+Definição: Equipotencializar significa deixar todo o potencial, exceto o mesmo.<br><br>
+
+Na prática: Equipotencializar significa minimizar a diferença de potencial para reduzir acidentes.<br><br>
+
+Deve ser realizada uma equipotencialização principal em cada edifício. Além disso, as massas
+ das instalações localizadas no mesmo edifício devem estar ligadas à equipotencialização principal
+  e, desta forma, a um único eléctrodo de terra.<br><br>
+
+A equipotencialização funcional é a função de equalizar o aterramento e garantir o funcionamento
+ de dois circuitos de sinais com compatibilidade eletromagnética. <br><br>
+
+
+ ➤ BLINDAGEM<br>
+O aterramento e a blindagem atendem aos requisitos obrigatórios para garantir a integridade de duas
+ partes de uma planta. É muito comum na prática encontrar operação intermitente e erros grosseiros 
+ nas medições devido a mais instalações. <br><br>
+
+Os efeitos do ruído podem ser minimizados com técnicas adequadas de projeto, instalação, 
+distribuição de cabos, aterramento e blindagem. Acessórios inadequados podem ser fontes de 
+potencial indesejado e perigoso, comprometendo potencialmente a operação eficaz de um equipamento
+ ou o funcionamento adequado de um sistema. Consulte o site da Vivace Process Instruments ou artigo
+  sobre EMI – Emissões Eletromagnéticas, onde há diversos detalhes sobre como minimizar ruídos e 
+  interferências.<br><br>
+
+A blindagem deve ser conectada ao potencial de referência do sinal que está protegendo, conforme
+ mostra a figura. <br><br>
+ <img  src="../imagem/aterramento1.png" alt="aterramento" width="40%"><br><br>
+ 
+ Quando forem utilizados múltiplos segmentos, eles devem ser mantidos conectados, 
+ garantindo o mesmo potencial de referência, conforme figura. <br><br>
+
+ <img  src="../imagem/aterramento2.png" alt="aterramento" width="40%"><br><br>
+
+ ➤ EFEITO BLINDAGEM X ATERRAMENTO EM UM ÚNICO PONTO<br><br>
+Neste caso a corrente não circulará mal e não cancelará os campos magnéticos.<br>
+
+É necessário minimizar a compressão do condutor que se estende para fora da blindagem e garantir
+ uma boa ligação da blindagem ao terra.<br><br>
+ <img  src="../imagem/aterramento3.png" alt="aterramento" width="40%"><br><br>
+
+EFEITO BLINDAGEM X ATERRAMENTO EM DOIS PONTOS<br><br>
+
+Ocorre uma distribuição de corrente, dependendo de suas frequências, pois a corrente tende a seguir
+ o caminho de menor impedância.  <br>
+Adicione alguns kHz: a resistência indutiva é despretensiosa e a corrente circulará pelo caminho 
+de menor resistência.<br>
+Acima de kHz: há predomínio da reatividade indutiva e, portanto, a corrente circulará pelo caminho 
+de menor indutância.<br>
+
+O caminho de menor impedância é aquele cujo caminho de retorno está próximo ao caminho de saída, 
+pois possui a maior capacitância distribuída e a menor indutância distribuída.<br>
+É necessário minimizar a compressão do condutor que se estende para fora da blindagem e garantir
+ uma boa ligação da blindagem ao terra.<br><br>
+ <img  src="../imagem/aterramento4.png" alt="aterramento" width="40%"><br><br>
+
+
+Vale citar neste caso:<br><br>
+
+• Não há proteção contra sujeira ;<br>
+• Danos a equipamentos ativos potencialmente significativos quando a diferença de potencial de 
+terra entre ambos os extremos exceder 1 V (rms);<br>
+• A resistência elétrica do aterramento deve ser a mais baixa possível em ambas as extremidades
+ do segmento para minimizar loops de terra , principalmente em baixas frequências;<br>
+ • A blindagem dos cabos é utilizada para eliminar interferências por acoplamento capacitivo,
+ geradas por campos elétricos;<br>
+ • A blindagem só é eficiente quando estabelece um caminho de baixa impedância até o terra;<br>
+ • A blindagem flutuante não protege contra interferências;<br>
+ • O cabo blindado deve ser conectado ao potencial de referência (terra) do circuito a ser blindado;<br>
+ • A aterrorizante blindagem de mais de um ponto pode ser problemática;<br>
+ • Minimize a compressão da ligadura de referência do escudo, pois ela funciona como uma bobina. <br><br>
+
+ <img  src="../imagem/aterramento5.png" alt="aterramento" width="40%"><br><br>
+
+Além disso, é importante citar:<br><br>
+
+• Os campos elétricos são muito eficazes na blindagem em relação aos campos magnéticos, sendo que a
+ utilização de blindagem em um ou mais pontos atua contra campos elétricos;<br>
+ • O uso de metais não magnéticos na tensão dos condutores não protege contra campos magnéticos;<br>
+ • A chave para a blindagem magnética é reduzir a área do loop . Use um torque trancado ou retorno de
+ corrente para blindagem;<br>
+
+ • Para evitar a radiação de um condutor, geralmente é utilizada uma blindagem com aterramento em ambos
+ os lados acima da frequência de corte, portanto alguns cuidados devem ser tomados; <br>
+ • Apenas uma quantidade limitada de ruído magnético pode ser protegida devido ao circuito de terra formado;<br>
+ • Qualquer blindagem onde o ruído flui não deve fazer parte do caminho para o sinal; <br>
+ • Utilize cabo trançado blindado ou cabo triaxial em baixas frequências;<br>
+ • A eficácia da blindagem do cabo trançado aumenta à medida que o número de volts por centímetro. <br><br>
