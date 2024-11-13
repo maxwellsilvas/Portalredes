@@ -25,4 +25,290 @@
             </div>
 
             <p class="resumo1"><br><br><br><br><br>
-                <strong>◉ Cabeamento estruturado metálico</strong><br><br>
+<strong>◉ ACL – Access Control List – Como configurar permissões avançadas no Linux</strong><br><br>
+Uma ACL (Access Control List / Lista de Controle de Acesso) é uma configuração de segurança que nos fornece um controle mais refinado sobre
+ quais usuários podem acessar os diretórios do sistema e arquivos específicos do que as permissões tradicionais do Linux.
+ <br><br>
+
+Usando as ACLs, podemos especificar as formas nas quais cada um dos usuários podem acessar um diretório ou um arquivo.<br><br>
+
+As ACLs podem reduzir um pouco a performance de um sistema, por isso é recomendável não ativá-las em sistemas de arquivos que armazenem 
+arquivos de sistema, nos quais as permissões tradicionais do Linux são mais que suficientes. Recomendamos, por exemplo, que você tenha a 
+partição /home separada e que ative as ACLs nesta partição.<br><br>
+
+Uma ACL é composta por uma série de regras. Uma regra especifica como um usuário ou grupo pode acessar o arquivo onde a ACL está sendo 
+aplciada.<br><br>
+
+Existem dois tipos de ACLs: regras de acesso (access ACLs) e regras padrão (default ACLs). Uma regra de acesso especifica informações 
+de acesso para um único arquivo ou diretório. Já uma regra padrão é aplicada apenas a diretórios, e especifica informações de acesso 
+padrões para todos os arquivos no diretório que não possuam uma ACL explícita aplicada.<br><br>
+
+Para estudarmos as ACLs vamos montar um disco extra em nosso sistema, no diretório /teste. Assumimos que o disco já foi particionado e 
+formatado anteriormente.<br><br>
+
+É necessário também instalar o pacote e habilitar as ACLs na partição. Geralmente os sistemas de arquivos ext2, ext3 e ext4 suportam as 
+ACLs, e devemos ativá-las montando o dispositivo com a opção acl (a opção no_acl é o padrão!).<br><br>
+
+
+Trabalhando com as ACLs no Linux<br><br>
+Podemos verificar se um sistema de arquivos montado possui suporta à ACLs emitindo o seguinte comando (supondo o sistema montado em 
+/dev/sda1):<br><br>
+
+<kbd># tune2fs -l /dev/sda1<br><br></kbd>
+
+<img  src="../imagem/acl1.png" alt=" permissões " width="600"> <br><br><br>
+                
+Veja a opção de ACL disponível na linha “Default mount options:“.<br><br>
+
+Também é necessário verificar se os utilitários para ACL estão instalados no sistema. Para isso, execute o comando a seguir:<br><br>
+
+<kbd># dpkg --list | grep acl<br><br></kbd>
+
+<img  src="../imagem/ACL-Linux-Access-Control-List-02.png" alt=" permissões " width="600"> <br><br><br>
+
+Em meu caso, tanto os utilitários quanto as bibliotecas de acl estão instalados no sistema. Caso contrário, podemos instalá-los emitindo
+ o comando a seguir (sistemas devian e derivados):<br><br>
+
+ <kbd># apt-get install acl<br><br></kbd>
+Após particionar e formatar o disco, vamos montá-lo ativando a opção de ACL:<br><br>
+
+<kbd># mount -t ext4 -o acl /dev/sdb1 /teste<br><br></kbd>
+Podemos também ativar as ACLs em um disco adicionando a opção acl ao arquivo <kbd>/etc/fstab.<br><br></kbd>
+
+Vamos acessar a partição e criar um arquivo para testes nela:<br><br>
+
+<kbd># cd /teste<br>
+# vi arq1<br><br></kbd>
+Agora vamos ver as permissões de acesso ao arquivo usando o comando <kbd>ls -l:<br><br>
+
+# ls -l<br><br></kbd>
+
+<img  src="../imagem/ACL-Linux-Access-Control-List-03.png" alt=" permissões " width="600"> <br><br><br>
+
+Vamos verificar as ACLs do arquivo usando agora o comando <kbd>getfacl:<br><br>
+
+# getfacl arq1<br><br></kbd>
+
+<img  src="../imagem/ACL-Linux-Access-Control-List-getfacl-04.png" alt=" permissões " width="600"> <br><br><br>
+
+Quando usamos esse comando, algumas informações mostradas são as mesmas retornadas por <kbd>ls -l.<br><br></kbd>
+
+As primeiras três linhas da saída de getfacl constituem o cabeçalho; elas especificam o nome do arquivo, seu proprietário e o grupo ao 
+qual ele está associado.<br><br>
+
+Na linha que inicia com user, os símbolos :: indicam que a linha especifica as permissões do proprietário do arquivo. De forma análoga, 
+a linha group:: indica as permissões do grupo associado ao arquivo, e a linha other::, as permissões dos outros. Nenhum nome pode ser 
+associado a other.<br><br>
+
+Podemos adicionar ou modificar regras de permissões ao arquivo usando o comando setfacl com a opção –modify (ou -m), com a sintaxe a seguir:<br><br>
+
+<kbd># setfacl -m ugo:nome:permissões lista-de-arquivos<br><br></kbd>
+Onde:
+
+<kbd>u </kbd>= ajusta permissão de um usuário qualquer<br>
+<kbd>g</kbd> = ajusta permissão de um grupo qualquer<br>
+<kbd>o </kbd>= ajusta permissão de todos os outros usuários<br>
+<kbd>nome</kbd> = nome do usuário ou grupo para o qual iremos ajustar as permissões<br>
+<kbd>permissões</kbd> = permissões no modo simbólico ou numérico (absoluto)<br>
+<kbd>lista-de-arquivos </kbd>= lista de arquivos aos quais as permissões serão aplicadas.<br><br>
+
+O comando <kbd>setfacl</kbd> é como uma espécie de chmod para acls.<br><br>
+
+Ao especificarmos permissões para os outros usuários (others), devemos omitir o parâmetro nome no comando.
+
+As permissões simbólicas usam as letras<kbd> r, w, x</kbd> para representar as permissões de arquivo, ao passo que as permissões absolutas usam um 
+número octal (de 0 a 7).<br>
+
+Vamos a um exemplo. O arquivo arq1 será configurado para ter as seguintes permissões: Usuário proprietário: rw<br><br>
+
+Grupo do arquivo: rw<br>
+Outros: sem permissão nenhuma<br>
+Usuário fabio: somente leitura<br><br>
+
+Veja que com o esquema de permissões padrão do Linux não conseguiríamos aplicar esse conjunto de permissões da forma como necessitamos. 
+Se o usuário fabio for membro do grupo do arquivo, terá permissão rw, e se for “outro” usuário, não terá permissão alguma. Vamos usar 
+então a ACL para dar essa permissão a ele. Primeiramente, damos as permissões comuns usando chmod:<br><br>
+
+<kbd># chmod 660 arq1<br>
+# ls -l<br><br></kbd>
+
+<img  src="../imagem/ACL-Linux-Access-Control-List-05.png" alt=" permissões " width="600"> <br><br><br>
+
+Agora, ajustamos a permissão de fabio usando o comando <kbd>setfacl:<br><br>
+
+# setfacl -m u:fabio:r arq1<br><br></kbd>
+E verificamos o resultado com <kbd>getfacl:<br><br>
+
+# getfacl arq1<br><br></kbd>
+
+<img  src="../imagem/ACL-Linux-Access-Control-List-setfacl-06.png" alt=" permissões " width="600"> <br><br><br>
+
+Veja que agora o usuário fabio aparece na saída do comando getfacl, com a permissão r (leitura) definida.<br><br>
+
+Vamos conferir a saída do comando <kbd>ls -l</kbd> agora:
+<br><br>
+<kbd># ls -l<br><br></kbd>
+
+<img  src="../imagem/ACL-Linux-Access-Control-List-setfacl-07.png" alt=" permissões " width="600"> <br><br><br>
+
+
+Note que há agora um sinal de adição (+) ao lado das permissões do arquivo. Esse é um flag que indica permissões definidas por ACL 
+neste arquivo.<br><br>
+
+Podemos configurar regras de ACL para mais de um usuário ao mesmo tempo usando o comando setfacl. Por exemplo, vamos dar as permissões rwx
+ para o usuário fabio e somente leitura (r) para a usuária sofia. Para isso, separamos as configurações de cada usuário com uma vírgula:<br><br>
+
+ <kbd># setfacl -m u:fabio:rwx,u:sofia:r-- arq1<br><br></kbd>
+E podemos ver o resultado com getfacl:<br><br>
+
+<kbd># getfacl arq1<br><br></kbd>
+
+<img  src="../imagem/ACL-Linux-Access-Control-List-08.png" alt=" permissões " width="600"> <br><br><br>
+
+Também podemos aplicar regras de acl a um grupo específico usando a opção g, como por exemplo um grupo de nome admins:<br><br>
+
+<kbd># setfacl -m g:admins:rwx arq1<br><br></kbd>
+Ou ainda aplicar as regras de acl a mais de um arquivo simultaneamente, separando seus nomes por espaços em branco:<br><br>
+
+<kbd># setfacl -m g:admins:rwx arq1 arq2<br><br></kbd>
+Podemos remover as regras de ACL de um usuário ou grupo com a opção -x. Esta opção não age sobre o proprietário do arquivo ou sobre o
+ grupo associado ao arquivo.<br><br>
+
+Vamos remover a permissão de leitura que foi atribuída à usuária sofia no arquivo arq1:<br><br>
+
+<kbd># setfacl -x u:sofia arq1<br><br></kbd>
+E verifica o resultado. Usaremos a opção –omit-header para que o comando getfacl não mostre o cabeçalho na saída:<br><br>
+
+<kbd># getfacl --omit-header arq1<br><br></kbd>
+
+<img  src="../imagem/ACL-Linux-Access-Control-List-09.png" alt=" permissões " width="600"> <br><br><br>
+
+
+Veja que a permissão atribuída anteriormente à usuária sofia desapareceu. Não devemos especificar as permissões a serem retiradas quando
+ usamos a opção -x – especifique apenas o valor ugo e o nome do item.<br><br>
+
+Podemos também retirar todas as regras de ACL aplicadas a um arquivo de uma vez. Para isso, use a opção -b, seguida do nome do arquivo:<br><br>
+
+<kbd># setfacl -b arq1<br>
+# getfacl arq1<br><br></kbd>
+
+<img  src="../imagem/ACL-Linux-Access-Control-List-10.png" alt=" permissões " width="600"> <br><br><br>
+
+Veja que a permissão atribuída ao usuário fabio foi excluída.<br><br>
+
+Configurando regras padrão em um diretório<br><br>
+Podemos configurar regras de ACL padrão em um diretório, de modo que essas regras sejam aplicadas automaticamente a todos os arquivos 
+dentro desse diretório que não possuam suas próprias ACLs explícitas.<br><br>
+
+Vamos criar um diretório chamado dir-teste para testarmos a aplicação de algumas regras de ACL:<br><br>
+
+<kbd># mkdir dir-teste<br><br></kbd>
+Vamos criar também dois grupos: grupo admin e grupo pub:<br><br>
+
+<kbd># groupadd admin<br>
+# groupadd pub<br></kbd>
+
+Agora vamos criar as seguintes regras padrão a serem aplicadas no diretório dir-teste: os membros do grupo pub terão permissões de leitura
+ e execução (r-x) e os membros do grupo admin terão permissões de leitura, escrita e execução (rwx). A opção -d nos permite criar as regras
+  padrão no diretório:<br><br>
+
+<kbd># setfacl -d -m g:pub:r-x,g:admin:rwx dir-teste<br><br></kbd>
+E vamos conferir se as ACLs foram aplicadas corretamente:<br><br>
+
+<kbd># getfacl dir-teste<br><br></kbd>
+
+<img  src="../imagem/ACL-Linux-Access-Control-List-11.png" alt=" permissões " width="600"> <br><br><br>
+
+Cada uma das regras padrão criadas começa com a palavra default: na listagem retornada pelo comando getfacl. Essas regras serão aplicadas aos 
+arquivos dentro deste diretório que não possuírem regras de ACL explícitas. Podemos também criar regras de ACL para o diretório em si.<br><br>
+
+Vamos entrar no diretório dir-teste, criar um arquivo de nome arq2 e verificar as ACLs que ele herdará do diretório:<br><br>
+
+<kbd># cd dir-teste<br>
+# touch arq2<br>
+# getfacl arq2<br><br></kbd>
+
+<img  src="../imagem/ACL-Linux-Access-Control-List-12.png" alt=" permissões " width="600"> <br><br><br>
+
+
+Note que o arquivo recebeu as permissões padrão aplicadas no diretório onde ele se encontra, e note também as permissões efetivas que ele
+ possui, listadas na coluna à direita na listagem.<br><br>
+
+As permissões efetivas são o resultado da aplicação da máscara de direitos efetivos sobre as permissões aplicadas nos usuários e grupos 
+configurados na ACL.<br><br>
+
+Remover as permissões padrão de um diretório<br><br>
+É possível também remover apenas as permissões padrão de um diretório, sem no entanto excluir permissões eventualmente aplicadas a usuários
+ ou grupos específicos no diretório. Para isso empregamos a opção k.<br><br>
+
+Vamos testar isso aplicando permissões padrão ao diretório dir-teste e logo após aplicando permissão específica à usuária sofia de leitura e
+ escrita no diretório:<br><br>
+
+ <kbd># setfacl -d -m g:ti:r-x,g:admins:rwx dir-teste<br>
+# setfacl -m u:sofia:rw dir-teste<br></kbd>
+Verificando as permissões aplicadas:<br><br>
+
+<kbd># getfacl dir-teste<br><br></kbd>
+Resultado:<br><br>
+
+<kbd># file: dir-teste<br>
+# owner: fabio<br>
+# group: fabio<br>
+user::rwx<br>
+user:sofia:rw-<br>
+group::r-x<br>
+mask::rwx<br>
+other::r-x<br>
+default:user::rwx<br>
+default:group::r-x<br>
+default:group:ti:r-x<br>
+default:group:admins:rwx<br>
+default:mask::rwx<br>
+default:other::r-x<br></kbd><br>
+Vamos agora retirar as opções padrão do diretório:<br><br>
+
+<kbd># setfacl -k dir-teste<br><br></kbd>
+Verificando:<br><br>
+
+<kbd>$ getfacl dir-teste<br><br></kbd>
+Resultado:<br><br>
+
+<kbd># file: dir-teste<br>
+# owner: fabio<br>
+# group: fabio<br>
+user::rwx<br>
+user:sofia:rw-<br>
+group::r-x<br>
+mask::rwx<br>
+other::r-x<br></kbd>
+
+Perceba que as permissões padrão do diretório sumiram, mas a permissão aplicada à usuária sofia permaneceu.<br><br>
+
+Vejamos agora do que se trata a máscara de direitos efetiva.<br><br>
+
+Máscara de Direitos Efetiva (Mask)<br><br>
+A linha que aparece na saída do comando getfacl e que começa com a palavra mask especifica a máscara de direitos efetiva. Esta máscara limita
+ as permissões efetivas garantidas aos grupos e usuários da ACL.<br><br>
+
+Essa máscara não afeta o usuário proprietário do arquivo, nem seu grupo associado. Em outras palavras, a máscara não afeta as permissões 
+tradicionais do Linux.<br><br>
+
+Porém, o comando setfacl sempre ajusta a máscara de direitos efetiva para o nível de permissões de ACL menos restritivo para o arquivo, a 
+máscara não terá efeito a não ser que seja configurada explicitamente após criarmos as regras de ACL no arquivo.<br><br>
+
+Para isso, usamos a palavra mask no lugar de ugo e não especificamos um nome no comando setfacl.<br><br>
+
+Por exemplo, vamos configurar a máscara de direitos efetiva para somente leitura no arquivo arq2:<br><br>
+
+<kbd># setfacl -m mask::r-- arq2<br><br></kbd>
+Vamos ver agora como ficaram as permissões no arquivo arq2:<br><br>
+
+<kbd># getfacl arq2<br><br></kbd>
+
+<img  src="../imagem/ACL-Linux-Access-Control-List-mask-13.png" alt=" permissões " width="600"> <br><br><br>
+
+
+Veja que, embora os grupos pub e admin tenham permissões<kbd> r-x</kbd> e <kbd>rwx</kbd>, respectivamente, suas permissões efetivas são calculadas com base na 
+máscara, mostrada na linha<kbd> mask::r–</kbd>, e no final a permissão dos grupos é <kbd>r–</kbd> (somente leitura).<br><br>
+
+As permissões do proprietário e do grupo associado do arquivo não foram alteradas.<br><br>
