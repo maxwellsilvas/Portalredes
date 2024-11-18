@@ -25,4 +25,109 @@
             </div>
 
             <p class="resumo1"><br><br><br><br><br>
-                <strong>◉ Cabeamento estruturado metálico</strong><br><br>
+<strong>◉ CComo funcionam os logs no Linux</strong><br><br>
+
+◉ Uma definição dos logs no Linux<br><br>
+Os logs do Linux fornecem uma linha de tempo dos eventos para o kernel Linux, aplicativos e sistema, e são uma
+ valiosa ferramenta de solução de problemas quando você encontra problemas. Essencialmente, a análise de arquivos 
+ de log é a primeira coisa que um administrador precisa fazer quando um problema é descoberto.<br><br>
+
+ Para problemas específicos do aplicativo da área de trabalho, os arquivos de log são escritos em locais 
+ diferentes. Por exemplo, o Chrome grava relatórios de falhas em ‘<kbd>~/.chrome/Crash Reports</kbd>’. Onde um aplicativo 
+ desktop grava logs depende do desenvolvedor e se o aplicativo permitir a configuração de log personalizada.<br><br>
+
+Os arquivos são armazenados em texto simples e podem ser encontrados no diretório <kbd>/var/log</kbd> e subdiretório. 
+Existem logs do Linux para tudo: sistema, kernel, gerenciadores de pacotes, processos de inicialização, Xorg,
+ Apache, MySQL. Neste artigo, o tópico se concentrará especificamente nos logs do sistema Linux.<br><br>
+
+Você pode mudar para este diretório usando o comando cd. Você precisará ser o usuário root para visualizar ou 
+acessar arquivos de log em sistemas operacionais Linux, ou Unix.<br><br>
+
+◉ Como ver os logs<br><br>
+Os logs do Linux podem ser visualizados com o comando <kbd>cd /var/log</kbd>, depois digitando o comando ls para ver os logs
+ armazenados neste diretório. Um dos logs mais importantes para visualizar é o syslog, que registra tudo, exceto 
+ as mensagens relacionadas a autenticação.<br><br>
+
+Utilize o comando <kbd>less /var/log/syslog</kbd> para ver tudo sobre o syslog, mas o zoom em um problema específico levará 
+um tempo, já que este arquivo tende a ser longo. Você pode usar Shift + G para chegar ao final do arquivo, denotado
+ por “END”.<br><br>
+
+Você também pode visualizar logs via dmesg para imprimir o buffer do kernel. Ele imprime tudo e o envia até o final
+ do arquivo. A partir daí, você pode usar o comando <kbd>dmesg | less </kbd>para percorrer a saída. Se você deseja visualizar 
+ entradas de registro para a instalação do usuário, você pode usar o comando<kbd> dmesg -facility = user</kbd>.<br><br>
+
+Por fim, você pode usar o comando tail para visualizar arquivos de log. É uma das ferramentas mais fáceis que você
+ pode usar, uma vez que mostra apenas a última parte dos logs, onde o problema geralmente reside. Para isso, use 
+ o comando <kbd>tail /var/log/syslog</kbd> ou <kbd>tail -f /var/log/syslog</kbd>.<br><br>
+
+O tail continuará monitorando o arquivo de log e imprimirá a próxima linha escrita no arquivo, permitindo que 
+você siga o que está escrito no syslog conforme ele é atualizado. Para um número específico de linhas (exemplo,
+ as últimas 5 linhas) use <kbd>tail -f -n 5 /var/log/syslog</kbd>, que imprime as últimas 5 linhas. Uma vez que uma nova 
+ linha vem, a antiga é removida. Para escapar do comando tail, pressione Ctrl + X.<br><br>
+
+ ◉ Os logs mais importantes do Linux<br><br>
+
+A maioria dos diretórios pode ser agrupada em uma das quatro categorias:<br><br>
+
+• Logs de Aplicação<br>
+• Logs de Eventos<br>
+• Logs de Serviço<br>
+• Logs do Sistema<br><br>
+
+◉ Monitoramento do log no Linux<br><br>
+O monitoramento de cada log é uma tarefa árdua, fazendo com que ferramentas como o Retrace, que combina o APM com 
+gerenciamento de log centralizado, permitindo que você colete todos os dados de log em um só lugar, essencial para 
+os desenvolvedores. Os logs para você monitorar podem depender de seus objetivos ou outras variáveis, mas há algum 
+consenso sobre alguns dos registros mais críticos, necessários para monitorar, como:<br><br>
+
+• <kbd>/var/log/syslog </kbd>ou <kbd>/var/log/messages</kbd>: mensagens gerais, bem como informações relacionadas ao sistema. 
+Essencialmente, este registro armazena todos os dados de atividade em todo o sistema global. Observe que a 
+atividade para sistemas baseados em Redhat, como CentOS ou Rhel, é armazenada em mensagens, enquanto o Ubuntu e
+ outros sistemas baseados em Debian são armazenados no Syslog.<br><br>
+
+ • <kbd>/var/log/auth.log</kbd> ou <kbd>/var/log/secure</kbd>: armazena logs de autenticação, incluindo logins e métodos de autenticação
+ bem-sucedidos e com falhas. Novamente, o tipo de sistema determina onde os registros de autenticação são 
+ armazenados; As informações no Debian/Ubuntu são armazenadas em <kbd>/var/log/auth.log</kbd>, enquanto no Redhat/CentrOS
+  é armazenado em <kbd>/var/log/secure</kbd>.<br><br>
+
+  • <kbd>/var/log/boot.log</kbd>: um repositório de todas as informações relacionadas à inicialização e quaisquer mensagens 
+registradas durante a inicialização.<br><br>
+
+• <kbd>/var/log/maillog</kbd> ou <kbd>/var/log/mail.log</kbd>: armazena todos os logs relacionados aos servidores de e-mail, útil quando 
+você precisa de informações sobre postfix, smtpd ou qualquer serviço relacionado ao email que esteja sendo 
+executado em seu servidor.<br><br>
+
+• <kbd>/var/log/kern</kbd>: armazena logs do Kernel e dados de aviso. Esse registro também é útil para solucionar problemas de 
+kernels personalizados.<br><br>
+
+• <kbd>/var/log/dmesg</kbd>: mensagens relacionadas aos drivers de dispositivo. O comando dmesg pode ser usado para visualizar 
+mensagens neste arquivo.<br><br>
+
+• <kbd>/var/log/faillog</kbd>: contém informações sobre todas as tentativas de login falhas, o que é útil para obter informações
+ sobre falhas de login, como aquelas que tentam hackear credenciais de login e ataques de força bruta.<br><br>
+
+ • <kbd>/var/log/cron</kbd>: armazena todas as mensagens relacionadas a Crond (tarefas cron), como quando o daemon cron iniciou
+ um trabalho, mensagens de falha relacionadas, etc.<br><br>
+
+ • <kbd>/var/log/yum.log</kbd>: se você instalar pacotes usando o comando yum, este registro armazena todas as informações 
+relacionadas, o que pode ser útil para determinar se um pacote e todos os componentes foram instalados 
+corretamente.<br><br>
+
+• <kbd>/var/log/httpd/</kbd>: um diretório contendo arquivos error_log e access_log do daemon httpd Apache. O error_log contém 
+todos os erros encontrados pelo httpd. Esses erros incluem problemas de memória e outros erros relacionados ao 
+sistema. Access_log contém um registro de todos os pedidos recebidos em HTTP.<br><br>
+
+• <kbd>/var/log/mysqld.log</kbd> ou <kbd>/var/log/mysql.log</kbd>: arquivo de log do MySQL que registra todas as mensagens de depuração,
+ falha e sucesso. Contém informações sobre o início, parada e reinício do MySQL daemon mysqld. Esta é outra 
+ instância onde o sistema determina o diretório; RedHat, CentOS, Fedora e outros sistemas baseados em RedHat 
+ usam <kbd>/var/log/mysqld.log</kbd>, enquanto o Debian/Ubuntu usa o diretório <kbd>/var/log/mysql.log</kbd>.<br><br>
+
+ ◉ Exemplos de Saída<br><br>
+
+Aqui está um caso do Syslogd no Ubuntu (sair e reiniciar):<br><br>
+
+<img  src="../imagem/logs.PNG" alt=" protocolo NTP " width="500"> <br><br><br>
+
+E encerramento do sistema do kernel do Linux:<br><br>
+
+<img  src="../imagem/logs1.PNG" alt=" protocolo NTP " width="500"> <br><br><br>
