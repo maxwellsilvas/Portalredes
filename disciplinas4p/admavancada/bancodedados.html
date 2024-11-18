@@ -25,4 +25,278 @@
             </div>
 
             <p class="resumo1"><br><br><br><br><br>
-                <strong>◉ Cabeamento estruturado metálico</strong><br><br>
+<strong>◉ MySQL: guia completo de como utilizar o sistema</strong><br><br>
+
+O MySQL foi desenvolvido por Michael Widenius e David Axmark e lançado pela primeira vez em 1995. Desde então,
+ tornou-se amplamente utilizado em aplicativos da web, sendo uma das opções mais escolhidas para o armazenamento,
+  organização e recuperação de dados. Atualmente, o software é propriedade da Oracle. <br><br>
+
+A ferramenta é capaz de lidar com grandes volumes de dados e suportar um alto número de conexões simultâneas.
+ Ele oferece recursos avançados de escalabilidade e desempenho, o que o torna adequado para aplicações com alto 
+ tráfego e necessidades robustas de processamento de dados. <br><br>
+
+Devido à sua flexibilidade, desempenho e ampla adoção, o MySQL está presente em uma variedade de aplicações, 
+desde pequenos sites até grandes sistemas corporativos. Ele é particularmente utilizado no desenvolvimento de 
+aplicativos web e está presente em muitos frameworks e plataformas populares. <br><br>
+
+◉ O que é o MySQL? <br>
+O MySQL é um sistema de gerenciamento de banco de dados relacional de código aberto. O software funciona em um
+ modelo de arquitetura, permitindo dessa forma que múltiplos clientes se conectem ao servidor e acessem e
+  manipulem os dados armazenados nos bancos de dados. Os dados são organizados em tabelas compostas de linhas e 
+  colunas. <br><br>
+
+A partir da linguagem de consulta estruturada (SQL), é possível realizar operações de criação, modificação e 
+consulta de dados. A ferramenta fornece uma ampla gama de recursos e funcionalidades, incluindo suporte a 
+transações, indexação eficiente, controle de acesso e segurança dos dados. <br><br>
+
+Além disso, o MySQL é conhecido por sua estabilidade, confiabilidade e facilidade de uso. Ele conta com uma 
+grande comunidade de desenvolvedores e usuários em todo o mundo, o que contribui para seu contínuo aprimoramento
+ e suporte. <br><br>
+
+ ◉ Para que o MySQL serve? <br>
+O MySQL serve para armazenar, organizar e recuperar informações de forma eficiente. Ele é utilizado em uma ampla
+ variedade de aplicativos e cenários, como por exemplo: <br><br>
+
+Desenvolvimento de aplicativos web — o MySQL é uma escolha popular para sites, blogs, lojas online e sistemas de
+ gerenciamento de conteúdo (CMS).<br>
+
+Sistemas corporativos — muitas empresas usam o MySQL para gerenciar seus dados internos, como informações de 
+funcionários, clientes, inventários, registros de transações e outros dados empresariais. <br>
+
+Aplicativos móveis — no desenvolvimento de apps, os dados são armazenados e sincronizados com servidores MySQL,
+ garantido o acesso e a atualização de informações em tempo real. <br>
+
+Data warehousing — em ambientes onde grandes volumes de dados são armazenados, organizados e analisados, 
+o software pode ser usado em conjunto com ferramentas de análise de dados para executar consultas complexas e 
+gerar insights de negócios. <br>
+
+Sistemas de gerenciamento de conteúdo — WordPress, Joomla e Drupal, usam o MySQL como banco de dados subjacente,
+ pois ele fornece uma estrutura robusta e escalável para armazenar e recuperar o conteúdo do site. <br>
+
+Aplicações embarcadas — o MySQL é usado em sistemas embarcados, onde os dados são armazenados e acessados por
+ dispositivos incorporados, como roteadores, sistemas de automação residencial e dispositivos de Internet das
+  Coisas (IoT). <br><br>
+
+  ◉ Como funciona o MySQL? <br>
+O MySQL opera em um modelo cliente/servidor, com muitas funcionalidades e recursos avançados, como por exemplo
+ indexação, controle de acesso, replicação e segurança, que garantem a integridade e o desempenho dos dados.<br><br> 
+
+Conheça em seguida os elementos básicos de funcionamento do MySQL. <br><br>
+
+➤ Cliente MySQL <br>
+O cliente é o aplicativo que se conecta ao servidor MySQL para enviar comandos e receber resultados. Pode ser 
+uma aplicação web, um aplicativo móvel ou até mesmo uma ferramenta de linha de comando. <br><br>
+
+➤ Servidor MySQL <br>
+O servidor é responsável por gerenciar os bancos de dados e processar as solicitações enviadas pelos clientes. 
+Ele é instalado e executado em um servidor dedicado e fica constantemente ouvindo por conexões de clientes. 
+<br><br>
+
+➤ Conexão com o servidor <br>
+O cliente MySQL estabelece uma conexão com o servidor MySQL usando o nome do host, o número da porta, o nome de 
+usuário e a senha adequados. Essas informações de conexão são fornecidas pelo cliente no momento da solicitação. 
+<br><br>
+
+➤ Processamento de comandos <br>
+Após a conexão ser estabelecida, o cliente MySQL pode enviar comandos SQL para o servidor, que podem ser usados
+ para criar e excluir bancos de dados e tabelas, inserir dados, recuperar informações e atualizar registros. 
+ <br><br>
+ ➤ Processamento de consultas <br>
+
+Quando o servidor MySQL recebe uma consulta, ele executa uma série de etapas para processar a solicitação: 
+<br><br>
+Análise sintática — o servidor verifica a sintaxe da consulta para garantir que ela esteja correta. 
+<br>
+Otimização — determina a melhor estratégia de execução para a consulta, considerando índices, estatísticas e 
+outras informações relevantes. <br>
+
+Execução — o servidor executa a consulta e recupera os dados solicitados da tabela. <br>
+
+Envio de resultados — os resultados são enviados de volta para o cliente MySQL. <br>
+
+Gerenciamento de transações — o MySQL suporta transações, que são unidades lógicas de trabalho que podem consistir
+ em várias operações de banco de dados. As transações garantem a integridade dos dados e a consistência em 
+ operações complexas, permitindo que as alterações sejam confirmadas (commit) ou desfeitas (rollback). <br>
+
+Armazenamento de dados — armazena os dados em arquivos físicos no servidor. Os dados são organizados em bancos
+ de dados, que podem conter várias tabelas, sendo que cada tabela é composta de colunas (campos) e linhas 
+ (registros). <br><br>
+
+ ◉ Quais são as vantagens de usar o MySQL? <br>
+O MySQL é um software de código aberto distribuído sob a licença General Public License (GPL). Isso significa 
+que o usuário pode usá-lo gratuitamente, modificá-lo e distribuí-lo sem custos adicionais. A natureza de código
+ aberto também proporciona transparência e flexibilidade para personalizar e adaptar a ferramenta às necessidades
+  específicas. <br><br>
+
+A solução oferece recursos avançados de escalabilidade, permitindo adicionar mais recursos a um servidor ou usar
+ clusters e replicação. O MySQL tem uma capacidade de lidar com cargas de trabalho intensivas, podendo processar 
+ um alto volume de transações e conexões simultâneas. <br><br>
+
+Por ser um dos sistemas de gerenciamento de bancos de dados mais adotados do mundo, existe uma vasta comunidade 
+de usuários e desenvolvedores oferecendo suporte, recursos, exemplos e soluções para ajudar na resolução de 
+problemas e no aprendizado contínuo. <br><br>
+
+Outro destaque da solução é a compatibilidade com vários sistemas operacionais, incluindo Windows, Linux e macOS.
+ Além disso, o software oferece drivers e APIs, permitindo a integração com várias linguagens de programação, 
+ como PHP, Python, Java e .NET. <br><br>
+
+ ◉ Como começar a usar o MySQL? <br>
+Com uma interface intuitiva e amigável, o MySQL é fácil de instalar, configurar e usar. Ele conta com uma interface
+ intuitiva e amigável, facilitando a criação de bancos de dados, tabelas e consultas. A sua compatibilidade com a 
+ linguagem SQL padrão facilita a migração de outros sistemas de banco de dados ou a integração com outras 
+ tecnologias. <br><br>
+
+Veja os principais passos para começar a usar o MySQL. <br><br>
+<strong>◉ Instalação</strong><br><br>
+
+No Windows, o MySQL é instalado a partir do download do software em seu site oficial. Um assistente de instalação 
+conduz todo o processo, oferecendo a escolha dos componentes, entre outras configurações.<br><br> 
+
+No macOS, o servidor MySQL pode ser iniciado pelo Homebrew, por meio do comando: <br><br>
+
+brew services start mysql <br><br>
+
+No sistema operacional Ubuntu, que é uma distribuição Linux, é necessário executar os seguintes comandos para 
+atualizar os repositórios de pacotes e instalar o MySQL: <br><br>
+
+<kbd>sudo apt update</kbd><br><br>
+
+<kbd>sudo apt install mysql-server </kbd><br><br>
+
+Durante a instalação, o usuário precisará definir uma senha para o usuário root. Após a conclusão do processo, 
+o servidor MySQL estará em execução no sistema. <br><br>
+
+2. Criação de banco de dados <br>
+Para criar um banco de dados, abra um cliente MySQL, como o MySQL Command-Line Client, MySQL Workbench, conecte-se
+ ao servidor MySQL usando suas credenciais. (nome de usuário e senha). Após o login, execute o seguinte comando 
+ no prompt do MySQL: <br><br>
+
+ <kbd>CREATE DATABASE meu_banco_de_dados; </kbd><br><br>
+
+Após executar o comando, o banco de dados será criado e pode ser verificado com o comando “<kbd>SHOW DATABASES;</kbd>”, que
+ lista todos os bancos de dados existentes no servidor MySQL. <br><br>
+
+3. Criação de tabelas <br>
+Antes de criar uma tabela, o usuário deve selecionar o banco de dados desejado. Isso pode ser feito com o comando: 
+<br><br>
+<kbd>USE meu_banco_de_dados;</kbd> <br><br>
+
+A criação da tabela é feita por meio do “<kbd>CREATE TABLE</kbd>”, especificando o nome da tabela e, em seguida, as colunas
+ e os tipos de dados para cada coluna. Por exemplo, para criar uma tabela chamada “clientes” com duas colunas, 
+ “id” e “nome”, execute o comando: <br><br>
+
+ <kbd>CREATE TABLE clientes ( <br><br>
+
+id INT, <br><br>
+
+nome VARCHAR(50) <br><br>
+
+ ); </kbd><br><br>
+
+Nesse exemplo, “id” é uma coluna do tipo INT (número inteiro) e “nome” é uma coluna do tipo VARCHAR (string de 
+caracteres) com um limite máximo de 50 caracteres. <br><br>
+
+Após executar o comando, a tabela será criada no banco de dados especificado e pode ser verificada com o comando 
+“<kbd>SHOW TABLES;</kbd>”, que mostrará as tabelas existentes no banco de dados. <br><br>
+
+4. Inserção de dados <br>
+Para inserir dados em uma tabela do MySQL, selecione o banco de dados onde a tabela está localizada e utilize 
+o comando SQL “<kbd>INSERT INTO</kbd>” seguido do nome da tabela e das colunas nas quais os dados serão inseridos. <br><br>
+
+Em seguida, especifique os valores a serem inseridos para cada coluna. Por exemplo, em uma tabela chamada 
+“clientes” com as colunas “id”, “nome” e “idade”, os valores 1 para “id”, ‘João’ para “nome” e 25 para “idade”
+ podem ser inseridos com o comando: <br><br>
+
+ <kbd>INSERT INTO clientes (id, nome, idade) VALUES (1, ‘João’, 25); </kbd><br><br>
+
+5. Atualização de registros <br>
+Após inserir novos dados, é importante atualizar o registro. Isso pode ser feito com o comando “<kbdUPDATE></kbd>” seguido
+ do nome da tabela, cujo as colunas e valores devem ser atualizados. <br><br>
+
+Em uma tabela chamada “clientes” com as colunas “id”, “nome” e “idade”, a atualização do nome de um cliente com 
+um determinado ID, pode ser feita com o seguinte comando: <br><br>
+
+<kbd>UPDATE clientes SET nome = ‘NovoNome’ WHERE id = 1; </kbd><br><br>
+
+6. Exclusão de registros <br>
+Para excluir registros, use o comando SQL “<kbd>DELETE FROM</kbd>” seguido do nome da tabela. Utilizando o mesmo exemplo 
+anterior, um cliente pode ser excluído com o comando: <br><br>
+
+<kbd>DELETE FROM clientes WHERE id = 1; </kbd><br><br>
+
+Tenha cuidado ao excluir registros, pois essa operação é irreversível e os dados excluídos não podem ser 
+recuperados. Certifique-se de fornecer as condições corretas na cláusula “<kbd>WHERE</kbd>” para evitar a exclusão
+ incorreta de registros indesejados. <br><br>
+
+7. Consultas básicas <br><br>
+As consultas básicas podem ser realizadas com o comando SQL “<kbd>SELECT</kbd>”, acompanhado das colunas que devem ser 
+recuperadas. Para retornar todas as colunas, o caractere coringa “<kbd>*</kbd>” pode ser utilizado. Para retornar todas
+ as colunas da tabela “clientes”, execute o comando: <br><br>
+
+ <kbd>SELECT * FROM clientes; </kbd><br><br>
+
+Para consultar apenas colunas específicas, os nomes das colunas devem ser listados separados por vírgulas.
+ Por exemplo, para retornar apenas as colunas “nome” e “idade”, use o comando: <br><br>
+
+ <kbd>SELECT nome, idade FROM clientes; </kbd><br><br>
+
+8. Filtro de resultados <br>
+Escreva sua consulta SQL utilizando a cláusula “<kbd>WHERE</kbd>” no comando “<kbd>SELECT</kbd>” para filtrar os resultados. Na 
+tabela usada como exemplo, para filtrar apenas os clientes com idade acima de 30 anos, execute a linha abaixo: <br><br>
+
+<kbd>SELECT * FROM clientes WHERE idade > 30; </kbd><br><br>
+
+Os operadores lógicos. como “<kbd>AND</kbd>” e “<kbd>OR</kbd>”, podem ser usados para combinar várias condições na cláusula “<kbd>WHERE</kbd>”
+ e refinar ainda mais os resultados da consulta. <br><br>
+
+9. Ordenação de resultados <br>
+A cláusula “<kbd>ORDER BY</kbd>” permite especificar uma ou mais colunas pelas quais os resultados serão ordenados. Para
+ ordenar os clientes pelo nome em ordem alfabética crescente no exemplo citado anteriormente, execute o comando:<br><br> 
+
+ <kbd>SELECT * FROM clientes ORDER BY nome; </kbd><br><br>
+
+Para obter os resultados em ordem decrescente, adicione a palavra-chave “<kbd>DESC</kbd>” após o nome da coluna, 
+como abaixo: <br><br>
+
+<kbd>SELECT * FROM clientes ORDER BY nome DESC; </kbd><br><br>
+
+Os resultados podem ser ordenados também por múltiplas colunas. Basta listar as colunas na cláusula “<kbd>ORDER BY</kbd>”
+ separadas por vírgulas, indicando a ordem de classificação para cada uma delas. <br><br>
+
+10. Importação e exportação de dados <br><br>
+No MySQL, os dados podem ser importados e exportados usando várias abordagens, como por exemplo comandos SQL,
+ utilitários da linha de comando ou ferramentas gráficas. Para exportar dados de uma tabela, pode ser usado o
+  comando SQL “<kbd>SELECT … INTO OUTFILE</kbd>”, como exemplificado abaixo: <br><br>
+
+  <kbd>SELECT * INTO OUTFILE ‘/caminho/do/arquivo.txt’ FROM tabela; </kbd><br><br>
+
+Já para importar dados de um arquivo, é utilizado o comando SQL “<kbd>LOAD DATA INFILE</kbd>”: <br><br>
+
+<kbd>LOAD DATA INFILE ‘/caminho/do/arquivo.txt’ INTO TABLE tabela; </kbd><br><br>
+
+11. Backups e restaurações <br>
+Realizar backups e restaurações no MySQL é uma prática importante para garantir a segurança e a disponibilidade
+ dos dados. Para fazer a cópia de um banco de dados, execute o comando “mysqldump”, a partir da linha de comando
+  do sistema operacional. Por exemplo: <br><br>
+
+  <kbd>mysqldump -u usuario -p nome_do_banco_de_dados > backup.sql </kbd><br><br>
+
+Para restaurar o backup, crie um banco de dados vazio com o SQL “<kbd>CREATE DATABASE</kbd>”: para criar um novo banco de 
+dados. Por exemplo: <br><br>
+
+<kbd>CREATE DATABASE nome_do_banco_de_dados; </kbd><br><br>
+
+Depois, utilize o comando “<kbd>mysql</kbd>” executado a partir da linha de comando do sistema operacional: <br><br>
+
+<kbd>mysql -u usuario -p nome_do_banco_de_dados < backup.sql </kbd><br><br>
+
+Este guia apresentou uma introdução completa sobre o MySQL e suas principais características. Explore suas
+ funcionalidades e experimente diferentes casos de uso para aproveitar todos os benefícios que a ferramenta
+  tem a oferecer. 
+
+Como garantir performance e escalabilidade no banco de dados? <br>
+Seja para aplicativos web, sistemas corporativos, aplicações móveis, data warehousing ou gerenciamento de 
+conteúdo, o MySQL é a opção mais popular e adequada para atender às suas necessidades.<br><br>
+
+Os recursos avançados do Servidor VPS oferecem a estabilidade, confiabilidade e flexibilidade para lidar 
+com grandes volumes de dados e um alto número de conexões simultâneas. <br><br>
