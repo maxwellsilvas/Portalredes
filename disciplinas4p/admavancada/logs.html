@@ -25,7 +25,7 @@
             </div>
 
             <p class="resumo1"><br><br><br><br><br>
-<strong>◉ CComo funcionam os logs no Linux</strong><br><br>
+<strong>◉ Como funcionam os logs no Linux</strong><br><br>
 
 ◉ Uma definição dos logs no Linux<br><br>
 Os logs do Linux fornecem uma linha de tempo dos eventos para o kernel Linux, aplicativos e sistema, e são uma
@@ -65,7 +65,7 @@ você siga o que está escrito no syslog conforme ele é atualizado. Para um nú
  as últimas 5 linhas) use <kbd>tail -f -n 5 /var/log/syslog</kbd>, que imprime as últimas 5 linhas. Uma vez que uma nova 
  linha vem, a antiga é removida. Para escapar do comando tail, pressione Ctrl + X.<br><br>
 
- ◉ Os logs mais importantes do Linux<br><br>
+◉ Os logs mais importantes do Linux<br><br>
 
 A maioria dos diretórios pode ser agrupada em uma das quatro categorias:<br><br>
 
@@ -85,12 +85,12 @@ Essencialmente, este registro armazena todos os dados de atividade em todo o sis
 atividade para sistemas baseados em Redhat, como CentOS ou Rhel, é armazenada em mensagens, enquanto o Ubuntu e
  outros sistemas baseados em Debian são armazenados no Syslog.<br><br>
 
- • <kbd>/var/log/auth.log</kbd> ou <kbd>/var/log/secure</kbd>: armazena logs de autenticação, incluindo logins e métodos de autenticação
+• <kbd>/var/log/auth.log</kbd> ou <kbd>/var/log/secure</kbd>: armazena logs de autenticação, incluindo logins e métodos de autenticação
  bem-sucedidos e com falhas. Novamente, o tipo de sistema determina onde os registros de autenticação são 
  armazenados; As informações no Debian/Ubuntu são armazenadas em <kbd>/var/log/auth.log</kbd>, enquanto no Redhat/CentrOS
   é armazenado em <kbd>/var/log/secure</kbd>.<br><br>
 
-  • <kbd>/var/log/boot.log</kbd>: um repositório de todas as informações relacionadas à inicialização e quaisquer mensagens 
+• <kbd>/var/log/boot.log</kbd>: um repositório de todas as informações relacionadas à inicialização e quaisquer mensagens 
 registradas durante a inicialização.<br><br>
 
 • <kbd>/var/log/maillog</kbd> ou <kbd>/var/log/mail.log</kbd>: armazena todos os logs relacionados aos servidores de e-mail, útil quando 
@@ -106,10 +106,10 @@ mensagens neste arquivo.<br><br>
 • <kbd>/var/log/faillog</kbd>: contém informações sobre todas as tentativas de login falhas, o que é útil para obter informações
  sobre falhas de login, como aquelas que tentam hackear credenciais de login e ataques de força bruta.<br><br>
 
- • <kbd>/var/log/cron</kbd>: armazena todas as mensagens relacionadas a Crond (tarefas cron), como quando o daemon cron iniciou
+• <kbd>/var/log/cron</kbd>: armazena todas as mensagens relacionadas a Crond (tarefas cron), como quando o daemon cron iniciou
  um trabalho, mensagens de falha relacionadas, etc.<br><br>
 
- • <kbd>/var/log/yum.log</kbd>: se você instalar pacotes usando o comando yum, este registro armazena todas as informações 
+• <kbd>/var/log/yum.log</kbd>: se você instalar pacotes usando o comando yum, este registro armazena todas as informações 
 relacionadas, o que pode ser útil para determinar se um pacote e todos os componentes foram instalados 
 corretamente.<br><br>
 
