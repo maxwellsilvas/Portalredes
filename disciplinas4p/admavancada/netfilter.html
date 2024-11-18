@@ -21,4 +21,195 @@
             </div>
 
             <p class="resumo1"><br><br><br><br><br>
-                <strong>◉ Cabeamento estruturado metálico</strong><br><br>
+                <strong>◉ Iptables</strong><br><br>
+Iptables é uma ferramenta de firewall para sistemas Linux que atua como uma espécie de “guarda de
+ fronteira” entre o seu computador e a internet. Ela permite controlar o tráfego de rede, decidindo 
+ quais conexões são permitidas e quais são bloqueadas.<br>
+Imagine o iptables como um segurança que verifica cada pacote de dados que chega ou sai do seu 
+dispositivo, verificando se eles têm permissão para passar ou se devem ser barrados de acordo com as
+ regras definidas.<br>
+Essas regras podem ser configuradas para permitir que certos tipos de tráfego, como navegação na web,
+ passem livremente, enquanto bloqueiam outras atividades maliciosas, como tentativas de invasão ou 
+ acesso não autorizado ao seu sistema.<br><br>
+
+ ◉ Tabelas e cadeias (Tables and chains)<br>
+No iptables, existem quatro tabelas principais, cada uma com suas cadeias (chains) e propósitos 
+específicos:<br><br>
+
+• Tabela “filter”: Essa é a tabela padrão do iptables e é usada para filtrar o tráfego de pacotes com 
+base em regras definidas. As três cadeias padrão nesta tabela são:<br><br>
+<kbd>INPUT</kbd>: Essa cadeia lida com pacotes destinados à própria máquina (tráfego de entrada).<br>
+<kbd>OUTPUT</kbd>: Essa cadeia lida com pacotes originados na própria máquina e enviados a outros destinos 
+(tráfego de saída).<br>
+<kbd>FORWARD</kbd>: Essa cadeia lida com pacotes que estão apenas passando pelo sistema, atuando como um 
+roteador.<br><br>
+
+• Tabela “nat” (Network Address Translation): Essa tabela é usada para realizar a tradução de endereços 
+de rede, geralmente usada para redirecionamento de portas (port forwarding) ou para mascaramento de 
+endereços IP (SNAT – Source Network Address Translation). As cadeias padrão nesta tabela são:<br><br>
+<kbd>PREROUTING</kbd>: Essa cadeia é utilizada para modificar pacotes antes de serem roteados, permitindo o 
+redirecionamento de portas.<br>
+<kbd>OUTPUT</kbd>: Esta cadeia é usada para modificar pacotes gerados localmente antes de saírem do sistema.<br>
+<kbd>POSTROUTING</kbd>: Esta cadeia é utilizada para modificar pacotes após o roteamento, geralmente usada para 
+mascaramento de IP (SNAT).<br><br>
+
+• Tabela “mangle”: A tabela mangle é usada para modificar os cabeçalhos dos pacotes. É usada 
+principalmente para marcação de pacotes para posterior manipulação por outras regras ou ferramentas.
+ As cadeias padrão nesta tabela são:<br><br>
+ <kbd>PREROUTING</kbd>: Usada para modificar pacotes antes de serem roteados.<br>
+    <kbd>INPUT</kbd>: Usada para modificar pacotes de entrada antes de serem entregues localmente.<br>
+<kbd>FORWARD</kbd>: Usada para modificar pacotes que estão apenas passando pelo sistema.<br>
+    <kbd>OUTPUT</kbd>: Usada para modificar pacotes de saída antes de deixarem o sistema.<br>
+        <kbd>OUTPUT</kbd>: Usada para modificar pacotes de saída antes de deixarem o sistema.<br>
+            <kbd>POSTROUTING</kbd>: Usada para modificar pacotes após o roteamento.<br><br>
+
+• Tabela “raw”: Essa tabela é usada principalmente para controlar o rastreamento de conexões, permitindo
+ que os pacotes escapem do rastreamento feito pela tabela “conntrack”. As cadeias padrão nesta tabela
+  são:<br><br>
+  <kbd>PREROUTING</kbd>: Usada para modificar pacotes antes de serem roteados.<br>
+    <kbd>OUTPUT</kbd>: Usada para modificar pacotes gerados localmente antes de saírem do sistema.<br>
+
+Isso é bastante informação se você está vendo pela primeira vez, mas não se preocupe, as tabelas 2, 
+3 e 4 são utilizadas principalmente por administradores mais avançados e precisam de regras mais 
+complexas para seus firewalls. A tabela 1 costuma ser a que mais importa para a maioria das regras 
+básicas.<br><br>
+
+◉ Políticas padrão (Default Policies)<br>
+As “políticas padrão (default policies)” do iptables podem ser comparadas às regras iniciais de 
+boas-vindas que você estabelece para todos os convidados da sua festa antes de fazer ajustes 
+específicos para atender às suas necessidades de segurança e preferências. É como se você definisse 
+previamente o comportamento padrão para o tráfego de entrada, saída e encaminhado, caso nenhuma 
+regra específica seja aplicada a eles.<br><br>
+
+A política de uma cadeia pode ser configurada com três valores possíveis:<br><br>
+
+<kbd>ACCEPT</kbd>: O tráfego correspondente é permitido.<br>
+    <kbd>DROP</kbd>: O tráfego correspondente é silenciosamente descartado, sem enviar nenhuma resposta.<br>
+        <kbd>REJECT</kbd>: O tráfego correspondente é descartado, mas é enviado uma resposta ICMP ao remetente 
+informando que a conexão foi rejeitada.<br><br>
+
+Veja um exemplo de regra do iptables:<br><br>
+
+<kbd>iptables -P INPUT ACCEPT<br>
+iptables -P FORWARD DROP<br>
+iptables -P OUTPUT ACCEPT<br><br></kbd>
+
+Como não foi especificado a tabela dessa regra, por padrão a tabela selecionada é a filter (Tabela 1).
+ A flag <kbd>-P </kbd>configura uma política padrão na cadeia.<br><br>
+
+Linha 1: A cadeia é INPUT e a política padrão definida é ACCEPT.<br>
+Linha 2: A cadeia é FORWARD e a política padrão definida é DROP.<br>
+Linha 3: A cadeia é OUTPUT e a política padrão definida é ACCEPT.<br><br>
+
+◉ Comandos básicos do iptables<br><br>
+
+Existem comandos básicos para gerenciar o iptables através da linha de comando, confira a seguir 
+alguns comandos básicos:<br><br>
+
+• Exibindo as regras atuais: Para verificar as regras já existentes no iptables, utilize o comando:
+sudo iptables <kbd>-L</kbd><br><br>
+
+Isso listará as regras para todas as tabelas padrão (filter, nat e mangle).<br><br>
+
+<img  src="../imagem/iptables.png" alt=" iptables " width="700"> <br><br><br>
+
+• Limpando as regras: Caso você tenha regras existentes que não deseja mais, pode limpá-las utilizando:<br><br>
+<kbd>sudo iptables -F</kbd><br><br>
+
+Atenção! Essa opção remove todas as regras de todas as cadeias (chains) nas tabelas. Para especificar
+ uma tabela use o padrão abaixo:<br><br>
+
+ <kbd>sudo iptables -F FORWARD</kbd><br><br>
+
+Este comando limpa todas as regras da cadeia FORWARD.<br><br>
+
+<kbd>-F</kbd>: Indica que queremos limpar todas as regras da cadeia especificada.<br>
+<kbd>FORWARD</kbd>: Especifica a cadeia a ser limpa.<br><br>
+
+• Adicionar uma regra para bloquear tráfego de saída:<br><br>
+
+<kbd>sudo iptables -A OUTPUT -o eth0 -p udp --dport 53 -j DROP<br><br></kbd>
+
+Neste exemplo, estamos adicionando uma regra à cadeia de saída (OUTPUT) que bloqueia tráfego UDP
+ na porta 53 (porta padrão do DNS) na interface de rede “eth0” (interface de rede de saída) e
+  direcionando-o para a ação “DROP”, que descarta o pacote.<br><br>
+
+<kbd>-A</kbd>: Adiciona a regra à cadeia especificada.<br>
+<kbd>-o</kbd>: Especifica a interface de rede de saída para onde o tráfego está sendo enviado.<br>
+<kbd>-p</kbd>: Especifica o protocolo do pacote (neste caso, UDP).<br>
+<kbd>--dport</kbd>: Especifica a porta de destino do pacote.<br>
+<kbd>-j</kbd>: Indica a ação a ser tomada se a regra for correspondida (neste caso, DROP).<br><br>
+
+• Remover uma regra específica:<br><br>
+
+<kbd>sudo iptables -D INPUT 3</kbd><br><br>
+
+Este comando remove a terceira regra da cadeia de entrada (INPUT).<br><br>
+
+<kbd>-D</kbd>: Indica que estamos excluindo uma regra.<br>
+<kbd>INPUT</kbd>: Especifica a cadeia da qual a regra será removida.<br>
+<kbd>3</kbd>: É o número da regra que será excluída. Você pode ver os números das regras usando o comando 
+<kbd>iptables -L numerado</kbd>.<br>
+
+Abrindo uma porta específica: Vamos supor que você deseje permitir o tráfego na porta 22 para 
+permitir conexões SSH.<br><br>
+
+Essas são apenas algumas das muitas possibilidades do iptables. Lembre-se de que, ao alterar as 
+regras do firewall, é importante ter cuidado para não bloquear o acesso ao seu sistema 
+inadvertidamente. Sempre teste suas regras antes de aplicá-las permanentemente, especialmente se
+ estiver trabalhando remotamente em um servidor.<br><br>
+
+ ◉ Salvando e restaurando regras<br>
+Uma parte essencial da administração do iptables é a capacidade de salvar e restaurar as regras 
+criadas no firewall. Isso é particularmente importante porque, ao reiniciar o sistema ou após uma 
+falha, todas as regras definidas serão perdidas se não forem salvas adequadamente.<br><br>
+
+Aqui estão as etapas para salvar e restaurar as regras do iptables de forma fácil e segura:<br><br>
+
+• Salvando as regras: Para salvar as regras do iptables, você precisa usar o comando <kbd>iptables-save</kbd>.
+ Este comando exibe as regras do iptables em um formato legível por máquina, permitindo que você
+  redirecione a saída para um arquivo.<br><br>
+
+Passo a passo:<br><br>
+
+1- Abra o terminal ou a linha de comando no seu sistema.<br>
+2- Use o comando iptables-save para exibir as regras atuais do iptables no seu terminal.<br>
+3- Redirecione a saída para um arquivo de texto. Por exemplo, para salvar as regras em um arquivo chamado
+ regras-iptables.txt, você pode usar o seguinte comando:<br><br>
+ <kbd>iptables-save > regras-iptables.txt</kbd><br><br>
+
+ • Restaurando as regras: Após salvar as regras em um arquivo, você pode restaurá-las a qualquer
+ momento usando o utilitário iptables-restore. Esse comando lerá o arquivo de texto contendo as 
+ regras salvas e as aplicará no iptables.<br><br>
+
+Passo a passo:<br><br>
+
+Verifique se você tem um arquivo contendo as regras salvas. No nosso exemplo, o arquivo é 
+<kbd>regras-iptables.txt</kbd>.<br>
+Abra o terminal ou a linha de comando no seu sistema.<br>
+Use o comando iptables-restore e especifique o arquivo contendo as regras para restaurá-las:<br><br>
+<kbd>iptables-restore < regras-iptables.txt</kbd><br><br>
+
+Dicas importantes:<br><br>
+
+Certifique-se de que está executando os comandos acima com privilégios de superusuário (root) 
+para que as alterações sejam aplicadas corretamente.<br>
+Sempre salve as regras em um local seguro, preferencialmente fora do diretório<kbd> /tmp</kbd>, para evitar
+ perdas acidentais ou exclusão durante a limpeza do sistema.<br>
+Ao restaurar regras, verifique se você está restaurando para o mesmo ambiente ou sistema semelhante,
+ pois regras incompatíveis podem causar problemas na rede.<br><br>
+
+Dica Pro: Para evitar a perda de regras toda vez que o sistema é reiniciado, você pode automatizar 
+o processo de restauração durante o processo de inicialização utilizando uma <kbd>cronjob</kbd>. Para isso, você 
+pode criar um script que contém o comando <kbd>iptables-restore</kbd> com o arquivo de regras adequado e, em
+ seguida, configurar esse script para ser executado na inicialização do sistema (usando: "@reboot 
+ comando_a_ser_executado").<br><br>
+
+Considerações Finais<br>
+Este texto abordou diversas características do iptables, mas há muito mais para aprender sobre suas
+ funcionalidades avançadas e opções adicionais. Certifique-se de consultar a documentação oficial e
+  tutoriais para aprofundar seus conhecimentos e utilização do iptables.<br><br>
+
+Outro ponto interessante, é que já abordamos em outro artigo como abrir e fechar portas de um servidor
+ da HostGator pelo WHM que utiliza uma ferramenta gráfica que manipula o iptables tornando mais 
+ prático a criação de certas regras para o usuário.<br><br>
