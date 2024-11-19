@@ -78,10 +78,12 @@ text-decoration: none;
    font-family: 'Abel', sans-serif;
   }
 
-#conteudos {
+  #conteudos {
     display: flex;
     flex-wrap: wrap;
+  justify-content: space-evenly;
   }
+  
 .user-card {
     margin: 20px 20px 20px;
     border: 2px solid rgb(10, 82, 124);
