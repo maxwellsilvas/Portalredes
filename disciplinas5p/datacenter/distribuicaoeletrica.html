@@ -22,4 +22,178 @@
 
 
             <p class="resumo1"><br><br><br><br><br>
-                <strong>◉ </strong><br><br>
+<strong>◉ Classificação dos Data Centers</strong><br><br>
+
+
+A recomendação TIA-942 afirma que os pontos únicos de falha devem ser eliminados do projeto de um Data Center para
+ assegurar sua redundância e confiabilidade. Estes podem ocorrer em qualquer componente dos subsistemas de um DC,
+  entre eles:<br><br>
+
+  • Sistemas de climatização: os equipamentos podem sofrer falhas elétricas, hidráulicas ou mecânicas e não suportar
+ o condicionamento do ar conforme as condições de temperatura e umidade dimensionadas; além disso, o sistema pode
+  não suportar condições extremas de temperatura (por exemplo, dias muito quentes e úmidos);<br><br>
+
+  • Infraestrutura elétrica: falhas ou manutenções programadas podem causar interrupções no fornecimento de energia
+ elétrica, pois diversos e complexos dispositivos estão envolvidos, como painéis elétricos, redes internas de 
+ transmissão, baterias e geradores;<br><br>
+
+ • Infraestrutura de telecomunicações: envolve equipamentos especializados e sofisticados para a transmissão dos
+ dados e a interface com as operadoras de telecomunicações. As principais falhas estão relacionadas ao software
+  e ao hardware dos equipamentos, ou seja, podem ocorrer inconsistências na alocação de memória, mau 
+  funcionamento nos módulos, nas portas de interconexão, nas fontes de alimentação e nos resfriadores dos
+   gabinetes (ventiladores);<br><br>
+
+   • Segurança lógica e física: incidentes de segurança podem causar suspensões no fornecimento dos serviços.
+ Geralmente são provocadas por vírus, cavalos de troia, ataques de negação de serviço, falhas nos protocolos 
+ e nos sistemas operacionais. Também são comuns deficiências nas políticas de segurança, que deveriam limitar
+  o acesso físico somente às equipes e usuários que prestam suporte aos dispositivos da infraestrutura do Data
+   Center.<br><br>
+
+Desta forma, os DCs podem ser classificados segundo aspectos intimamente relacionados à maneira como foram 
+concebidos: (i) arquitetura, (ii) telecomunicação, (iii) elétrico e (iv) mecânico. A partir destas 
+características, foram criados quatro níveis de infraestrutura (também chamados Tiers):<br><br>
+
+• Tier 1 (Data Center básico);<br>
+
+• Tier 2 (Data Center com componentes redundantes);<br>
+
+• Tier 3 (Data Center que permite manutenção sem paradas);<br>
+
+• Tier 4 (Data Center tolerante a falhas).<br><br>
+
+As próximas seções descrevem brevemente as principais características de cada uma destas categorias de DCs,
+ destacando o tempo máximo de indisponibilidade da infraestrutura (downtime) e os principais pontos de atenção.
+ <br><br>
+
+◉ Tier 1 – Data Center básico<br>
+
+Neste nível, a infraestrutura de telecomunicações será distribuída da sala de entrada para as áreas de 
+distribuição principal e horizontal por meio de um caminho (duto) único, sem rotas alternativas físicas ou
+ lógicas. Também não contempla a redundância na entrada da alimentação elétrica da concessionária fornecedora.
+  Suporta um nível de distribuição de energia que atende somente a demanda prevista, sem carga elétrica
+   adicional. Já o sistema de condicionamento de ar, mantém a temperatura e a umidade relativa das áreas
+    críticas nas condições estabelecidas no projeto, igualmente sem capacidade ociosa.<br><br>
+
+Os DCs desta categoria são suscetíveis a interrupções planejadas (manutenções preventivas e corretivas, 
+atividades para expansão da infraestrutura, atualizações de software, entre outras) e não previstas (falhas 
+e incidentes). O tempo máximo de indisponibilidade da infraestrutura é de 28,8 horas por ano. Este valor é
+ obtido por meio do cálculo da disponibilidade total prevista, ou seja, 99,671% das 8.760 horas anuais. Os
+  principais pontos de atenção são:<br><br>
+
+  • Falhas de alimentação elétrica no Data Center ou na Central da Operadora de Telecomunicações;<br>
+
+  • Falhas nos dispositivos de redes, como roteadores, switches, firewalls, balanceadores de carga, entre outros;<br><br>
+
+  • Eventos catastróficos nos caminhos de interligação ou nas áreas ER, MDA, HDA, ZDA e EDA.<br><br>
+
+  ◉ Tier 2 – Data Center com componentes redundantes<br>
+Neste grupo, os equipamentos de rede e de telecomunicações possuem seus principais módulos de hardware
+ redundantes, tais como:<br><br>
+
+ • Fontes de energia;<br>
+
+ • Placas processadoras de dados;<br>
+
+ • Placas de gerenciamento;<br>
+
+ • Portas para conexão com outros dispositivos.
+<br><br>
+O cabeamento das áreas de distribuição horizontal para os equipamentos de backbone deve ser composto por 
+fibras ópticas ou pares trançados redundantes, suportando a interconexão com diferentes módulos dos 
+dispositivos de redes e telecomunicações. Deve disponibilizar também duas caixas de acesso de telecomunicações
+ e dois caminhos de entrada até a ER (separados minimamente por 20 metros e conectados a pontos opostos da 
+ sala de entrada).<br><br>
+
+Os DCs denominados Tier 2 ainda não contemplam a redundância na entrada da alimentação elétrica da 
+concessionária fornecedora. Entretanto, os nós de baterias (Uninterruptible Power Supply – UPS) que suportam 
+a operação até o acionamento dos geradores elétricos devem estar configurados como N+1. Neste cenário, N 
+representa a quantidade de nós necessária para atender a carga elétrica total planejada; já na redundância
+ N+1, existe um nó sobressalente que será ativado quando qualquer outro estiver indisponível. Também não
+  há necessidade de geradores de energia elétrica redundantes. Por fim, os equipamentos condicionadores de
+   ar devem ser projetados para operação contínua, 24 horas por dia, 7 dias na semana e 365 dias por ano, 
+   em configuração N+1.<br><br>
+
+A indisponibilidade máxima permitida é de 22,0 horas por ano (disponibilidade total prevista de 99,749%).
+ Os principais pontos de atenção são relacionados às falhas nos sistemas de energia elétrica e climatização,
+  que podem gerar incidentes em todos os demais componentes do Data Center.<br><br>
+
+  ◉ Tier 3 – Data Center que permite manutenção sem paradas<br>
+
+Estes DCs são atendidos por duas ou mais operadoras de telecomunicações, que provisionam seus enlaces de
+ dados por intermédio de infraestruturas totalmente independentes. Estas estarão distribuídas em duas salas
+  de entrada, minimamente separadas por 20 metros, em lados opostos do Data Center. Estas ERs devem possuir
+   sistemas de condicionamento de ar, energia elétrica, proteção contra incêndios e equipamentos de 
+   telecomunicações distintos.<br><br>
+
+Também estarão disponíveis caminhos redundantes entre as ERs, MDAs e HDAs, por intermédio de fibras ópticas
+ ou pares trançados. Todos os dispositivos de rede e de telecomunicações estarão configurados em modo 
+ redundante, seja ativo-ativo (quando todos os nós estão operando simultaneamente e dividindo as transações
+  a serem processadas) ou ativo-backup (neste modelo, um nó ocioso está disponível para entrar em operação 
+  somente no momento da ocorrência de um incidente). Desta maneira, poderão ocorrer manutenções e alterações
+   no layout sem nenhuma indisponibilidade para os serviços do Data Center.<br><br>
+
+O sistema elétrico também deverá operar com contingenciamento N+1. Finalmente, os equipamentos condicionadores 
+de ar serão dimensionados com equipamentos redundantes suficientes para suportar falhas ou manutenções 
+planejadas em até um painel elétrico (neste caso, haverá interrupção no fornecimento de energia elétrica
+ para todos os dispositivos do sistema de climatização conectados em circuitos alimentados por este quadro
+  de distribuição elétrica), mantendo as condições de temperatura e de umidade relativa.<br><br>
+
+Neste nível, os DCs possuem downtime anual máximo de 1,6 horas (disponibilidade total prevista de 99,982%).
+ O ponto crítico da infraestrutura são as áreas de distribuição principal e horizontal, pois qualquer 
+ incidente nestas poderá resultar na interrupção da operação.<br><br>
+
+ ◉ Tier 4 – Data Center tolerante a falhas<br>
+
+Analogamente aos Data Centers do Tier 3, as instalações desta camada serão atendidas por duas ou mais operadoras
+ de telecomunicações, que utilizam infraestruturas distintas. Estas estarão distribuídas em duas ERs, separadas 
+ por 20 metros, em lados opostos do DC. Ambas terão sistemas de climatização, energia elétrica, proteção contra 
+ incêndios e equipamentos de telecomunicações independentes.<br><br>
+
+Toda infraestrutura de cabeamento estruturado deverá ser redundante e instalada em dutos fechados. Além disso, 
+é recomendada uma MDA secundária (em uma zona de proteção contra incêndio separada). O cabeamento das HDAs 
+deverão seguir caminhos diferentes, um até a MDA principal, e outro até a MDA secundária. Os dispositivos de
+ rede serão redundantes e serão alimentados por circuitos elétricos distintos, possibilitando o chaveamento 
+ automático para os equipamentos backup.<br><br>
+
+A instalação também deverá possuir duas alimentações de energia elétrica das concessionárias fornecedoras,
+ conectadas em diferentes subestações para assegurar a redundância no fornecimento. O sistema elétrico estará
+  configurado como 2(N+1), onde além de um componente sobressalente, toda estrutura elétrica será duplicada.
+
+Já o sistema de climatização será concebido com os componentes redundantes necessários para suportar falhas 
+ou manutenções planejadas em até um painel elétrico, mantendo as condições de temperatura e de umidade relativa.
+ Estes equipamentos devem possuir duas ou mais fontes de energia elétrica, conectadas em circuitos independentes.
+ <br><br>
+Os Data Centers deste Tier têm indisponibilidade anual máxima de 0,4 hora (disponibilidade total prevista de
+ 99,995%). Nota-se que a probabilidade de interrupções nos serviços é baixa, desde que seguidas as 
+ recomendações de disponibilização das áreas de distribuição principal e horizontal secundárias.<br><br>
+
+Sumário dos níveis de infraestrutura dos Data Centers<br><br>
+
+Conforme exposto nas seções anteriores, os DCs podem ser classificados em diferentes tiers. A infraestrutura 
+elétrica, os sistemas de condicionamento de ar e a arquitetura de cabeamento são mais complexos nas instalações 
+em conformidade com os tiers mais altos. Além disso, os equipamentos de rede e telecomunicações também utilizam 
+mais componentes redundantes e robustos, resultando em um maior índice de disponibilidade. Abaixo, estão 
+sumarizados os principais aspectos apresentados previamente. Por fim, a Figura 5 ilustra graficamente o 
+downtime anual para as instalações em diferentes tiers.<br><br>
+
+• Tier 1: a infraestrutura deste grupo possui numerosos pontos de falha, pois não dispõe de redundância elétrica,
+ de climatização, de cabeamento e de equipamentos de rede e telecomunicações;<br><br>
+
+ • Tier 2: equipamentos de rede e telecomunicações com módulos de hardware redundantes. Cabeamento encaminhado
+ por caminhos distintos. Os sistemas de UPS e condicionamento de ar estão configurados com contingenciamento
+  N+1. Não há abordagem dupla no fornecimento de energia elétrica pela concessionária, geradores redundantes
+   e circuitos elétricos independentes para os equipamentos;<br><br>
+
+   • Tier 3: dispositivos de rede e telecomunicações redundantes. Duas ou mais operadoras de telecomunicações 
+instaladas em salas de entrada totalmente independentes, com cabeamento encaminhado por dutos distintos para
+ as áreas de distribuição principal e horizontal. Sistema elétrico configurado com contingenciamento 
+ N+1. Já o sistema de climatização suporta falhas e manutenções planejadas em até um painel elétrico. Por
+  fim, as MDAs e HDAs não são duplicadas, ou seja, incidentes nestas áreas podem causar a interrupção nos
+   serviços;<br><br>
+
+   • Tier 4: todos os equipamentos de rede e telecomunicações são redundantes e conectados em diferentes circuitos
+ elétricos. O DC tem duas ou mais operadoras de telecomunicações instaladas em ERs independentes, com 
+ cabeamento redundante e encaminhados por dutos fechados. Existem áreas de distribuição principal e horizontal
+  primárias e secundárias. A alimentação elétrica é fornecida a partir de subestações diferentes e o sistema 
+  elétrico está configurado como 2(N+1).<br><br>
+
