@@ -3,8 +3,9 @@ body {
     background-size: 15% 15%;
     background-attachment: fixed;
     display: grid;
-    height: 100vh;
+    
     margin: 1cm;
+    overflow-x: clip;/*barra de navegação na horizontal*/
    }
       
    header{
@@ -13,9 +14,10 @@ body {
        height:15%;
        background-color:rgba(0, 0, 0, 0.932);
        top: 0;
-       position: fixed;
+       position:absolute;
        
    }
+   
    .logo{
        position: fixed;
        width:300px;
@@ -25,7 +27,6 @@ body {
        transform: translate(120px, 50%);
        transform: scale(0.9, 0.9);
        width:100%;
-       
    }
    
    nav{
@@ -45,8 +46,12 @@ body {
        margin-right: 1px;
    }
    
-   nav ul li a{
-       text-decoration: none;
+   kbd {color: rgb(143, 255, 118);}
+   strong {font-size: 170%; }
+
+   
+nav ul li a{
+text-decoration: none;
        color: rgba(205, 214, 255, 0.904);
        padding: 7px 10px;
        filter: drop-shadow(0 0 10px rgb(176, 243, 255));
@@ -65,26 +70,27 @@ body {
    transition-property: color, background, filter;
    transition-duration: 0.7s;
    filter: drop-shadow(0 0 40px rgb(31, 221, 255));
-   
    }
 
-   .resumo1, .resumo2, .resumo3, .resumo4, .resumo5, .resumo6, .resumo7, ul li {
-    color: #ffffff;
-    text-align: justify;
-    font-family: 'Abel', sans-serif;
-   }
+.resumo1, .resumo2, .resumo3, .resumo4, .resumo5, .resumo6, .resumo7, ul li {
+   color: #ffffff;
+   text-align: justify;
+   font-family: 'Abel', sans-serif;
+  }
 
 #conteudos {
     display: flex;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
+  justify-content: space-evenly;
   }
+  
 .user-card {
+    margin: 20px 20px 20px;
     border: 2px solid rgb(10, 82, 124);
     height: 150px;
     width: 150px;
     text-align: center;
   }
-  
 .user-card:hover {
     border: 2px solid rgb(255, 255, 255);
     height: 150px;
@@ -92,7 +98,6 @@ body {
     text-align: center;
     filter: drop-shadow(0 0 10px rgb(176, 243, 255));/*brilho na palavra*/
   }
-  
 .user-card .user-name {
     font-weight: bold;
     margin-bottom: 0.6rem;
