@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes de computadores</title>
+    <link rel="stylesheet" href="../styles.css" />
+    
+</head>
+<body>
+
+    <div>  
+        <header>
+            <div class="logo">
+                <a href="/index.html">
+                    <img  src="../imagem/LOGO.png" alt="Logo do portifólio"></a>
+                </div>
+            </header>
+                </div>
+            </div>
+
+
+            <p class="resumo1"><br><br><br><br><br>
+<strong>◉ Arquivos de despejo de imagem bruta (IMG) e montagem e redimensionamento de partições</strong><br><br>
+
+Diferentes sistemas de arquivos podem existir em arquivos. Na verdade, também podemos configurar um meio de 
+armazenamento inteiro emulado dentro de um único arquivo. Isso não requer necessariamente imagens de disco 
+virtual. Também há imagens de sistema raw de uma unidade de disco rígido (HDD) inteira ou disco de estado 
+sólido (SSD). Ao lidar com tais sistemas de arquivos potenciais , geralmente precisamos saber maneiras de 
+trabalhar com eles e reconfigurá-los depois que eles são criados.<br><br>
+
+Neste tutorial, falamos sobre particionar um arquivo IMG bruto, ou seja, dumps de mídia de armazenamento 
+binário bruto . Primeiro, examinamos o formato de dump de imagem e maneiras de trabalhar com ele. Depois 
+disso, vemos uma maneira de montar uma partição específica do arquivo IMG bruto. Finalmente, passamos por
+ um processo passo a passo de reparticionamento e potencialmente reduzindo o tamanho de um dump de armazenamento 
+ binário.<br><br>
+
+Notavelmente, todos os comandos que lidam com dispositivos exigem privilégios de root ou sudo . Além disso,
+ é aconselhável fazer backups de dados importantes antes de adulterá-los.
+ <br><br>
+Testamos o código neste tutorial no Debian 12 (Bookworm) com GNU Bash 5.2.15. Ele deve funcionar na maioria 
+dos ambientes compatíveis com POSIX, a menos que especificado de outra forma.<br><br>
+
+◉ Formato de arquivo de despejo bruto IMG<br>
+Arquivos IMG ou de imagem geralmente têm a extensão .img e contêm um ou vários sistemas de arquivos em seu 
+formato binário bruto . Em outras palavras, podemos esperar uma cópia bit a bit dos dados de uma determinada
+ partição ou meio de armazenamento inteiro.<br><br>
+
+◉ Gerar arquivo IMG<br>
+Uma das maneiras mais básicas de obter uma cópia de dados brutos de um disco de armazenamento inteiro é o
+ utilitário <kbd>dd</kbd>.<br><br>
+
+Vamos usar dd para despejar uma unidade de armazenamento secundária em um arquivo :<br><br>
+
+<kbd>$ dd if=/dev/sdb of=sdb.img bs=1k conv=sync,noerror<br><br></kbd>
+
+Neste caso, realizamos um dump forense do [ i ]nput [ f ]ile /dev/sdb (nosso dispositivo de disco físico) 
+para o [ o ]nput [ f ]ile sdb.img :<br><br>
+
+• bs=1k : tamanho de bloco granular pequeno de 1K<br>
+• sincronização : cada bloco é preenchido com zeros para garantir o tamanho adequado em caso de dados corrompidos<br>
+• noerror : evita que o dd desista da operação após um erro<br><br>
+
+Neste ponto, temos o disco sdb completo dentro do arquivo IMG sdb.img . Ele contém todas as partições e
+ dados, pois é uma cópia bit a bit da mídia.<br><br>
+
+ ◉ Ver arquivo IMG bruto<br>
+Naturalmente, talvez queiramos abrir e visualizar um arquivo de imagem de disco bruto para inspeção.<br><br>
+
+Como os arquivos IMG são binários, podemos usar ferramentas como xxd ou hexedit :<br><br>
+<kbd>
+$ xxd -seek 666 -len 10 sdb.img<br>
+0000029a: 0000 0000 0000 0000 0000                 ..........<br><br></kbd>
+
+Aqui, usamos xxd para ler uma parte dos dados em nosso disco a partir da cópia do arquivo, deslocando -os para
+ 666 e extraindo uma sequência de [ -len ]gth 10 .<br><br>
+
+Independentemente da nossa escolha de conjunto de ferramentas, devemos garantir que cada utilitário possa lidar
+ com arquivos grandes.<br><br>
+
+Como trabalhar diretamente com dados brutos pode ser desafiador, vamos explorar algumas maneiras mais estruturadas
+ de lidar com arquivos IMG de armazenamento bruto.<br><br>
+
+ ◉ Montar arquivo IMG<br>
+Embora os arquivos IMG possam armazenar discos inteiros, se um determinado arquivo IMG contiver apenas um sistema
+ de arquivos, ou seja, uma partição, poderemos montá-lo diretamente .<br><br>
+
+Para montar arquivos, usamos os chamados dispositivos de loop . Em resumo, um dispositivo de loop mapeia blocos 
+de um arquivo regular para um dispositivo de bloco loop* . Depois de fazer isso, podemos acessar o arquivo loop* 
+de destino como de costume para tais dispositivos.<br><br>
+
+Então, vamos supor que primeiro despejamos <kbd>/dev/sdb1 em sdb1.img </kbd>:<br><br>
+
+<kbd>$ dd if=/dev/sdb1 of=sdb1.img bs=1k conv=sync,noerror<br><br></kbd>
+
+Agora, usamos losetup para montar este novo arquivo de imagem:<br><br>
+
+<kbd>$ losetup /dev/loop666 sdb1.img<br><br></kbd>
+
+Notavelmente, em vez de escolhê-lo, podemos omitir o caminho do dispositivo de loop, e o sistema escolherá ou 
+criará um livre . Nesse caso, devemos ter o dispositivo<kbd> /dev/loop666 </kbd>para trabalhar.<br><br>
+
+Em seguida, como o dispositivo contém apenas um único sistema de arquivos, podemos criar um ponto de montagem 
+e montá-lo diretamente :<br><br>
+<kbd>
+$ mkdir /mnt/sdb1<br>
+$ mount /dev/loop666 /mnt/sdb1<br><br></kbd>
+
+Assim, temos a montagem <kbd>/mnt/sdb1</kbd> do nosso arquivo <kbd>sdb1.img </kbd>.<br>
+
+Para remover o loop666 ou qualquer outro dispositivo de loop, usamos –detach após desmontá-lo:<br><br>
+<kbd>
+$ umount /mnt/sdb1<br>
+$ losetup --detach /dev/loop666<br><br></kbd>
+
+Neste ponto, sabemos como montar um arquivo de imagem de partição única. Vamos ver o que podemos fazer com um
+ dump de disco inteiro.<br><br>
+
+ ◉ Monte a partição do disco dentro do arquivo de despejo<br>
+Como usar dd para clonar mídias de armazenamento inteiras para arquivos é comum, podemos querer montar uma única
+ partição de uma imagem de dump de disco inteira . Vamos entender como podemos fazer isso.<br><br>
+
+Primeiro, usamos fdisk para verificar a tabela de partição [ -l ]ist :<br><br>
+<kbd>
+$ fdisk --list sdb.img<br>
+Disk sdb.img: 5 GiB, 5368709120 bytes, 10485760 sectors<br>
+Units: sectors of 1 * 512 = 512 bytes<br>
+Sector size (logical/physical): 512 bytes / 512 bytes<br>
+I/O size (minimum/optimal): 512 bytes / 512 bytes<br>
+Disklabel type: dos<br>
+Disk identifier: 0x6660010f<br>
+
+Device     Boot   Start     End Sectors  Size Id Type<br>
+sdb.img1           2048 3907583 3905536  1.9G 83 Linux<br>
+sdb.img2        3907584 6004735 2097152    1G 83 Linux<br>
+sdb.img3        6004736 7004159  999424  488M 83 Linux<br><br></kbd>
+
+Como o fdisk trabalha com dados, não é um problema aplicá-lo diretamente a arquivos raw. Digamos que queremos 
+montar a partição 2, ou seja, sdb.img2 . Para fazer isso, anotamos seu setor Start , 3907584 . Depois disso, 
+calculamos a posição inicial da partição multiplicando a contagem do setor Start pelo tamanho do setor, 512 
+bytes :<br><br>
+
+<kbd>$ START_PARTITION=$(( 3907584*512 ))<br><br></kbd>
+
+Agora, usando esta posição como um –offset , emitimos um comando losetup :<br><br>
+
+<kbd>$ losetup --offset $START_PARTITION /dev/loop667 sdb.img<br><br></kbd>
+
+Por fim, podemos montar o novo dispositivo de loop <kbd>/dev/loop667 </kbd>:<br><br>
+<kbd>
+$ mkdir /dev/sdb2<br>
+$ mount /dev/loop667 /mnt/sdb2<br><br></kbd>
+
+Naturalmente, podemos pular a montagem e trabalhar no sistema de arquivos ou sistemas de arquivos de outras
+ maneiras.<br><br>
+
+ ◉ Particionar sistemas de arquivos dentro do arquivo de despejo<br>
+Já vimos como usar fdisk para extrair informações de partição de um dado arquivo de imagem de dump de 
+disco. Agora, vamos entender como podemos modificar a tabela de partição no lugar dentro do arquivo .<br><br>
+
+Embora possamos montar sdb.img como um dispositivo de loop, como esperado, também podemos emitir um comando
+ fdisk para todo o nosso dump :<br><br>
+ <kbd>
+$ fdisk sdb.img<br>
+[...]<br>
+Command (m for help):<br><br></kbd>
+
+Depois disso, no prompt de comando interativo do fdisk , emitimos um comando [ p ]partition list:<br><br>
+<kbd>
+Command (m for help): p<br>
+[...]<br>
+Device     Boot   Start     End Sectors  Size Id Type<br>
+sdb.img1           2048 3907583 3905536  1.9G 83 Linux<br>
+sdb.img2        3907584 6004735 2097152    1G 83 Linux<br>
+sdb.img3        6004736 7004159  999424  488M 83 Linux<br><br></kbd>
+
+Naturalmente, vemos a lista de partições que já conhecemos de antes. Agora, vamos [ d ]deletar a partição 3
+ e verificar o resultado:<br><br>
+ <kbd>
+Command (m for help): d<br><br>
+
+Partition number (1-3, default 3): 3<br><br>
+
+Partition 3 has been deleted.<br><br>
+
+Command (m for help): p<br>
+[...]<br>
+Device     Boot   Start     End Sectors  Size Id Type<br>
+sdb.img1           2048 3907583 3905536  1.9G 83 Linux<br>
+sdb.img2        3907584 6004735 2097152    1G 83 Linux<br><br></kbd>
+
+Neste ponto, a tabela de partição é alterada. Naturalmente, podemos executar qualquer operação que pudermos
+ em um meio físico .<br><br>
+
+Se quisermos tornar as alterações permanentes, podemos [ escrevê -las ] de volta na fonte original, nosso 
+arquivo sdb.img :<br><br>
+<kbd>
+Command (m for help): w<br>
+The partition table has been altered.<br>
+Syncing disks.<br><br></kbd>
+
+Caso utilizemos dispositivos de loop para este procedimento, emitir um partprobe profilático antes do losetup
+ –detach também é uma boa ideia para garantir que o kernel registrou a nova tabela de partição.<br><br>
+
+Agora, podemos verificar novos dados do fdisk :<br><br>
+<kbd>
+$ fdisk --list sdb.img<br>
+Disk sdb.img: 5 GiB, 5368709120 bytes, 10485760 sectors<br>
+Units: sectors of 1 * 512 = 512 bytes<br>
+Sector size (logical/physical): 512 bytes / 512 bytes<br>
+I/O size (minimum/optimal): 512 bytes / 512 bytes<br>
+Disklabel type: dos<br>
+Disk identifier: 0x6660010f<br><br>
+
+Device     Boot   Start     End Sectors  Size Id Type<br>
+sdb.img1           2048 3907583 3905536  1.9G 83 Linux<br>
+sdb.img2        3907584 6004735 2097152    1G 83 Linux<br><br>
+</kbd>
+De forma crítica, podemos ver que o tamanho total do arquivo ainda é de 5 GiB ou 5368709120 bytes, apesar do
+ total de partições restantes estar em torno de 2,9 G após a exclusão .<br><br>
+
+Como removemos os dados do final, podemos tentar redimensionar o arquivo calculando o espaço que ele 
+precisa. Para fazer isso, usamos o setor final 6004735 da última partição sdb.img2 como um guia para nosso 
+cálculo:<br><br>
+<kbd>
+$ RESIZE=$(( (6004735+1)*512 ))<br><br></kbd>
+
+Armados com este novo –size , podemos truncar o arquivo:<br><br>
+
+<kbd>$ truncate --size $RESIZE sdb.img<br><br></kbd>
+
+Por fim, geralmente é uma boa ideia verificar o UUID das partições e verificar se elas não mudaram. Se
+ mudaram, talvez precisemos mudar o<kbd> /etc/fstab</kbd> relevante e outras entradas que usam UUID.<br><br>
+
+
+Exploramos arquivos de despejo de imagens brutas e como trabalhar com eles, criando, visualizando,
+ montando e redimensionando conforme desejado.<br><br>
+
+Concluindo, os arquivos IMG são uma maneira bastante conveniente de transferir e modificar mídias de 
+armazenamento sem a presença física do dispositivo.<br><br>
